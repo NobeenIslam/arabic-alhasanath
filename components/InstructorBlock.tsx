@@ -1,6 +1,6 @@
 "use client";
 
-type timelineComponent = {
+export type TimelineComponent = {
   year: string;
   subheading: string;
   details: string;
