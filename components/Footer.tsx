@@ -5,7 +5,7 @@ export interface FooterProps {
 }
 
 const Footer = ({ text }: FooterProps) => {
-  return;
+  return <div className="gutter"></div>;
 };
 
 export { Footer };

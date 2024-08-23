@@ -6,7 +6,7 @@ export interface CourseStructureBlockProps {
 
 const CourseStructureBlock = ({ title }: CourseStructureBlockProps) => {
   //Will contain wistia video player
-  return <div>Hello</div>;
+  return <div className="gutter"></div>;
 };
 
 export { CourseStructureBlock };

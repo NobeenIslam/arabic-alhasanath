@@ -11,7 +11,7 @@ const SignUpBlock = ({
   buttonText,
   successMessage,
 }: SignUpBlockProps) => {
-  return;
+  return <div className="gutter"></div>;
 };
 
 export { SignUpBlock };

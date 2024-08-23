@@ -14,7 +14,7 @@ export interface TestimonialBlockProps {
 }
 
 const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
-  return;
+  return <div className="gutter"></div>;
 };
 
 export { TestimonialBlock };

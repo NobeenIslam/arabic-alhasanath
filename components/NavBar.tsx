@@ -5,7 +5,7 @@ export interface NavBarProps {
 }
 
 const NavBar = ({ navItems }: NavBarProps) => {
-  return;
+  return <div className="gutter-x"></div>;
 };
 
 export { NavBar };

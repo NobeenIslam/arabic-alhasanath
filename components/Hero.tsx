@@ -8,11 +8,7 @@ export interface HeroProps {
 }
 
 const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
-  return (
-    <div>
-      <LuCheck />
-    </div>
-  );
+  return <div className="gutter"></div>;
 };
 
 export { Hero };

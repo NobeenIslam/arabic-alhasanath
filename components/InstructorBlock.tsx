@@ -19,7 +19,7 @@ const InstructorBlock = ({
   timeline,
   image,
 }: InstructorBlockProps) => {
-  return;
+  return <div className="gutter"></div>;
 };
 
 export { InstructorBlock };
