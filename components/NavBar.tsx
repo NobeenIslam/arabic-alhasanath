@@ -1,6 +1,7 @@
 "use client";
 
 import { LuMenu, LuX } from "react-icons/lu";
+import OpenBook from "@/public/open-book.svg";
 
 export interface NavBarProps {
   navItems: string[];
