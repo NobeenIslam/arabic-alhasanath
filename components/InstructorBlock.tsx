@@ -13,6 +13,8 @@ export interface InstructorBlockProps {
   image: string;
 }
 
+//Uses the man image
+
 const InstructorBlock = ({
   title,
   imageCaption,

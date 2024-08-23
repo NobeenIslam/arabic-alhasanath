@@ -13,6 +13,7 @@ export interface TestimonialBlockProps {
   testimonials: testimonial[];
 }
 
+//For now uses the man image for the little image circles, I'll replace it with proper assets when I have the structure I need.
 const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
   return <div className="gutter"></div>;
 };
