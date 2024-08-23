@@ -1,5 +1,7 @@
 "use client";
 
+import { LuMenu, LuX } from "react-icons/lu";
+
 export interface NavBarProps {
   navItems: string[];
 }
