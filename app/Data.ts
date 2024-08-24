@@ -44,6 +44,7 @@ export const instructorBlockData: InstructorBlockProps = {
 
 export const courseStructureBlockData: CourseStructureBlockProps = {
   title: "Course Structure",
+  wistiaVideoId: "g62hgm02ym",
 };
 
 const dummyTestimonialEntry: Testimonial = {
