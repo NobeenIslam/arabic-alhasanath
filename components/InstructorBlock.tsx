@@ -9,7 +9,7 @@ export type TimelineComponent = {
 export interface InstructorBlockProps {
   title: string;
   imageCaption: string;
-  timeline: timelineComponent[];
+  timeline: TimelineComponent[];
   image: string;
 }
 
