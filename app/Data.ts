@@ -33,7 +33,12 @@ const dummyTimelineEntry: TimelineComponent = {
 export const instructorBlockData: InstructorBlockProps = {
   title: "Instructor",
   imageCaption: "Ustaadh Abu Hasanath",
-  timeline: [dummyTimelineEntry, dummyTimelineEntry, dummyTimelineEntry],
+  timeline: [
+    dummyTimelineEntry,
+    dummyTimelineEntry,
+    dummyTimelineEntry,
+    dummyTimelineEntry,
+  ],
   image: "/man.jpg",
 };
 

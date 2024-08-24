@@ -43,11 +43,7 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
         </div>
         <div className="">
           <div className=" xl:w-[700px] lg:w-[600px] md:w-[500px] w-[300px]">
-            <Image
-              src={BaynaYadyk}
-              alt="Arabic Course Books"
-              layout="responsive"
-            />
+            <Image src={BaynaYadyk} alt="Arabic Course Books" />
           </div>
         </div>
       </div>
