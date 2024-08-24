@@ -1,6 +1,10 @@
 "use client";
 import { LuCheck } from "react-icons/lu";
 import Image from "next/image";
+import { useMediaQuery } from "@mui/material";
+import { breakpoints } from "@/utilities/breakpoints";
+import TablePic from "@/public/table.png";
+import BaynaYadyk from "@/public/bayna-yadayk.webp";
 
 export interface HeroProps {
   title: string;
@@ -9,13 +13,15 @@ export interface HeroProps {
 }
 
 const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
+  const isLarge = useMediaQuery(`(max-width:${breakpoints.lg})`);
+
   return (
     <div
       className="relative min-h-screen flex items-center bg-cover bg-center"
       style={{ backgroundImage: "url('/sky.jpg')" }}
     >
       <div className="absolute inset-0 bg-blue-200 bg-opacity-50" />
-      <div className="gutter relative z-10 w-full flex flex-col lg:flex-row justify-between items-center">
+      <div className="gutter relative z-10 w-full flex flex-col items-start lg:flex-row justify-between lg:items-center">
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 lg:mb-12">
             {title}
@@ -35,25 +41,12 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
             {buttonText}
           </button>
         </div>
-        <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-          <div className="absolute bottom-[15rem] right-4 sm:right-[3rem] w-[250px] sm:w-[350px] md:w-[400px] lg:w-[500px]">
+        <div className="">
+          <div className=" xl:w-[700px] lg:w-[600px] md:w-[500px] w-[300px]">
             <Image
-              src="/bayna-yadayk.webp"
+              src={BaynaYadyk}
               alt="Arabic Course Books"
               layout="responsive"
-              width={500}
-              height={400}
-              className="object-contain"
-            />
-          </div>
-          <div className="absolute -bottom-[2rem] -right-[3rem] w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px]">
-            <Image
-              src="/table.png"
-              alt="Table"
-              layout="responsive"
-              width={600}
-              height={300}
-              className="object-contain"
             />
           </div>
         </div>
