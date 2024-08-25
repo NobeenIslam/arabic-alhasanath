@@ -60,6 +60,7 @@ export const testimonialBlockData: TestimonialBlockProps = {
     dummyTestimonialEntry,
     dummyTestimonialEntry,
     dummyTestimonialEntry,
+    dummyTestimonialEntry,
   ],
 };
 
