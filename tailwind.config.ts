@@ -24,7 +24,7 @@ const config: Config = {
         sans: [`var(--font-montserrat)`],
       },
       colors: {
-        heroGradient: "var(--hero-gradient)",
+        heroGradient: "rgba(168, 208, 255, 0.63)",
         buttonPink: "var(-button-pink)",
         specialIconRed: "var(--special-icon-red)",
         specialFormBlue: "var(--special-form-blue)",

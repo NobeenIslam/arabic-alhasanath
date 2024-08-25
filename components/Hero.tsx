@@ -20,7 +20,7 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
       className="relative min-h-screen flex items-center bg-cover bg-center"
       style={{ backgroundImage: "url('/sky.jpg')" }}
     >
-      <div className="absolute inset-0 bg-blue-200 bg-opacity-50" />
+      <div className="absolute inset-0 bg-heroGradient" />
       <div className="gutter relative z-10 w-full flex flex-col items-start lg:flex-row justify-between lg:items-center">
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 lg:mb-12">
@@ -37,7 +37,7 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
               </li>
             ))}
           </ul>
-          <button className="bg-buttonBlue text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-semibold hover:bg-opacity-90 transition-colors">
+          <button className="bg-blue-600 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-semibold hover:bg-opacity-90 transition-colors">
             {buttonText}
           </button>
         </div>
