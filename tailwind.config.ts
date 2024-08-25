@@ -24,18 +24,13 @@ const config: Config = {
         sans: [`var(--font-montserrat)`],
       },
       colors: {
-        specialOrange: "var(--special-orange)",
-        specialBlue: "var(--special-blue)",
         heroGradient: "var(--hero-gradient)",
-        buttonBlue: "var(--button-blue)",
         buttonPink: "var(-button-pink)",
         specialIconRed: "var(--special-icon-red)",
         specialFormBlue: "var(--special-form-blue)",
         specialCardGrey: "var(--special-card-grey)",
-        specialBackgroundGreen: "var(--special-background-green)",
-        specialBackgroundRed: "var(--special-background-red)",
+        specialBackgroundGreen: "rgba(209, 234, 57, 0.35)", //I couldn't add the opacity when  I had the variable as just the hexcode.
         specialBackgroundPink: "var(--special-background-pink)",
-
       },
     },
   },

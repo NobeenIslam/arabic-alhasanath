@@ -4,13 +4,10 @@
 
 @layer base {
   :root {
-    --special-orange: #f9a264;
-    --special-blue: #194f82;
     --special-icon-red: #db2424;
     --special-form-blue: #6d7bf6;
     --special-card-grey: #fcfcff;
     --hero-gradient: #a8d0ff;
-    --button-blue: #2e5eaa;
     --button-pink: #ffa7a7;
     --special-background-green: #d1ea39;
     --special-background-pink: #f1c9e6;
