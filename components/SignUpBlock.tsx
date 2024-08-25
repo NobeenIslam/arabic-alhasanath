@@ -3,6 +3,8 @@
 import { useState } from "react";
 import ExclamationCloud from "@/public/exclamation-cloud.jpeg";
 import Image from "next/image";
+import { useMediaQuery } from "@mui/material";
+import { breakpoints } from "@/utilities/breakpoints";
 
 export interface SignUpBlockProps {
   title: string;
@@ -59,6 +61,9 @@ const SignUpBlock = ({
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const isScreenLargeSizeOrSmaller = useMediaQuery(
+    `(max-width:${breakpoints.lg})`
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -82,7 +87,7 @@ const SignUpBlock = ({
   return (
     <div className="gutter bg-specialBackgroundPink">
       <h2 className="text-6xl font-bold mb-8">{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="w-full m-auto bg-specialFormBlue rounded-lg p-8">
           {isSubmitted ? (
             <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
@@ -129,14 +134,16 @@ const SignUpBlock = ({
             </form>
           )}
         </div>
-        <div className="flex justify-center">
-          <Image
-            src={ExclamationCloud}
-            alt="Exclamation Mark"
-            width={500}
-            height={500}
-          />
-        </div>
+        {!isScreenLargeSizeOrSmaller && (
+          <div className="flex justify-center">
+            <Image
+              src={ExclamationCloud}
+              alt="Exclamation Mark"
+              width={500}
+              height={500}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
