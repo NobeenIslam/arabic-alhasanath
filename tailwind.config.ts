@@ -25,12 +25,11 @@ const config: Config = {
       },
       colors: {
         heroGradient: "rgba(168, 208, 255, 0.63)",
-        buttonPink: "var(-button-pink)",
-        specialIconRed: "var(--special-icon-red)",
-        specialFormBlue: "var(--special-form-blue)",
-        specialCardGrey: "var(--special-card-grey)",
+        buttonPink: "#FFA7A7",
+        specialFormBlue: "#6d7bf6",
+        specialCardGrey: "#fcfcff",
         specialBackgroundGreen: "rgba(209, 234, 57, 0.35)", //I couldn't add the opacity when  I had the variable as just the hexcode.
-        specialBackgroundPink: "var(--special-background-pink)",
+        specialBackgroundPink: "rgba(241,201,230,0.44)",
       },
     },
   },
