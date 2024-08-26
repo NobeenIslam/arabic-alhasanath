@@ -49,6 +49,12 @@ const InputField: React.FC<InputFieldProps> = ({
   </div>
 );
 
+const Spinner = () => (
+  <div className="flex justify-center items-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+  </div>
+);
+
 const SignUpBlock = ({
   title,
   buttonText,
@@ -61,6 +67,7 @@ const SignUpBlock = ({
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const isScreenLargeSizeOrSmaller = useMediaQuery(
     `(max-width:${breakpoints.lg})`
   );
@@ -76,11 +83,28 @@ const SignUpBlock = ({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (formData.fullName && formData.phoneNumber && formData.emailAddress) {
-      // Form submission logic will be added later
-      console.log("Form submitted:", formData);
-      // Simulating an API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsSubmitted(true);
+      setIsLoading(true);
+      try {
+        const response = await fetch("/api/submit-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const result = await response.json();
+        console.log("Email sent:", result);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      } finally {
+        setIsSubmitted(true);
+        setIsLoading(false);
+      }
     }
   };
 
@@ -128,7 +152,7 @@ const SignUpBlock = ({
                   type="submit"
                   className=" m-auto bg-buttonPink text-white font-semibold py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors"
                 >
-                  {buttonText}
+                  {isLoading ? <Spinner /> : buttonText}
                 </button>
               </div>
             </form>
