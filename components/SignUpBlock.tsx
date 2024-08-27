@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ExclamationCloud from "@/public/exclamation-cloud.jpeg";
+import MadinahBooks from "@/public/madinah-books.png";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { breakpoints } from "@/utilities/breakpoints";
@@ -68,6 +68,8 @@ const SignUpBlock = ({
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const isScreenLargeSizeOrSmaller = useMediaQuery(
     `(max-width:${breakpoints.lg})`
   );
@@ -94,12 +96,16 @@ const SignUpBlock = ({
         });
 
         if (!response.ok) {
-          throw new Error("Network response was not ok");
+          throw new Error("Failed to submit form");
         }
 
         const result = await response.json();
         console.log("Email sent:", result);
       } catch (error) {
+        setError(
+          "Sorry something went wrong! Could you refresh and try again?"
+        );
+
         console.error("Error submitting form:", error);
       } finally {
         setIsSubmitted(true);
@@ -113,7 +119,12 @@ const SignUpBlock = ({
       <h2 className="text-6xl font-bold mb-8">{title}</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="w-full m-auto bg-specialFormBlue rounded-lg p-8">
-          {isSubmitted ? (
+          {error ? (
+            <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
+              <h2 className="text-5xl font-bold text-white mb-4">Woops!</h2>
+              <p className="text-white text-4xl">{error}</p>
+            </div>
+          ) : isSubmitted ? (
             <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
               <h2 className="text-5xl font-bold text-white mb-4">Thank You!</h2>
               <p className="text-white text-4xl">{successMessage}</p>
@@ -161,7 +172,7 @@ const SignUpBlock = ({
         {!isScreenLargeSizeOrSmaller && (
           <div className="flex justify-center">
             <Image
-              src={ExclamationCloud}
+              src={MadinahBooks}
               alt="Exclamation Mark"
               width={500}
               height={500}
