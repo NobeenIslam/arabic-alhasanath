@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     const { fullName, phoneNumber, emailAddress } = await request.json();
 
     const email = process.env.EMAIL_USERNAME;
-    const password = process.env.PASSWORD;
+    const password = process.env.EMAIL_PASSWORD;
     const host = process.env.EMAIL_HOST;
     // Create a transporter using SMTP
     let transporter = nodemailer.createTransport({
