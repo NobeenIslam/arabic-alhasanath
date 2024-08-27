@@ -5,29 +5,32 @@ export async function POST(request: Request) {
   try {
     const { fullName, phoneNumber, emailAddress } = await request.json();
 
+    const email = process.env.EMAIL_USERNAME;
+    const password = process.env.PASSWORD;
+    const host = process.env.EMAIL_HOST;
     // Create a transporter using SMTP
     let transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
+      host: host,
       port: 587,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: email,
+        pass: password,
       },
     });
 
     // Send mail with defined transport object
     let info = await transporter.sendMail({
-      from: process.env.EMAIL_USER, // sender address
-      to: "bloofoogery@gmail.com", // list of receivers
-      subject: "New Sign Up", // Subject line
-      text: `New sign up from ${fullName}. Phone: ${phoneNumber}, Email: ${emailAddress}`, // plain text body
+      from: email, // sender address
+      to: email, // Email sent back to same email as any other address doesn't have permission set up to receive anything.s
+      subject: "New Sign Up to Arabic Course", 
+      text: `New sign up from ${fullName}. Phone: ${phoneNumber}, Email: ${emailAddress}`, 
       html: `<b>New sign up</b><br>
              Name: ${fullName}<br>
              Phone: ${phoneNumber}<br>
-             Email: ${emailAddress}`, // html body
+             Email: ${emailAddress}`,
     });
 
-    console.log("Message sent: %s", info.messageId);
+    console.log("Message sent: %s", JSON.stringify(info, null, 2));
     return NextResponse.json({ message: "Email sent successfully" });
   } catch (err: any) {
     console.error("Error sending email:", err);
