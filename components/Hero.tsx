@@ -19,6 +19,7 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
     <div
       className="relative min-h-screen flex items-center bg-cover bg-center"
       style={{ backgroundImage: "url('/sky.jpg')" }}
+      id={"hero"}
     >
       <div className="absolute inset-0 bg-heroGradient" />
       <div className="gutter relative z-10 w-full flex flex-col items-start lg:flex-row justify-between lg:items-center">
