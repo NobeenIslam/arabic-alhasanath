@@ -3,8 +3,8 @@ import { LuCheck } from "react-icons/lu";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { breakpoints } from "@/utilities/breakpoints";
-import TablePic from "@/public/table.png";
 import BaynaYadyk from "@/public/bayna-yadayk.webp";
+import { componentIds } from "@/app/Data";
 
 export interface HeroProps {
   title: string;
@@ -19,15 +19,16 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
     <div
       className="relative min-h-screen flex items-center bg-cover bg-center"
       style={{ backgroundImage: "url('/sky.jpg')" }}
-      id={"hero"}
+      id={componentIds.hero}
     >
       <div className="absolute inset-0 bg-heroGradient" />
-      <div className="gutter relative z-10 w-full flex flex-col items-start lg:flex-row justify-between lg:items-center">
+      {/* gutter has higher specificity so need the !. Hero wasn't spaced enought with nav */}
+      <div className="gutter !pt-24 lg:!pt-20 relative z-10 w-full flex flex-col items-start justify-between  lg:flex-row  lg:items-center ">
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 lg:mb-12">
             {title}
           </h1>
-          <ul className="space-y-4 sm:space-y-6 mb-8 lg:mb-12">
+          <ul className="space-y-4 sm:space-y-6 mb-8 ">
             {bulletPoints.map((point, index) => (
               <li
                 key={index}

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import { BsChatLeftQuote } from "react-icons/bs";
+import { componentIds } from "@/app/Data";
 
 // Import slick carousel styles
 import "slick-carousel/slick/slick.css";
@@ -21,7 +22,10 @@ export interface TestimonialBlockProps {
 }
 
 const TestimonialCard = ({ quote, image, name }: Testimonial) => (
-  <div className="bg-specialCardGrey p-6 rounded-lg shadow-md">
+  <div
+    className="bg-specialCardGrey p-6 rounded-lg shadow-md"
+    id={componentIds.testimonialsBlock}
+  >
     <BsChatLeftQuote className="text-red-600 text-3xl mb-4" />
     <p className="text-gray-700 mb-4">{quote}</p>
     <div className="flex items-center">

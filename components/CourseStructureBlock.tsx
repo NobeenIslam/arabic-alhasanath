@@ -1,7 +1,8 @@
 "use client";
 
 import Script from "next/script";
-import React, { SyntheticEvent } from "react";
+import React from "react";
+import { componentIds } from "@/app/Data";
 
 export interface CourseStructureBlockProps {
   title: string;
@@ -13,7 +14,10 @@ const CourseStructureBlock = ({
   wistiaVideoId,
 }: CourseStructureBlockProps) => {
   return (
-    <section className="bg-specialBackgroundGreen gutter">
+    <section
+      className="bg-specialBackgroundGreen gutter"
+      id={componentIds.courseStructureBlock}
+    >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-6xl font-bold text-left mb-12 text-specialBlue">
           {title}

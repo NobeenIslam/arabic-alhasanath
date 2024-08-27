@@ -5,6 +5,7 @@ import MadinahBooks from "@/public/madinah-books.png";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { breakpoints } from "@/utilities/breakpoints";
+import { componentIds } from "@/app/Data";
 
 export interface SignUpBlockProps {
   title: string;
@@ -115,7 +116,10 @@ const SignUpBlock = ({
   };
 
   return (
-    <div className="gutter bg-specialBackgroundPink">
+    <div
+      className="gutter bg-specialBackgroundPink"
+      id={componentIds.signUpBlock}
+    >
       <h2 className="text-6xl font-bold mb-8">{title}</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="w-full m-auto bg-specialFormBlue rounded-lg p-8">

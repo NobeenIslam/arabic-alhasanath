@@ -8,8 +8,25 @@ import type { Testimonial } from "@/components/TestimonialBlock";
 import { SignUpBlockProps } from "@/components/SignUpBlock";
 import { FooterProps } from "@/components/Footer";
 
+export const componentIds = {
+  hero: "hero",
+  instructorBlock: "instructor-block",
+  courseStructureBlock: "course-structure-block",
+  testimonialsBlock: "testimonial-block",
+  signUpBlock: "sign-up-block",
+};
+
 export const navBarData: NavBarProps = {
-  navItems: ["Home", "Instructor", "Course", "Testimonials", "Sign-Up"],
+  navItems: [
+    { title: "Home", anchorReference: componentIds.hero },
+    { title: "Instructor", anchorReference: componentIds.instructorBlock },
+    {
+      title: "Course Structure",
+      anchorReference: componentIds.courseStructureBlock,
+    },
+    { title: "Testimonials", anchorReference: componentIds.testimonialsBlock },
+    { title: "Sign Up", anchorReference: componentIds.signUpBlock },
+  ],
 };
 
 export const heroData: HeroProps = {
