@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { componentIds } from "@/app/Data";
+import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 
 export type TimelineComponent = {
   year: string;
@@ -25,7 +26,11 @@ const InstructorBlock = ({
   image,
 }: InstructorBlockProps) => {
   return (
-    <section className=" gutter" id={componentIds.instructorBlock}>
+    <FadeUpWrapper
+      as="section"
+      className=" gutter"
+      id={componentIds.instructorBlock}
+    >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-6xl font-bold text-left mb-12 text-specialBlue">
           {title}
@@ -70,7 +75,7 @@ const InstructorBlock = ({
           </div>
         </div>
       </div>
-    </section>
+    </FadeUpWrapper>
   );
 };
 

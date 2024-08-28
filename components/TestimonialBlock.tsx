@@ -9,6 +9,7 @@ import { componentIds } from "@/app/Data";
 // Import slick carousel styles
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 
 type Testimonial = {
   quote: string;
@@ -64,7 +65,7 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
   };
 
   return (
-    <div className="gutter py-16">
+    <FadeUpWrapper as="section" className="gutter py-16">
       <h2 className="text-6xl font-bold text-left mb-12">{title}</h2>
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
@@ -73,7 +74,7 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
           </div>
         ))}
       </Slider>
-    </div>
+    </FadeUpWrapper>
   );
 };
 

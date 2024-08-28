@@ -3,6 +3,7 @@
 import Script from "next/script";
 import React from "react";
 import { componentIds } from "@/app/Data";
+import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 
 export interface CourseStructureBlockProps {
   title: string;
@@ -18,7 +19,7 @@ const CourseStructureBlock = ({
       className="bg-specialBackgroundGreen gutter"
       id={componentIds.courseStructureBlock}
     >
-      <div className="max-w-7xl mx-auto">
+      <FadeUpWrapper className="max-w-7xl mx-auto">
         <h2 className="text-6xl font-bold text-left mb-12 text-specialBlue">
           {title}
         </h2>
@@ -49,7 +50,7 @@ const CourseStructureBlock = ({
             </span>
           </div>
         </div>
-      </div>
+      </FadeUpWrapper>
       <Script
         src={`https://fast.wistia.com/embed/medias/${wistiaVideoId}.jsonp`}
         async

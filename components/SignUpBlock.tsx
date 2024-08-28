@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { breakpoints } from "@/utilities/breakpoints";
 import { componentIds } from "@/app/Data";
+import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 
 export interface SignUpBlockProps {
   title: string;
@@ -116,75 +117,79 @@ const SignUpBlock = ({
   };
 
   return (
-    <div
+    <section
       className="gutter bg-specialBackgroundPink"
       id={componentIds.signUpBlock}
     >
-      <h2 className="text-6xl font-bold mb-8">{title}</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <div className="w-full m-auto bg-specialFormBlue rounded-lg p-8">
-          {error ? (
-            <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
-              <h2 className="text-5xl font-bold text-white mb-4">Woops!</h2>
-              <p className="text-white text-4xl">{error}</p>
-            </div>
-          ) : isSubmitted ? (
-            <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
-              <h2 className="text-5xl font-bold text-white mb-4">Thank You!</h2>
-              <p className="text-white text-4xl">{successMessage}</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <InputField
-                label="Full Name"
-                type="text"
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
-              />
-              <InputField
-                label="Phone Number"
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                required
-              />
-              <InputField
-                label="Email Address"
-                type="email"
-                id="emailAddress"
-                name="emailAddress"
-                value={formData.emailAddress}
-                onChange={handleChange}
-                required
-              />
-              <div className="flex ">
-                <button
-                  type="submit"
-                  className=" m-auto bg-buttonPink text-white font-semibold py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors"
-                >
-                  {isLoading ? <Spinner /> : buttonText}
-                </button>
+      <FadeUpWrapper>
+        <h2 className="text-6xl font-bold mb-8">{title}</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="w-full m-auto bg-specialFormBlue rounded-lg p-8">
+            {error ? (
+              <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
+                <h2 className="text-5xl font-bold text-white mb-4">Woops!</h2>
+                <p className="text-white text-4xl">{error}</p>
               </div>
-            </form>
+            ) : isSubmitted ? (
+              <div className="max-w-md mx-auto bg-specialFormBlue rounded-lg p-8 text-center">
+                <h2 className="text-5xl font-bold text-white mb-4">
+                  Thank You!
+                </h2>
+                <p className="text-white text-4xl">{successMessage}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <InputField
+                  label="Full Name"
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                />
+                <InputField
+                  label="Phone Number"
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  required
+                />
+                <InputField
+                  label="Email Address"
+                  type="email"
+                  id="emailAddress"
+                  name="emailAddress"
+                  value={formData.emailAddress}
+                  onChange={handleChange}
+                  required
+                />
+                <div className="flex ">
+                  <button
+                    type="submit"
+                    className=" m-auto bg-buttonPink text-white font-semibold py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors"
+                  >
+                    {isLoading ? <Spinner /> : buttonText}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+          {!isScreenLargeSizeOrSmaller && (
+            <div className="flex justify-center">
+              <Image
+                src={MadinahBooks}
+                alt="Exclamation Mark"
+                width={500}
+                height={500}
+              />
+            </div>
           )}
         </div>
-        {!isScreenLargeSizeOrSmaller && (
-          <div className="flex justify-center">
-            <Image
-              src={MadinahBooks}
-              alt="Exclamation Mark"
-              width={500}
-              height={500}
-            />
-          </div>
-        )}
-      </div>
-    </div>
+      </FadeUpWrapper>
+    </section>
   );
 };
 
