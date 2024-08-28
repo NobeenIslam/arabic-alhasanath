@@ -8,55 +8,17 @@ import { breakpoints } from "@/utilities/breakpoints";
 import { useEffect, useState } from "react";
 
 export type NavItem = {
-  title: String;
-  anchorReference: String;
+  title: string;
+  anchorReference: string;
+  subtitle?: string;
 };
 export interface NavBarProps {
   navItems: NavItem[];
 }
 
-interface MobileNavMenuProps {
-  navItems: NavItem[];
-  toggleMobileNav: () => void;
-  isOpen: boolean;
-}
-
-const MobileNavMenu = ({
-  navItems,
-  toggleMobileNav,
-  isOpen,
-}: MobileNavMenuProps) => {
-  return (
-    <div
-      className={`fixed left-0 right-0 top-navbar z-40 bg-gray-100 shadow-lg overflow-hidden border-t border-gray-200
-        ${isOpen ? "animate-shutter-down" : "h-0"}
-      `}
-    >
-      <div className="flex flex-col items-center">
-        {navItems.map((navItem, index) => (
-          <div
-            key={index}
-            className="py-2 border-b border-gray-200 last:border-b-0"
-          >
-            <Link
-              className={
-                "text-black text-lg font-semibold hover:text-gray-600 transition-colors w-full text-center"
-              }
-              href={`#${navItem.anchorReference}`}
-              onClick={() => toggleMobileNav()}
-            >
-              {navItem.title}
-            </Link>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 const NavBar = ({ navItems }: NavBarProps) => {
   const isMediumSize = useMediaQuery(`(max-width:${breakpoints.md})`);
-  const [isMediumSizeNavOpen, setisMediumSizeNavOpen] = useState(false);
+  const [isNavMenuOpen, setisNavMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -75,41 +37,27 @@ const NavBar = ({ navItems }: NavBarProps) => {
     };
   }, []);
 
-  const toggleMobileNav = () => {
-    setisMediumSizeNavOpen(!isMediumSizeNavOpen);
+  const toggleNavMenu = () => {
+    setisNavMenuOpen(!isNavMenuOpen);
   };
 
-  const navLinks = navItems?.map((navItem, index) => {
-    return (
-      <Link
-        key={index}
-        href={`#${navItem.anchorReference}`}
-        className={`text-lg font-semibold ${
-          isScrolled ? "text-black" : "text-white"
-        }`}
-      >
-        {navItem.title}
-      </Link>
-    );
-  });
-
   const iconColour =
-    isScrolled || (isMediumSize && isMediumSizeNavOpen) ? "black" : "white";
+    isScrolled || (isMediumSize && isNavMenuOpen) ? "black" : "white";
 
   const navBarColour =
-    isScrolled || (isMediumSize && isMediumSizeNavOpen)
-      ? "bg-gray-100 "
+    isScrolled || (isMediumSize && isNavMenuOpen)
+      ? "bg-gray-100 opacity-90 backdrop-blur-md shadow-md"
       : "bg-transparent";
 
-  const HamburgerButton = () => (
+  const NavMenuButton = () => (
     <button
       className={`p-2 rounded-full transition-colors duration-200 ${
         iconColour === "white" ? "hover:bg-white/20" : "hover:bg-gray-200"
       }`}
-      onClick={toggleMobileNav}
-      aria-label={isMediumSizeNavOpen ? "Close menu" : "Open menu"}
+      onClick={toggleNavMenu}
+      aria-label={isNavMenuOpen ? "Close menu" : "Open menu"}
     >
-      {isMediumSizeNavOpen ? (
+      {isNavMenuOpen ? (
         <LuX className="h-6 w-6" color={iconColour} />
       ) : (
         <LuMenu className="h-6 w-6" color={iconColour} />
@@ -117,32 +65,70 @@ const NavBar = ({ navItems }: NavBarProps) => {
     </button>
   );
 
+  const navContent = navItems.map((navItem, index) => (
+    <div key={index} className={`${isMediumSize ? "py-2 first:pt-4" : ""}`}>
+      <Link
+        href={`#${navItem.anchorReference}`}
+        className={`text-lg font-semibold transition-colors duration-300 text-${iconColour}`}
+        onClick={() => isMediumSize && toggleNavMenu()}
+      >
+        {navItem.title}
+      </Link>
+      {isMediumSize && navItem.subtitle && (
+        <p className="text-sm text-gray-600 mt-1">{navItem.subtitle}</p>
+      )}
+    </div>
+  ));
+
   return (
     <nav>
       <div
-        className={`gutter-x py-4 fixed top-0 left-0 right-0 z-30 flex items-center ${navBarColour} h-navbar`}
+        className={`
+          gutter-x fixed top-4 left-4 right-4 z-30 rounded-3xl py-2
+          ${navBarColour}
+          transition-all duration-300
+   
+        `}
       >
-        <div className="flex-shrink-0">
-          <Link href="#hero" aria-label="Go to the top">
-            {/* text-current and widths and heights make it visible */}
-            <OpenBook className="w-[50px] h-[50px] text-current" />
-          </Link>
-        </div>
-        {isMediumSize ? (
-          <div className="ml-auto mr-2 flex items-center space-x-2">
-            <HamburgerButton />
+        <div
+          className={`
+          grid grid-cols-[auto_1fr_auto] items-center
+          ${
+            isMediumSize && isNavMenuOpen
+              ? "grid-rows-[auto_auto]"
+              : "grid-rows-1"
+          }
+          transition-all duration-300
+        `}
+        >
+          <div className="flex-shrink-0">
+            <Link href="#hero" aria-label="Go to the top">
+              <OpenBook className={`w-[50px] h-[50px] ${iconColour}`} />
+            </Link>
           </div>
-        ) : (
-          <div className="flex space-x-9 ml-auto items-center">{navLinks}</div>
-        )}
+
+          {isMediumSize ? (
+            <div className="justify-self-end">
+              <NavMenuButton />
+            </div>
+          ) : (
+            <div className="flex justify-self-end space-x-8 ">{navContent}</div>
+          )}
+
+          {isMediumSize && (
+            <div
+              className={`
+              col-span-3 overflow-hidden transition-all duration-300
+              ${
+                isNavMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+              }
+            `}
+            >
+              {navContent}
+            </div>
+          )}
+        </div>
       </div>
-      {isMediumSize && isMediumSizeNavOpen && (
-        <MobileNavMenu
-          navItems={navItems}
-          toggleMobileNav={toggleMobileNav}
-          isOpen={isMediumSizeNavOpen}
-        />
-      )}
     </nav>
   );
 };

@@ -18,14 +18,31 @@ export const componentIds = {
 
 export const navBarData: NavBarProps = {
   navItems: [
-    { title: "Home", anchorReference: componentIds.hero },
-    { title: "Instructor", anchorReference: componentIds.instructorBlock },
+    {
+      title: "Home",
+      anchorReference: componentIds.hero,
+      subtitle: "Back to the top",
+    },
+    {
+      title: "Instructor",
+      anchorReference: componentIds.instructorBlock,
+      subtitle: "Meet our instructor Ustaadh Abu Hasanath",
+    },
     {
       title: "Course Structure",
       anchorReference: componentIds.courseStructureBlock,
+      subtitle: "Learn about our course structure",
     },
-    { title: "Testimonials", anchorReference: componentIds.testimonialsBlock },
-    { title: "Sign Up", anchorReference: componentIds.signUpBlock },
+    {
+      title: "Testimonials",
+      anchorReference: componentIds.testimonialsBlock,
+      subtitle: "See what our students say",
+    },
+    {
+      title: "Sign Up",
+      anchorReference: componentIds.signUpBlock,
+      subtitle: "Take the first step of your journey now!",
+    },
   ],
 };
 

@@ -15,12 +15,6 @@ const config: Config = {
     },
 
     extend: {
-      height: {
-        navbar: "80px",
-      },
-      inset: {
-        navbar: "80px", // This adds a top-navbar class
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -36,15 +30,6 @@ const config: Config = {
         specialCardGrey: "#fcfcff",
         specialBackgroundGreen: "rgba(209, 234, 57, 0.35)", //I couldn't add the opacity when  I had the variable as just the hexcode.
         specialBackgroundPink: "rgba(241,201,230,0.44)",
-      },
-      keyframes: {
-        "shutter-down": {
-          "0%": { transform: "scaleY(0)", transformOrigin: "top" },
-          "100%": { transform: "scaleY(1)", transformOrigin: "top" },
-        },
-      },
-      animation: {
-        "shutter-down": "shutter-down 0.3s ease-in-out forwards",
       },
     },
   },
