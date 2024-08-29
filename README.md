@@ -50,9 +50,11 @@ To get started with this project, follow these steps:
 
 Set up environment variables in env.local
 
+```
 EMAIL_USERNAME=[your-email]
 EMAIL_PASSWORD=[your-email-password]
 EMAIL_HOST=[your-email-host]
+```
 
 ## Project Structure
 
