@@ -57,21 +57,42 @@ export const heroData: HeroProps = {
   buttonText: "Sign Me Up!",
 };
 
-const dummyTimelineEntry: TimelineComponent = {
+const firstTimelineEntry: TimelineComponent = {
   year: "2013",
   subheading: "As-Suffa Institute",
   details:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "Completed 6 year full-time Alimiyyah course covering all the Islamic sciences and building my Arabic",
+};
+
+const secondTimelineEntry: TimelineComponent = {
+  year: "2019",
+  subheading: "Markfield Universtiy for Islamic Studies",
+  details:
+    "Completed a BA in Islam and Arabic at Markfield, honing my academic research and arabic skills",
+};
+
+const thirdTimelineEntry: TimelineComponent = {
+  year: "2022",
+  subheading: "Primary School",
+  details:
+    "Began teaching at Arabic at a private school to children, developing my communication",
+};
+
+const fourthTimelineEntry: TimelineComponent = {
+  year: "2023",
+  subheading: "As-Suffa Institute",
+  details:
+    "Resdident teacher at As-Suffa Institute where I teach Arabi Bayna Yadayk to years 1 and 2 and Usool Hadith to year 4",
 };
 
 export const instructorBlockData: InstructorBlockProps = {
   title: "Instructor",
   imageCaption: "Ustaadh Abu Hasanath",
   timeline: [
-    dummyTimelineEntry,
-    dummyTimelineEntry,
-    dummyTimelineEntry,
-    dummyTimelineEntry,
+    fourthTimelineEntry,
+    thirdTimelineEntry,
+    secondTimelineEntry,
+    firstTimelineEntry,
   ],
 };
 
