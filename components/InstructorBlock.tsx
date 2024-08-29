@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Hasanath from "@/public/hasnath.png";
 import { componentIds } from "@/app/Data";
 import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 
@@ -14,7 +15,6 @@ export interface InstructorBlockProps {
   title: string;
   imageCaption: string;
   timeline: TimelineComponent[];
-  image: string;
 }
 
 //Uses the man image
@@ -23,7 +23,6 @@ const InstructorBlock = ({
   title,
   imageCaption,
   timeline,
-  image,
 }: InstructorBlockProps) => {
   return (
     <FadeUpWrapper
@@ -37,12 +36,11 @@ const InstructorBlock = ({
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           <div className="flex flex-col items-center">
-            <div className=" mb-4">
+            <div className="mb-4 relative max-h-[500px] max-w-[500px]">
               <Image
-                src={image}
+                src={Hasanath}
                 alt={imageCaption}
-                width={500}
-                height={500}
+                objectFit="contain"
                 className="rounded-[10%]"
               />
             </div>
