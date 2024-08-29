@@ -122,7 +122,9 @@ const SignUpBlock = ({
       id={componentIds.signUpBlock}
     >
       <FadeUpWrapper>
-        <h2 className="text-6xl font-bold mb-8">{title}</h2>
+        <h2 className= "text-4xl sm:text-5xl md:text-6xl lg:text-7xl  font-bold mb-8">
+          {title}
+        </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="w-full m-auto bg-specialFormBlue rounded-lg p-8">
             {error ? (

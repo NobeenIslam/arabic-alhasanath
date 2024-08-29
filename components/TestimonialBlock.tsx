@@ -72,7 +72,9 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
 
   return (
     <FadeUpWrapper as="section" className="gutter py-16">
-      <h2 className="text-6xl font-bold text-left mb-12">{title}</h2>
+      <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12">
+        {title}
+      </h2>
       <div className="testimonial-slider">
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
