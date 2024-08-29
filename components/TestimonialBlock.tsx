@@ -22,15 +22,21 @@ export interface TestimonialBlockProps {
   testimonials: Testimonial[];
 }
 
+//All the h-fulls and the modification of the react-slick classes in the global.css were all to make the cards equal height
+
 const TestimonialCard = ({ quote, image, name }: Testimonial) => (
   <div
-    className="bg-specialCardGrey p-6 rounded-lg shadow-md"
+    className="bg-specialCardGrey p-6 rounded-lg shadow-md flex flex-col  h-full"
     id={componentIds.testimonialsBlock}
   >
-    <BsChatLeftQuote className="text-red-600 text-3xl mb-4" />
-    <p className="text-gray-700 mb-4">{quote}</p>
+    {/* flex-grow pushes the name and image to the bottom */}
+    <div className="flex-grow">
+      <BsChatLeftQuote className="text-red-600 text-3xl mb-4" />
+      <p className="text-gray-700 mb-4">{quote}</p>
+    </div>
+
     <div className="flex items-center">
-      <div className=" w-12 h-12 rounded-full mr-4 overflow-hidden">
+      <div className=" w-12 h-12 rounded-full mr-4 overflow-hidden ">
         <Image src={image} alt={name} width={50} height={50} />
       </div>
 
@@ -67,13 +73,15 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
   return (
     <FadeUpWrapper as="section" className="gutter py-16">
       <h2 className="text-6xl font-bold text-left mb-12">{title}</h2>
-      <Slider {...settings}>
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="px-2">
-            <TestimonialCard {...testimonial} />
-          </div>
-        ))}
-      </Slider>
+      <div className="testimonial-slider">
+        <Slider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="h-full px-2">
+              <TestimonialCard {...testimonial} />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </FadeUpWrapper>
   );
 };

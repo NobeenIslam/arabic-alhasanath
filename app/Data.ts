@@ -73,7 +73,6 @@ export const instructorBlockData: InstructorBlockProps = {
     dummyTimelineEntry,
     dummyTimelineEntry,
   ],
-  image: "/man.jpg",
 };
 
 export const courseStructureBlockData: CourseStructureBlockProps = {
@@ -81,21 +80,30 @@ export const courseStructureBlockData: CourseStructureBlockProps = {
   wistiaVideoId: "g62hgm02ym",
 };
 
-const dummyTestimonialEntry: Testimonial = {
+const asifsTestimony: Testimonial = {
   quote:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
+    "Ustaaz Abu Hasanath's lessons are very interactive and enjoyable. I've been pleasantly surprised at the improvement in the group. Long may it continue.",
+  image: "/silhouette.jpeg", // Replace with actual path
+  name: "Asif Khan",
+};
+
+const harunsTestimony: Testimonial = {
+  quote:
+    "The arabic course is well structured, balancing vocabulary, reading, written and conversational skills. My arabic has improved massively as well as helped me with my islamic studies. This course has opened up new opportunities for personal and professional growth, and I highly recommend it to anyone interested in learning Arabic.",
+  image: "/silhouette.jpeg", // Replace with actual path
+  name: "Harun Ali",
+};
+
+const nobeensTestimony: Testimonial = {
+  quote:
+    "I've taken online Arabic lessons before but never made real progress until now. Ustaadh's focus on conversation and varied vocabulary use, along with his experience with the Bayna Yadayk series, has rapidly improved my skills. I'm amazed at my progress in such a short time.",
   image: "/silhouette.jpeg", // Replace with actual path
   name: "Nobeen Islam",
 };
 
 export const testimonialBlockData: TestimonialBlockProps = {
   title: "Testimonials",
-  testimonials: [
-    dummyTestimonialEntry,
-    dummyTestimonialEntry,
-    dummyTestimonialEntry,
-    dummyTestimonialEntry,
-  ],
+  testimonials: [asifsTestimony, harunsTestimony, nobeensTestimony],
 };
 
 export const signUpBlockData: SignUpBlockProps = {
