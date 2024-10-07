@@ -76,7 +76,7 @@ const SignUpBlock = ({ title }: SignUpBlockProps) => {
             <div className="flex justify-center">
               <Image
                 src={MadinahBooks}
-                alt="Exclamation Mark"
+                alt="Picture of Madinah Books"
                 width={500}
                 height={500}
               />
