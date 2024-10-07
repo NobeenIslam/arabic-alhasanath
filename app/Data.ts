@@ -129,9 +129,6 @@ export const testimonialBlockData: TestimonialBlockProps = {
 
 export const signUpBlockData: SignUpBlockProps = {
   title: "Sign-Up",
-  buttonText: "Sign Me Up!",
-  successMessage:
-    "Bismillah! We will get back to you as soon as! You've taken the first step!",
 };
 
 export const footerData: FooterProps = {

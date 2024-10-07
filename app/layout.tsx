@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { navBarData, footerData } from "./Data";
 import { SchemaMarkup } from "@/components/SEO/SchemaMarkup";
+import { Toaster } from "@/components/ui/toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
         <SchemaMarkup />
         <NavBar {...navBarData} />
         <main id="main-content">{children}</main>
+        <Toaster />
         <Footer {...footerData} />
       </body>
     </html>
