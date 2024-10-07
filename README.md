@@ -1,6 +1,6 @@
-# Al-Arabi Institute Landing Page
+# AbusArabic Landing Page
 
-This is a modern, responsive landing page for Al-Arabi Institute built with Next.js, TypeScript, and Tailwind CSS.
+This is a modern, responsive landing page for AbusArabic built with Next.js, TypeScript, and Tailwind CSS.
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Table of Contents
