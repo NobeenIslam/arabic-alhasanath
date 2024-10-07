@@ -11,47 +11,6 @@ export interface SignUpBlockProps {
   title: string;
 }
 
-interface InputFieldProps {
-  label: string;
-  type: string;
-  id: string;
-  name: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-}
-
-const InputField: React.FC<InputFieldProps> = ({
-  label,
-  type,
-  id,
-  name,
-  value,
-  onChange,
-  required = false,
-}) => (
-  <div className="mb-8">
-    <label htmlFor={id} className="block text-white mb-2">
-      {label}
-    </label>
-    <input
-      type={type}
-      id={id}
-      name={name}
-      value={value}
-      onChange={onChange}
-      className={`w-full px-3 py-2 rounded-md bg-white text-gray-800 h-[60px]`}
-      required={required}
-    />
-  </div>
-);
-
-const Spinner = () => (
-  <div className="flex justify-center items-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
-  </div>
-);
-
 const SignUpBlock = ({ title }: SignUpBlockProps) => {
   const isScreenLargeSizeOrSmaller = useMediaQuery(
     `(max-width:${breakpoints.lg})`
