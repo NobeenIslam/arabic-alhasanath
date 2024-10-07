@@ -71,8 +71,15 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
   };
 
   return (
-    <FadeUpWrapper as="section" className="gutter py-16">
-      <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12">
+    <FadeUpWrapper
+      as="section"
+      className="gutter py-16"
+      aria-labelledby="testimonials-title"
+    >
+      <h2
+        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12"
+        id="testimonials-title"
+      >
         {title}
       </h2>
       <div className="testimonial-slider">

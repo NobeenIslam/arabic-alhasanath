@@ -47,7 +47,7 @@ export const navBarData: NavBarProps = {
 };
 
 export const heroData: HeroProps = {
-  title: "Al-Arabi Institute",
+  title: "Abu'sArabic",
   bulletPoints: [
     "Small groups of 5 or less",
     "Remote",

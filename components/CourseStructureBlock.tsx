@@ -18,9 +18,13 @@ const CourseStructureBlock = ({
     <section
       className="bg-specialBackgroundGreen gutter"
       id={componentIds.courseStructureBlock}
+      aria-labelledby="course-structure-title"
     >
       <FadeUpWrapper className="max-w-7xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12 text-specialBlue">
+        <h2
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12 text-specialBlue"
+          id="course-structure-title"
+        >
           {title}
         </h2>
         <div

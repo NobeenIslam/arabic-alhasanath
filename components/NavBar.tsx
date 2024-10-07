@@ -69,7 +69,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
     <div key={index} className={`${isMediumSize ? "py-2 first:pt-4" : ""}`}>
       <Link
         href={`#${navItem.anchorReference}`}
-        className={`text-lg font-semibold transition-colors duration-300 text-${iconColour}`}
+        className={`text-lg font-semibold transition-colors duration-300 text-${iconColour} focus:outline-none focus:ring-2 focus:ring-blue-500`}
         onClick={() => isMediumSize && toggleNavMenu()}
       >
         {navItem.title}
@@ -109,7 +109,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
 
           {isMediumSize ? (
             <div className="justify-self-end">
-              <NavMenuButton />
+              <NavMenuButton aria-label="Toggle navigation menu" />
             </div>
           ) : (
             <div className="flex justify-self-end space-x-8 ">{navContent}</div>
