@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { navBarData, footerData } from "./Data";
+import { SchemaMarkup } from "@/components/SEO/SchemaMarkup";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only">
           Skip to main content
         </a>
+        <SchemaMarkup />
         <NavBar {...navBarData} />
         <main id="main-content">{children}</main>
         <Footer {...footerData} />
