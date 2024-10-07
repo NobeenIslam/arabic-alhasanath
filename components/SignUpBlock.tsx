@@ -118,7 +118,7 @@ const SignUpBlock = ({
 
   return (
     <section
-      className="gutter bg-specialBackgroundPink"
+      className="gutter bg-gray-50 "
       id={componentIds.signUpBlock}
       aria-labelledby="sign-up-title"
     >
