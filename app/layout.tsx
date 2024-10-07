@@ -44,8 +44,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={montserrat.className}>
+        {/* Skip to main content for accessibility  */}
+        <a href="#main-content" className="sr-only focus:not-sr-only">
+          Skip to main content
+        </a>
         <NavBar {...navBarData} />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer {...footerData} />
       </body>
     </html>

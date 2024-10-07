@@ -120,9 +120,13 @@ const SignUpBlock = ({
     <section
       className="gutter bg-specialBackgroundPink"
       id={componentIds.signUpBlock}
+      aria-labelledby="sign-up-title"
     >
       <FadeUpWrapper>
-        <h2 className= "text-4xl sm:text-5xl md:text-6xl lg:text-7xl  font-bold mb-8">
+        <h2
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  font-bold mb-8"
+          id="sign-up-title"
+        >
           {title}
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
