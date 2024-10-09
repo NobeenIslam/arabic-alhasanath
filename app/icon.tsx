@@ -12,7 +12,7 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 36,
+          fontSize: 48,
           background: "white",
           width: "100%",
           height: "100%",
@@ -23,8 +23,8 @@ export default function Icon() {
           borderRadius: "50%",
         }}
       >
-        <div style={{ position: "absolute", left: 0, color: "black" }}>A</div>
-        <div style={{ position: "absolute", left: 10, color: "black" }}>A</div>
+        <div style={{ position: "absolute", left: 3, color: "black" }}>A</div>
+        <div style={{ position: "absolute", left: 13, color: "black" }}>A</div>
       </div>
     ),
     {
