@@ -16,8 +16,6 @@ export const FadeUpWrapper = <T extends React.ElementType = "div">({
 }: FadeUpWrapperProps<T>) => {
   const [isVisible, ref] = useIntersectionObserver();
   const Component = as || "div";
-  console.log("Found the instructor block");
-  console.log({ isVisible });
 
   return (
     <Component
