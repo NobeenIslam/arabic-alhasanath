@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { navBarData, footerData } from "./Data";
 import { SchemaMarkup } from "@/components/SEO/SchemaMarkup";
+import { Toaster } from "@/components/ui/toaster";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -12,6 +13,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://abusarabic.com"), // Did this to get rid of the warning about the URL not being set.
   title: "AbusArabic | Learn Arabic Online with Expert Instruction",
   description:
     "Master Arabic with AbusArabic. Small online groups, expert instruction for all levels. Start your Arabic journey today with our personalized approach.",
@@ -33,7 +35,6 @@ export const metadata: Metadata = {
     description:
       "Expert Arabic instruction in small online groups. Join AbusArabic today!",
   },
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   icons: {
     icon: "/icon", // Next does generate the tag automatically from the icon.tsx file. But this explicitly sets the icon. (link rel="icon" href="/icon")
@@ -55,6 +56,7 @@ export default function RootLayout({
         <SchemaMarkup />
         <NavBar {...navBarData} />
         <main id="main-content">{children}</main>
+        <Toaster />
         <Footer {...footerData} />
       </body>
     </html>
