@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     description:
       "Expert Arabic instruction in small online groups. Join AbusArabic today!",
   },
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   icons: {
     icon: "/icon", // Next does generate the tag automatically from the icon.tsx file. But this explicitly sets the icon. (link rel="icon" href="/icon")
