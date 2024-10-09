@@ -44,7 +44,6 @@ const InstructorBlock = ({
               <Image
                 src={Hasanath}
                 alt={imageCaption}
-                objectFit="contain"
                 className="rounded-[10%]"
               />
             </div>
