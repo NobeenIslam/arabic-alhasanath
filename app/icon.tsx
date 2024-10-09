@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-// Image metadata
+// Needs to be multiple of 48x48 for the favicon to appear in the browser search results.
 export const size = {
   width: 48,
   height: 48,
