@@ -13,6 +13,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://abusarabic.com"), // Did this to get rid of the warning about the URL not being set.
   title: "AbusArabic | Learn Arabic Online with Expert Instruction",
   description:
     "Master Arabic with AbusArabic. Small online groups, expert instruction for all levels. Start your Arabic journey today with our personalized approach.",
