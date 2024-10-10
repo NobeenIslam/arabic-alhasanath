@@ -65,7 +65,7 @@ EMAIL_HOST=[your-email-host]
   - `Data.ts`: Central data file for component props
 - `components/`: Reusable React components
 - `public/`: Static assets
-- `utilities/`: Utility functions and constants
+- `utilities/`: Utility functions and constants,
 
 ## Technologies Used
 
