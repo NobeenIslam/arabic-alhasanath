@@ -46,15 +46,74 @@ export const SchemaMarkup = () => {
         },
         description:
           "Learn Arabic online with Abu's Arabic. Small groups, remote sessions, and courses for all levels.",
-        mainEntity: {
-          "@type": "Course",
-          name: "Online Arabic Language Course",
-          description:
-            "Learn Arabic online with small groups of 5 or less, weekly 2-hour sessions for beginner, intermediate, and advanced levels.",
-          provider: {
-            "@id": "https://abusarabic.com/#organization",
+        mainEntity: [
+          {
+            "@type": "Course",
+            name: "Online Arabic Language Course - Bronze Plan",
+            description:
+              "Learn Arabic online with small groups of 5, 12.5 hours per month. Flexible start dates available.",
+            provider: {
+              "@id": "https://abusarabic.com/#organization",
+            },
+            offers: {
+              "@type": "Offer",
+              price: "100",
+              priceCurrency: "GBP",
+              availability: "https://schema.org/InStock",
+              priceValidUntil: "2025-12-31",
+            },
+            hasCourseInstance: {
+              "@type": "CourseInstance",
+              courseMode: "online",
+              duration: "P1Y",
+              startDate: "2024-01-01",
+            },
           },
-        },
+          {
+            "@type": "Course",
+            name: "Online Arabic Language Course - Silver Plan",
+            description:
+              "Learn Arabic online with enhanced features and more personalized attention. Flexible start dates available.",
+            provider: {
+              "@id": "https://abusarabic.com/#organization",
+            },
+            offers: {
+              "@type": "Offer",
+              price: "150",
+              priceCurrency: "GBP",
+              availability: "https://schema.org/InStock",
+              priceValidUntil: "2025-12-31",
+            },
+            hasCourseInstance: {
+              "@type": "CourseInstance",
+              courseMode: "online",
+              duration: "P1Y",
+              startDate: "2024-01-01",
+            },
+          },
+          {
+            "@type": "Course",
+            name: "Online Arabic Language Course - Gold Plan",
+            description:
+              "Learn Arabic online with personal 1-on-1 tuition, 25 hours per month. Flexible start dates available.",
+            provider: {
+              "@id": "https://abusarabic.com/#organization",
+            },
+            offers: {
+              "@type": "Offer",
+              price: "200",
+              priceCurrency: "GBP",
+              availability: "https://schema.org/InStock",
+              priceValidUntil: "2025-12-31",
+            },
+            hasCourseInstance: {
+              "@type": "CourseInstance",
+              courseMode: "online",
+              duration: "P1Y",
+              startDate: "2024-01-01",
+            },
+          },
+        ],
       },
     ],
   };
