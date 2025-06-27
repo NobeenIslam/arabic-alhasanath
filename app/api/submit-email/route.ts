@@ -1,43 +1,29 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-import { google } from "googleapis";
+import { Resend } from "resend";
+
+//Need a privately registered email domain to send from. Resend won't allow from public domains
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function POST(request: Request) {
   try {
     const { fullName, phoneNumber, emailAddress } = await request.json();
 
-    const clientId = process.env.GOOGLE_CLIENT_ID;
-    const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
-    const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
-    const redirectUri = process.env.GOOGLE_REDIRECT_URI;
+    console.log(fullName, phoneNumber, emailAddress);
 
-    const email = process.env.EMAIL_USERNAME;
-
-    const OAuth2 = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
-
-    OAuth2.setCredentials({ refresh_token: refreshToken });
-
-    let transporter = nodemailer.createTransport({
-      service: "gmail", // host and port are set automatically
-      auth: {
-        type: "OAuth2",
-        user: email,
-        clientId: clientId,
-        clientSecret: clientSecret,
-        refreshToken: refreshToken,
-      },
-    });
-
-    // Send mail with defined transport object
-    let info = await transporter.sendMail({
-      from: email, // sender address
-      to: email, // Email sent back to same email as any other address doesn't have permission set up to receive anything.s
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "",
+      to: process.env.RESEND_TO_EMAIL || "",
       subject: "New Sign Up to Arabic Course",
-      text: `New sign up from ${fullName}. Phone: ${phoneNumber}, Email: ${emailAddress}`,
       html: `<b>New sign up</b><br>
              Name: ${fullName}<br>
              Phone: ${phoneNumber}<br>
              Email: ${emailAddress}`,
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
 
     return NextResponse.json({ message: "Email sent successfully" });
   } catch (err: any) {
