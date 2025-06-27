@@ -2,8 +2,6 @@
 
 import MadinahBooks from "@/public/madinah-books.png";
 import Image from "next/image";
-import { useMediaQuery } from "@mui/material";
-import { breakpoints } from "@/utilities/breakpoints";
 import { componentIds } from "@/app/Data";
 import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 import { ContactForm } from "@/components/molecules/ContactForm";
@@ -12,9 +10,6 @@ export interface SignUpBlockProps {
 }
 
 const SignUpBlock = ({ title }: SignUpBlockProps) => {
-  const isScreenLargeSizeOrSmaller = useMediaQuery(
-    `(max-width:${breakpoints.lg})`
-  );
 
   return (
     <section
@@ -31,16 +26,14 @@ const SignUpBlock = ({ title }: SignUpBlockProps) => {
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center justify-items-center">
           <ContactForm />
-          {!isScreenLargeSizeOrSmaller && (
-            <div className="flex justify-center">
-              <Image
-                src={MadinahBooks}
-                alt="Picture of Madinah Books"
-                width={500}
-                height={500}
+          <div className="hidden lg:flex justify-center">
+            <Image
+              src={MadinahBooks}
+              alt="Picture of Madinah Books"
+              width={500}
+              height={500}
               />
-            </div>
-          )}
+          </div>
         </div>
       </FadeUpWrapper>
     </section>
