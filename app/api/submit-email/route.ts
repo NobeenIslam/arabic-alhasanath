@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { Resend, ErrorResponse } from "resend";
 
 //Need a privately registered email domain to send from. Resend won't allow from public domains
 
@@ -8,8 +8,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const { fullName, phoneNumber, emailAddress } = await request.json();
-
-    console.log(fullName, phoneNumber, emailAddress);
 
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || "",
@@ -22,15 +20,17 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      throw new Error(error.message);
+      throw error as ErrorResponse;
     }
 
     return NextResponse.json({ message: "Email sent successfully" });
-  } catch (err: any) {
+  } catch (err: unknown) {
+
     console.error("Error sending email:", err);
+    const error = err as ErrorResponse;
     return NextResponse.json(
-      { error: { message: err.message } },
-      { status: 500 }
+      { error: { message: error.message, name: error.name } },
+      { status: 500}
     );
   }
 }
