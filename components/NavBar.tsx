@@ -5,9 +5,7 @@ import OpenBook from "@/public/open-book.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "@/hooks/use-window-size";
-
-
-
+import { cn } from "@/lib/utils";
 
 export type NavItem = {
   title: string;
@@ -54,9 +52,10 @@ const NavBar = ({ navItems }: NavBarProps) => {
 
   const NavMenuButton = () => (
     <button
-      className={`p-2 rounded-full transition-colors duration-200 ${
+      className={cn(
+        "p-2 rounded-full transition-colors duration-200",
         iconColour === "white" ? "hover:bg-white/20" : "hover:bg-gray-200"
-      }`}
+      )}
       onClick={toggleNavMenu}
       aria-label={isNavMenuOpen ? "Close menu" : "Open menu"}
     >
@@ -69,10 +68,14 @@ const NavBar = ({ navItems }: NavBarProps) => {
   );
 
   const navContent = navItems.map((navItem, index) => (
-    <div key={index} className={`${isMediumSize ? "py-2 first:pt-4" : ""}`}>
+    <div key={index} className={cn(isMediumSize && "py-2 first:pt-4")}>
       <Link
         href={`#${navItem.anchorReference}`}
-        className={`text-lg font-semibold transition-colors duration-300 text-${iconColour} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+        className={cn(
+          "text-lg font-semibold transition-colors duration-300",
+          `text-${iconColour}`,
+          "focus:outline-none focus:ring-2 focus:ring-blue-500"
+        )}
         onClick={() => isMediumSize && toggleNavMenu()}
       >
         {navItem.title}
@@ -86,26 +89,22 @@ const NavBar = ({ navItems }: NavBarProps) => {
   return (
     <nav>
       <div
-        className={`
-          gutter-x fixed top-4 left-4 right-4 z-30 rounded-3xl py-2
-          ${navBarColour}
-          transition-all duration-300
-        `}
+        className={cn(
+          "gutter-x fixed top-4 left-4 right-4 z-30 rounded-3xl py-2",
+          navBarColour,
+          "transition-all duration-300"
+        )}
       >
         <div
-          className={`
-          grid grid-cols-[auto_1fr_auto] items-center
-          ${
-            isMediumSize && isNavMenuOpen
-              ? "grid-rows-[auto_auto]"
-              : "grid-rows-1"
-          }
-          transition-all duration-300
-        `}
+          className={cn(
+            "grid grid-cols-[auto_1fr_auto] items-center",
+            isMediumSize && isNavMenuOpen && "grid-rows-[auto_auto]",
+            "transition-all duration-300"
+          )}
         >
           <div className="flex-shrink-0">
             <Link href="#hero" aria-label="Go to the top">
-              <OpenBook className={`w-[50px] h-[50px] ${iconColour}`} />
+              <OpenBook className={cn("w-[50px] h-[50px]", iconColour)} />
             </Link>
           </div>
 
@@ -114,17 +113,15 @@ const NavBar = ({ navItems }: NavBarProps) => {
               <NavMenuButton aria-label="Toggle navigation menu" />
             </div>
           ) : (
-            <div className="flex justify-self-end space-x-8 ">{navContent}</div>
+            <div className="flex justify-self-end space-x-8">{navContent}</div>
           )}
 
           {isMediumSize && (
             <div
-              className={`
-              col-span-3 overflow-hidden transition-all duration-300
-              ${
+              className={cn(
+                "col-span-3 overflow-hidden transition-all duration-300",
                 isNavMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
-              }
-            `}
+              )}
             >
               {navContent}
             </div>
