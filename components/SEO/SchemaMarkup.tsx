@@ -57,6 +57,7 @@ export const SchemaMarkup = () => {
             },
             offers: {
               "@type": "Offer",
+              category: "Arabic Language Course",
               price: "100",
               priceCurrency: "GBP",
               availability: "https://schema.org/InStock",
@@ -64,6 +65,7 @@ export const SchemaMarkup = () => {
             },
             hasCourseInstance: {
               "@type": "CourseInstance",
+              courseWorkload: "12.5 hours per month",
               courseMode: "online",
               duration: "P1Y",
               startDate: "2024-01-01",
@@ -79,6 +81,7 @@ export const SchemaMarkup = () => {
             },
             offers: {
               "@type": "Offer",
+              category: "Arabic Language Course",
               price: "150",
               priceCurrency: "GBP",
               availability: "https://schema.org/InStock",
@@ -86,6 +89,7 @@ export const SchemaMarkup = () => {
             },
             hasCourseInstance: {
               "@type": "CourseInstance",
+              courseWorkload: "12.5 hours per month",
               courseMode: "online",
               duration: "P1Y",
               startDate: "2024-01-01",
@@ -101,6 +105,7 @@ export const SchemaMarkup = () => {
             },
             offers: {
               "@type": "Offer",
+              category: "Arabic Language Course",
               price: "200",
               priceCurrency: "GBP",
               availability: "https://schema.org/InStock",
@@ -108,6 +113,7 @@ export const SchemaMarkup = () => {
             },
             hasCourseInstance: {
               "@type": "CourseInstance",
+              courseWorkload: "12.5 hours per month",
               courseMode: "online",
               duration: "P1Y",
               startDate: "2024-01-01",
