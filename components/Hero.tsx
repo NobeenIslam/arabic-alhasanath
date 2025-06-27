@@ -1,8 +1,6 @@
 "use client";
 import { LuCheck } from "react-icons/lu";
 import Image from "next/image";
-import { useMediaQuery } from "@mui/material";
-import { breakpoints } from "@/utilities/breakpoints";
 import BaynaYadyk from "@/public/bayna-yadayk.webp";
 import { componentIds } from "@/app/Data";
 import Link from "next/link";
@@ -14,8 +12,6 @@ export interface HeroProps {
 }
 
 const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
-  const isLarge = useMediaQuery(`(max-width:${breakpoints.lg})`);
-
   const bullets = bulletPoints.map((point, index) => (
     <li
       key={index}

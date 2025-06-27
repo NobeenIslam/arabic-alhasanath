@@ -3,21 +3,24 @@
 import { LuMenu, LuX } from "react-icons/lu";
 import OpenBook from "@/public/open-book.svg";
 import Link from "next/link";
-import { useMediaQuery } from "@mui/material";
-import { breakpoints } from "@/utilities/breakpoints";
 import { useEffect, useState } from "react";
+import { useWindowSize } from "@/hooks/use-window-size";
+
+
+
 
 export type NavItem = {
   title: string;
   anchorReference: string;
   subtitle?: string;
 };
+
 export interface NavBarProps {
   navItems: NavItem[];
 }
 
 const NavBar = ({ navItems }: NavBarProps) => {
-  const isMediumSize = useMediaQuery(`(max-width:${breakpoints.md})`);
+  const isMediumSize = useWindowSize();
   const [isNavMenuOpen, setisNavMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -87,7 +90,6 @@ const NavBar = ({ navItems }: NavBarProps) => {
           gutter-x fixed top-4 left-4 right-4 z-30 rounded-3xl py-2
           ${navBarColour}
           transition-all duration-300
-   
         `}
       >
         <div
