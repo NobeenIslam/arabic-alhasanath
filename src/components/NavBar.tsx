@@ -2,6 +2,7 @@
 
 import { LuMenu, LuX } from 'react-icons/lu';
 import OpenBook from '@/assets/open-book.svg';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useWindowSize } from '@/hooks/use-window-size';
@@ -50,7 +51,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
       ? 'bg-gray-100 opacity-90 backdrop-blur-md shadow-md'
       : 'bg-transparent';
 
-  const NavMenuButton = () => (
+  const navMenuButton = (
     <button
       className={cn(
         'rounded-full p-2 transition-colors duration-200',
@@ -104,14 +105,12 @@ const NavBar = ({ navItems }: NavBarProps) => {
         >
           <div className="flex-shrink-0">
             <Link href="#hero" aria-label="Go to the top">
-              <OpenBook className={cn('h-[50px] w-[50px]', iconColour)} />
+              <Image src={OpenBook} alt="" width={50} height={50} />
             </Link>
           </div>
 
           {isMediumSize ? (
-            <div className="justify-self-end">
-              <NavMenuButton aria-label="Toggle navigation menu" />
-            </div>
+            <div className="justify-self-end">{navMenuButton}</div>
           ) : (
             <div className="flex space-x-8 justify-self-end">{navContent}</div>
           )}
