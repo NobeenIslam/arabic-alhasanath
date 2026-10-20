@@ -1,16 +1,15 @@
+'use client';
+
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
 import type { ContactFormContent } from '@/features/landing/types';
-
-type FormData = {
-  fullName: string;
-  phoneNumber: string;
-  emailAddress: string;
-};
+import { signUpSchema, type SignUpInput } from '@/features/landing/schemas';
+import { sendSignUpEmail } from '@/actions/email.actions';
 
 export const ContactForm = ({
   heading,
@@ -29,27 +28,18 @@ export const ContactForm = ({
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>();
+    reset,
+  } = useForm<SignUpInput>({ resolver: zodResolver(signUpSchema) });
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      const response = await fetch('/api/submit-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-
-      toast.success(successTitle, { description: successDescription });
-    } catch (error) {
-      console.error('Error submitting form:', error);
+  const onSubmit = async (data: SignUpInput) => {
+    const result = await sendSignUpEmail(data);
+    if (!result.success) {
       toast.error(errorTitle, { description: errorDescription });
+      return;
     }
+
+    toast.success(successTitle, { description: successDescription });
+    reset();
   };
 
   return (
@@ -65,11 +55,7 @@ export const ContactForm = ({
           >
             {fullNameLabel}
           </Label>
-          <Input
-            id="fullName"
-            {...register('fullName', { required: 'Full name is required' })}
-            className="mt-1"
-          />
+          <Input id="fullName" {...register('fullName')} className="mt-1" />
           {errors.fullName && (
             <p className="mt-1 text-xs text-red-600">
               {errors.fullName.message}
@@ -86,13 +72,7 @@ export const ContactForm = ({
           <Input
             id="phoneNumber"
             type="tel"
-            {...register('phoneNumber', {
-              required: 'Phone number is required',
-              pattern: {
-                value: /^\d{11}$/,
-                message: 'Please enter a valid phone number',
-              },
-            })}
+            {...register('phoneNumber')}
             className="mt-1"
           />
           {errors.phoneNumber && (
@@ -111,13 +91,7 @@ export const ContactForm = ({
           <Input
             id="emailAddress"
             type="email"
-            {...register('emailAddress', {
-              required: 'Email address is required',
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Please enter a valid email address',
-              },
-            })}
+            {...register('emailAddress')}
             className="mt-1"
           />
           {errors.emailAddress && (
