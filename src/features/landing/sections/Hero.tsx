@@ -2,16 +2,11 @@
 import { LuCheck } from 'react-icons/lu';
 import Image from 'next/image';
 import BaynaYadyk from '@/assets/bayna-yadayk.webp';
-import { componentIds } from '@/app/Data';
+import { componentIds } from '@/features/landing/content';
 import Link from 'next/link';
+import type { HeroContent } from '@/features/landing/types';
 
-export interface HeroProps {
-  title: string;
-  bulletPoints: string[];
-  buttonText: string;
-}
-
-const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
+const Hero = ({ title, bulletPoints, buttonText, imageAlt }: HeroContent) => {
   const bullets = bulletPoints.map((point, index) => (
     <li
       key={index}
@@ -48,10 +43,7 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
             </div>
           </div>
           <div className="animate-in delay-500 duration-800 fill-mode-both fade-in slide-in-from-bottom-8 md:w-[600px] lg:w-[500px] lg:slide-in-from-bottom-0 lg:slide-in-from-right-8 xl:w-[600px]">
-            <Image
-              src={BaynaYadyk}
-              alt="Bayna Yadayk Arabic course books, showcasing the comprehensive learning materials"
-            />
+            <Image src={BaynaYadyk} alt={imageAlt} />
           </div>
         </div>
       </div>

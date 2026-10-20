@@ -2,18 +2,14 @@
 
 import Script from 'next/script';
 import React from 'react';
-import { componentIds } from '@/app/Data';
-import { FadeUpWrapper } from '@/components/FadeUpWrapper';
-
-export interface CourseStructureBlockProps {
-  title: string;
-  wistiaVideoId: string;
-}
+import { componentIds } from '@/features/landing/content';
+import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
+import type { CourseStructureContent } from '@/features/landing/types';
 
 const CourseStructureBlock = ({
   title,
   wistiaVideoId,
-}: CourseStructureBlockProps) => {
+}: CourseStructureContent) => {
   return (
     <section
       className="gutter bg-specialBackgroundGreen"

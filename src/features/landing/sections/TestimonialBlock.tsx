@@ -4,23 +4,16 @@ import React from 'react';
 import Image from 'next/image';
 import Slider from 'react-slick';
 import { BsChatLeftQuote } from 'react-icons/bs';
-import { componentIds } from '@/app/Data';
+import { componentIds } from '@/features/landing/content';
 
 // Import slick carousel styles
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { FadeUpWrapper } from '@/components/FadeUpWrapper';
-
-type Testimonial = {
-  quote: string;
-  image: string;
-  name: string;
-};
-
-export interface TestimonialBlockProps {
-  title: string;
-  testimonials: Testimonial[];
-}
+import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
+import type {
+  Testimonial,
+  TestimonialsContent,
+} from '@/features/landing/types';
 
 //All the h-fulls and the modification of the react-slick classes in the global.css were all to make the cards equal height
 
@@ -45,7 +38,7 @@ const TestimonialCard = ({ quote, image, name }: Testimonial) => (
   </div>
 );
 
-const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
+const TestimonialBlock = ({ title, testimonials }: TestimonialsContent) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -96,4 +89,3 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
 };
 
 export { TestimonialBlock };
-export type { Testimonial };

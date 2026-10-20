@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
+import type { ContactFormContent } from '@/features/landing/types';
 
 type FormData = {
   fullName: string;
@@ -11,7 +12,19 @@ type FormData = {
   emailAddress: string;
 };
 
-export function ContactForm() {
+export const ContactForm = ({
+  heading,
+  fullNameLabel,
+  phoneNumberLabel,
+  emailAddressLabel,
+  submitLabel,
+  submittingLabel,
+  successTitle,
+  successDescription,
+  errorTitle,
+  errorDescription,
+  disclaimer,
+}: ContactFormContent) => {
   const {
     register,
     handleSubmit,
@@ -32,24 +45,17 @@ export function ContactForm() {
         throw new Error('Failed to submit form');
       }
 
-      toast.success('Form Submitted!', {
-        description: 'Thank you for your interest in our Arabic course.',
-      });
+      toast.success(successTitle, { description: successDescription });
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast.error('Error', {
-        description:
-          'An error occurred while submitting the form. Please try again.',
-      });
+      toast.error(errorTitle, { description: errorDescription });
     }
   };
 
   return (
     <div className="w-full max-w-md overflow-hidden rounded-lg bg-white shadow-xl">
       <div className="bg-emerald-600 px-6 py-4">
-        <h2 className="text-center text-2xl font-bold text-white">
-          Join Our Arabic Course
-        </h2>
+        <h2 className="text-center text-2xl font-bold text-white">{heading}</h2>
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-6">
         <div>
@@ -57,7 +63,7 @@ export function ContactForm() {
             htmlFor="fullName"
             className="text-sm font-medium text-gray-700"
           >
-            Full Name
+            {fullNameLabel}
           </Label>
           <Input
             id="fullName"
@@ -75,7 +81,7 @@ export function ContactForm() {
             htmlFor="phoneNumber"
             className="text-sm font-medium text-gray-700"
           >
-            Phone Number
+            {phoneNumberLabel}
           </Label>
           <Input
             id="phoneNumber"
@@ -100,7 +106,7 @@ export function ContactForm() {
             htmlFor="emailAddress"
             className="text-sm font-medium text-gray-700"
           >
-            Email Address
+            {emailAddressLabel}
           </Label>
           <Input
             id="emailAddress"
@@ -129,18 +135,16 @@ export function ContactForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Submitting...
+              {submittingLabel}
             </>
           ) : (
-            'Sign Me Up!'
+            submitLabel
           )}
         </Button>
       </form>
       <div className="bg-gray-50 px-6 py-4 text-center">
-        <p className="text-xs text-gray-600">
-          By enrolling, you agree to our Terms of Service and Privacy Policy
-        </p>
+        <p className="text-xs text-gray-600">{disclaimer}</p>
       </div>
     </div>
   );
-}
+};

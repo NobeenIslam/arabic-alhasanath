@@ -2,20 +2,9 @@
 
 import Image from 'next/image';
 import Hasanath from '@/assets/hasnath.png';
-import { componentIds } from '@/app/Data';
-import { FadeUpWrapper } from '@/components/FadeUpWrapper';
-
-export type TimelineComponent = {
-  year: string;
-  subheading: string;
-  details: string;
-};
-
-export interface InstructorBlockProps {
-  title: string;
-  imageCaption: string;
-  timeline: TimelineComponent[];
-}
+import { componentIds } from '@/features/landing/content';
+import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
+import type { InstructorContent } from '@/features/landing/types';
 
 //Uses the man image
 
@@ -23,7 +12,7 @@ const InstructorBlock = ({
   title,
   imageCaption,
   timeline,
-}: InstructorBlockProps) => {
+}: InstructorContent) => {
   return (
     <FadeUpWrapper
       as="section"

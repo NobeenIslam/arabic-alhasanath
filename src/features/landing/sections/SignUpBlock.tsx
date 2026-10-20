@@ -2,14 +2,12 @@
 
 import MadinahBooks from '@/assets/madinah-books.png';
 import Image from 'next/image';
-import { componentIds } from '@/app/Data';
-import { FadeUpWrapper } from '@/components/FadeUpWrapper';
-import { ContactForm } from '@/components/molecules/ContactForm';
-export interface SignUpBlockProps {
-  title: string;
-}
+import { componentIds } from '@/features/landing/content';
+import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
+import { ContactForm } from '@/features/landing/sections/ContactForm';
+import type { SignUpContent } from '@/features/landing/types';
 
-const SignUpBlock = ({ title }: SignUpBlockProps) => {
+const SignUpBlock = ({ title, imageAlt, form }: SignUpContent) => {
   return (
     <section
       className="gutter bg-linear-to-b from-amber-50 to-amber-100"
@@ -24,14 +22,9 @@ const SignUpBlock = ({ title }: SignUpBlockProps) => {
           {title}
         </h2>
         <div className="grid grid-cols-1 items-center justify-items-center lg:grid-cols-2">
-          <ContactForm />
+          <ContactForm {...form} />
           <div className="hidden justify-center lg:flex">
-            <Image
-              src={MadinahBooks}
-              alt="Picture of Madinah Books"
-              width={500}
-              height={500}
-            />
+            <Image src={MadinahBooks} alt={imageAlt} width={500} height={500} />
           </div>
         </div>
       </FadeUpWrapper>
