@@ -47,7 +47,10 @@ export type ContactFormContent = {
   successDescription: string;
   errorTitle: string;
   errorDescription: string;
-  disclaimer: string;
+  disclaimerPrefix: string;
+  termsLabel: string;
+  disclaimerJoiner: string;
+  privacyLabel: string;
 };
 
 export type SignUpContent = {
@@ -64,4 +67,6 @@ export type NavigationContent = {
 export type FooterContent = {
   logoLabel: string;
   copyright: string;
+  legalHeading: string;
+  legalLinks: NavLink[];
 };

@@ -16,7 +16,10 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: `${siteConfig.name} | Learn Arabic Online with Expert Instruction`,
+  title: {
+    default: `${siteConfig.name} | Learn Arabic Online with Expert Instruction`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: `Master Arabic with ${siteConfig.name}. Small online groups, expert instruction for all levels. Start your Arabic journey today with our personalized approach.`,
   keywords: `Arabic lessons, online Arabic course, learn Arabic, Arabic language, ${siteConfig.name}`,
   authors: [{ name: 'Abu Hasanath' }],

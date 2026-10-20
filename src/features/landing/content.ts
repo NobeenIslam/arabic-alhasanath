@@ -1,4 +1,5 @@
 import { SITE_NAME } from '@/lib/constants/site.constants';
+import { ROUTES } from '@/lib/constants/routes.constants';
 import type {
   CourseStructureContent,
   FooterContent,
@@ -24,27 +25,27 @@ export const navigationData: NavigationContent = {
   links: [
     {
       name: 'Home',
-      href: `#${componentIds.hero}`,
+      href: `${ROUTES.home}#${componentIds.hero}`,
       description: 'Back to the top',
     },
     {
       name: 'Instructor',
-      href: `#${componentIds.instructorBlock}`,
+      href: `${ROUTES.home}#${componentIds.instructorBlock}`,
       description: 'Meet our instructor Ustaadh Abu Hasanath',
     },
     {
       name: 'Course Structure',
-      href: `#${componentIds.courseStructureBlock}`,
+      href: `${ROUTES.home}#${componentIds.courseStructureBlock}`,
       description: 'Learn about our course structure',
     },
     {
       name: 'Testimonials',
-      href: `#${componentIds.testimonialsBlock}`,
+      href: `${ROUTES.home}#${componentIds.testimonialsBlock}`,
       description: 'See what our students say',
     },
     {
       name: 'Sign Up',
-      href: `#${componentIds.signUpBlock}`,
+      href: `${ROUTES.home}#${componentIds.signUpBlock}`,
       description: 'Take the first step of your journey now!',
     },
   ],
@@ -149,12 +150,19 @@ export const signUpBlockData: SignUpContent = {
     errorTitle: 'Error',
     errorDescription:
       'An error occurred while submitting the form. Please try again.',
-    disclaimer:
-      'By enrolling, you agree to our Terms of Service and Privacy Policy',
+    disclaimerPrefix: 'By enrolling, you agree to our',
+    termsLabel: 'Terms of Service',
+    disclaimerJoiner: 'and',
+    privacyLabel: 'Privacy Policy',
   },
 };
 
 export const footerData: FooterContent = {
   logoLabel: 'Back to the top!',
   copyright: `© ${new Date().getFullYear()} ${SITE_NAME}. All rights reserved.`,
+  legalHeading: 'Legal',
+  legalLinks: [
+    { name: 'Privacy Policy', href: ROUTES.privacy },
+    { name: 'Terms of Service', href: ROUTES.terms },
+  ],
 };

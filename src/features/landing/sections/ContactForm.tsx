@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,7 @@ import { Loader2 } from 'lucide-react';
 import type { ContactFormContent } from '@/features/landing/types';
 import { signUpSchema, type SignUpInput } from '@/features/landing/schemas';
 import { sendSignUpEmail } from '@/actions/email.actions';
+import { ROUTES } from '@/lib/constants/routes.constants';
 
 export const ContactForm = ({
   heading,
@@ -22,7 +24,10 @@ export const ContactForm = ({
   successDescription,
   errorTitle,
   errorDescription,
-  disclaimer,
+  disclaimerPrefix,
+  termsLabel,
+  disclaimerJoiner,
+  privacyLabel,
 }: ContactFormContent) => {
   const {
     register,
@@ -117,7 +122,16 @@ export const ContactForm = ({
         </Button>
       </form>
       <div className="bg-gray-50 px-6 py-4 text-center">
-        <p className="text-xs text-gray-600">{disclaimer}</p>
+        <p className="text-xs text-gray-600">
+          {disclaimerPrefix}{' '}
+          <Link href={ROUTES.terms} className="underline hover:text-gray-900">
+            {termsLabel}
+          </Link>{' '}
+          {disclaimerJoiner}{' '}
+          <Link href={ROUTES.privacy} className="underline hover:text-gray-900">
+            {privacyLabel}
+          </Link>
+        </p>
       </div>
     </div>
   );
