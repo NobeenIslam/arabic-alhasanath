@@ -1,6 +1,6 @@
-# AbusArabic Landing Page
+# Abu's Arabic Landing Page
 
-Marketing site for AbusArabic, built on the landing page starter: Next.js 16, React 19, Tailwind CSS 4 and Bun.
+Marketing site for Abu's Arabic, built on the landing page starter: Next.js 16, React 19, Tailwind CSS 4 and Bun.
 
 ## Getting Started
 

@@ -17,12 +17,7 @@ type Env = z.infer<typeof envSchema>;
 
 export function validateEnv(): Env {
   try {
-    // Provide default values for build-time validation
-    const envWithDefaults = {
-      ...process.env,
-    };
-
-    return envSchema.parse(envWithDefaults);
+    return envSchema.parse(process.env);
   } catch (error) {
     if (error instanceof z.ZodError) {
       const missingVars: string[] = [];

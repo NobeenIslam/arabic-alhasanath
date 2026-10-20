@@ -26,8 +26,7 @@ const Hero = ({ title, bulletPoints, buttonText, imageAlt }: HeroContent) => {
         id={componentIds.hero}
       >
         <div className="absolute inset-0 bg-heroGradient" />
-        {/* gutter has higher specificity so need the !. Hero wasn't spaced enought with nav */}
-        <div className="relative z-10 gutter flex w-full flex-col items-center justify-between pt-24! lg:flex-row lg:items-center lg:pt-28!">
+        <div className="relative z-10 mx-auto flex w-full flex-col items-center justify-between px-16 pt-24 pb-16 sm:px-20 sm:pb-20 lg:flex-row lg:items-center lg:px-24 lg:pt-28 lg:pb-24 xl:px-28 xl:pb-28">
           <div className="mb-12 w-full lg:mb-0 lg:w-1/2">
             <h1 className="mb-8 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:mb-12 lg:text-7xl">
               {title}

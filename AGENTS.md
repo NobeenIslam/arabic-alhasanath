@@ -124,7 +124,8 @@ src/
 
 ## Project Notes
 
-- **Site**: AbusArabic, a single landing page assembled in `src/features/landing/LandingPage.tsx`.
+- **Site**: Abu's Arabic. The landing page is assembled in `src/features/landing/LandingPage.tsx`, and `/privacy` and `/terms` render `LegalDocument` from `src/features/privacy` and `src/features/terms`. All pages share the nav and footer through `src/features/landing/SiteShell.tsx`.
+- **Brand and routes**: The site name lives in `src/lib/constants/site.constants.ts` and paths in `src/lib/constants/routes.constants.ts`.
 - **Deployment**: Netlify. `netlify.toml` and `next.config.ts` both proxy PostHog through `/ph`.
 - **SEO**: `src/lib/site-config.ts` derives the site URL from `NEXT_PUBLIC_URL`. JSON-LD lives in `src/components/SEO/SchemaMarkup.tsx`.
 - **Breakpoints**: Custom `md`, `lg` and `xl` breakpoints are defined in `src/app/globals.css` in `rem`. Keep them in `rem` so media queries sort correctly against the default `sm`.

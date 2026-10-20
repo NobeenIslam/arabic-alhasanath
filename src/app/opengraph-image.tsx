@@ -1,8 +1,9 @@
 import { ImageResponse } from 'next/og';
+import { SITE_NAME } from '@/lib/constants/site.constants';
 
 export const runtime = 'edge';
 
-export const alt = 'About Abus Arabic';
+export const alt = `About ${SITE_NAME}`;
 export const size = {
   width: 1200,
   height: 630,
@@ -23,7 +24,7 @@ export default function Image() {
         justifyContent: 'center',
       }}
     >
-      AbusArabic
+      {SITE_NAME}
     </div>,
     {
       ...size,

@@ -6,8 +6,6 @@ import { componentIds } from '@/features/landing/content';
 import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
 import type { InstructorContent } from '@/features/landing/types';
 
-//Uses the man image
-
 const InstructorBlock = ({
   title,
   imageCaption,
@@ -39,13 +37,10 @@ const InstructorBlock = ({
             <p className="text-xl font-semibold text-blue-800">
               {imageCaption}
             </p>
-            {/* Divider */}
-            <div className="mt-8 h-px w-full bg-gray-300 md:hidden"></div>
+            <div className="mt-8 h-px w-full bg-gray-300 md:hidden" />
           </div>
           <div className="space-y-8 md:relative md:flex md:h-full md:flex-col md:justify-between md:space-y-0 md:pl-8">
-            {/* Divider relative and pl-8, are added to parent for the divider*/}
-
-            <div className="absolute top-0 bottom-0 left-0 hidden w-px bg-gray-300 md:block"></div>
+            <div className="absolute top-0 bottom-0 left-0 hidden w-px bg-gray-300 md:block" />
 
             {timeline.map((entry, index) => (
               <div key={index} className="flex">

@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-// Needs to be multiple of 48x48 for the favicon to appear in the browser search results.
+// https://developers.google.com/search/docs/appearance/favicon-in-search#guidelines
 export const size = {
   width: 48,
   height: 48,
