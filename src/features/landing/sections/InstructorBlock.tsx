@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Hasanath from '@/assets/hasnath.png';
+import Hasanath from '@/assets/hasnath.webp';
 import { componentIds } from '@/features/landing/content';
 import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
 import type { InstructorContent } from '@/features/landing/types';

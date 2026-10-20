@@ -1,6 +1,6 @@
 'use client';
 
-import MadinahBooks from '@/assets/madinah-books.png';
+import MadinahBooks from '@/assets/madinah-books.webp';
 import Image from 'next/image';
 import { componentIds } from '@/features/landing/content';
 import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
