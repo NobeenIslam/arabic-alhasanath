@@ -1,28 +1,26 @@
 'use client';
 
-import React from 'react';
+import { useCallback, useState, useSyncExternalStore } from 'react';
 import Image from 'next/image';
-import Slider from 'react-slick';
 import { BsChatLeftQuote } from 'react-icons/bs';
 import { componentIds } from '@/features/landing/content';
-
-// Import slick carousel styles
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import { FadeUpWrapper } from '@/components/blocks/FadeUpWrapper';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
 import type {
   Testimonial,
   TestimonialsContent,
 } from '@/features/landing/types';
 
-//All the h-fulls and the modification of the react-slick classes in the global.css were all to make the cards equal height
-
 const TestimonialCard = ({ quote, image, name }: Testimonial) => (
-  <div
-    className="flex h-full flex-col rounded-lg bg-specialCardGrey p-6 shadow-md"
-    id={componentIds.testimonialsBlock}
-  >
-    {/* grow pushes the name and image to the bottom */}
+  <div className="flex h-full flex-col rounded-lg bg-specialCardGrey p-6 shadow-md">
     <div className="grow">
       <BsChatLeftQuote className="mb-4 text-3xl text-red-600" />
       <p className="mb-4 text-gray-700">{quote}</p>
@@ -38,35 +36,43 @@ const TestimonialCard = ({ quote, image, name }: Testimonial) => (
   </div>
 );
 
-const TestimonialBlock = ({ title, testimonials }: TestimonialsContent) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+const useCarouselPosition = (api: CarouselApi) => {
+  const subscribe = useCallback(
+    (onChange: () => void) => {
+      if (!api) return () => {};
+      api.on('select', onChange).on('reInit', onChange);
+      return () => {
+        api.off('select', onChange).off('reInit', onChange);
+      };
+    },
+    [api]
+  );
+  const selectedIndex = useSyncExternalStore(
+    subscribe,
+    () => api?.selectedScrollSnap() ?? 0,
+    () => 0
+  );
+  const snapCount = useSyncExternalStore(
+    subscribe,
+    () => api?.scrollSnapList().length ?? 0,
+    () => 0
+  );
+  return { selectedIndex, snapCount };
+};
+
+const TestimonialBlock = ({
+  title,
+  testimonials,
+  slideLabel,
+}: TestimonialsContent) => {
+  const [api, setApi] = useState<CarouselApi>();
+  const { selectedIndex, snapCount } = useCarouselPosition(api);
 
   return (
     <FadeUpWrapper
       as="section"
       className="gutter py-16"
+      id={componentIds.testimonialsBlock}
       aria-labelledby="testimonials-title"
     >
       <h2
@@ -75,14 +81,36 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialsContent) => {
       >
         {title}
       </h2>
-      <div className="testimonial-slider">
-        <Slider {...settings}>
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="h-full px-2">
+      <Carousel opts={{ loop: true, align: 'start' }} setApi={setApi}>
+        <CarouselContent className="py-2">
+          {testimonials.map((testimonial) => (
+            <CarouselItem
+              key={testimonial.name}
+              className="sm:basis-1/2 min-[64rem]:basis-1/3"
+            >
               <TestimonialCard {...testimonial} />
-            </div>
+            </CarouselItem>
           ))}
-        </Slider>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <div className="mt-4 flex justify-center gap-2">
+        {Array.from({ length: snapCount > 1 ? snapCount : 0 }, (_, index) => (
+          <button
+            key={index}
+            type="button"
+            aria-label={`${slideLabel} ${index + 1}`}
+            aria-current={index === selectedIndex}
+            onClick={() => api?.scrollTo(index)}
+            className={cn(
+              'h-2 w-2 rounded-full transition-colors',
+              index === selectedIndex
+                ? 'bg-foreground'
+                : 'bg-muted-foreground/40'
+            )}
+          />
+        ))}
       </div>
     </FadeUpWrapper>
   );

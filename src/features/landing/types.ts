@@ -33,6 +33,7 @@ export type CourseStructureContent = {
 export type TestimonialsContent = {
   title: string;
   testimonials: Testimonial[];
+  slideLabel: string;
 };
 
 export type ContactFormContent = {

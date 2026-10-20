@@ -130,6 +130,7 @@ const nobeensTestimony: Testimonial = {
 export const testimonialBlockData: TestimonialsContent = {
   title: 'Testimonials',
   testimonials: [asifsTestimony, harunsTestimony, nobeensTestimony],
+  slideLabel: 'Go to slide',
 };
 
 export const signUpBlockData: SignUpContent = {
