@@ -1,7 +1,7 @@
 "use client";
 
 import { LuMenu, LuX } from "react-icons/lu";
-import OpenBook from "@/public/open-book.svg";
+import OpenBook from "@/assets/open-book.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "@/hooks/use-window-size";

@@ -1,7 +1,7 @@
 "use client";
 import { LuCheck } from "react-icons/lu";
 import Image from "next/image";
-import BaynaYadyk from "@/public/bayna-yadayk.webp";
+import BaynaYadyk from "@/assets/bayna-yadayk.webp";
 import { componentIds } from "@/app/Data";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Hasanath from "@/public/hasnath.png";
+import Hasanath from "@/assets/hasnath.png";
 import { componentIds } from "@/app/Data";
 import { FadeUpWrapper } from "@/components/FadeUpWrapper";
 
