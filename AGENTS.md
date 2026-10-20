@@ -14,7 +14,7 @@ This file is a baseline for agents such as Claude, Codex, Cursor, Antigravity, W
 - **Analytics**: [PostHog](https://posthog.com/)
 - **Email**: [Resend](https://resend.com/) with [React Email](https://react.email/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Utilities**: `clsx`, `tailwind-merge`, `class-variance-authority`
+- **Utilities**: `cn`, `class-variance-authority`
 
 ## Project Structure
 
@@ -129,4 +129,4 @@ src/
 - **SEO**: `src/lib/site-config.ts` derives the site URL from `NEXT_PUBLIC_URL`. JSON-LD lives in `src/components/SEO/SchemaMarkup.tsx`.
 - **Breakpoints**: Custom `md`, `lg` and `xl` breakpoints are defined in `src/app/globals.css` in `rem`. Keep them in `rem` so media queries sort correctly against the default `sm`.
 - **Shadcn lint override**: `react-hooks/set-state-in-effect` is off for `src/components/ui/**` because generated primitives trip it.
-- **Shadcn CLI**: After adding a component, check its `cn` import points at `@/lib/utils`. The CLI has been resolving it to the unrelated `cn` npm package.
+- **cn**: Class merging uses shadcn's `cn` package, which replaces `clsx` and `tailwind-merge`. Generated primitives import it from `cn` and app code imports it from `@/lib/utils`, which re-exports it. Leave the generated imports as they are.
