@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
 
 type FormData = {
@@ -18,8 +18,6 @@ export function ContactForm() {
     formState: { errors, isSubmitting },
   } = useForm<FormData>();
 
-  const { toast } = useToast();
-
   const onSubmit = async (data: FormData) => {
     try {
       const response = await fetch('/api/submit-email', {
@@ -34,17 +32,14 @@ export function ContactForm() {
         throw new Error('Failed to submit form');
       }
 
-      toast({
-        title: 'Form Submitted!',
+      toast.success('Form Submitted!', {
         description: 'Thank you for your interest in our Arabic course.',
       });
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast({
-        title: 'Error',
+      toast.error('Error', {
         description:
           'An error occurred while submitting the form. Please try again.',
-        variant: 'destructive',
       });
     }
   };

@@ -5,7 +5,7 @@ import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
 import { navBarData, footerData } from './Data';
 import { SchemaMarkup } from '@/components/SEO/SchemaMarkup';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui/sonner';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
