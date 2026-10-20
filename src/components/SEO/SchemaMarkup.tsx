@@ -1,6 +1,7 @@
 import { siteConfig } from '@/lib/site-config';
 
 export const SchemaMarkup = () => {
+  const priceValidUntil = `${new Date().getFullYear()}-12-31`;
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -57,7 +58,7 @@ export const SchemaMarkup = () => {
               price: '100',
               priceCurrency: 'GBP',
               availability: 'https://schema.org/InStock',
-              priceValidUntil: '2025-12-31',
+              priceValidUntil,
             },
             hasCourseInstance: {
               '@type': 'CourseInstance',
@@ -81,7 +82,7 @@ export const SchemaMarkup = () => {
               price: '150',
               priceCurrency: 'GBP',
               availability: 'https://schema.org/InStock',
-              priceValidUntil: '2025-12-31',
+              priceValidUntil,
             },
             hasCourseInstance: {
               '@type': 'CourseInstance',
@@ -105,7 +106,7 @@ export const SchemaMarkup = () => {
               price: '200',
               priceCurrency: 'GBP',
               availability: 'https://schema.org/InStock',
-              priceValidUntil: '2025-12-31',
+              priceValidUntil,
             },
             hasCourseInstance: {
               '@type': 'CourseInstance',

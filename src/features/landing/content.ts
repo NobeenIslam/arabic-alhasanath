@@ -67,28 +67,28 @@ const firstTimelineEntry: TimelineEntry = {
   year: '2013',
   subheading: 'As-Suffa Institute',
   details:
-    'Completed 6 year full-time Alimiyyah course covering all the Islamic sciences and building my Arabic',
+    'Completed a 6-year full-time Alimiyyah course covering all the Islamic sciences and building my Arabic',
 };
 
 const secondTimelineEntry: TimelineEntry = {
   year: '2019',
-  subheading: 'Markfield Universtiy for Islamic Studies',
+  subheading: 'Markfield University for Islamic Studies',
   details:
-    'Completed a BA in Islam and Arabic at Markfield, honing my academic research and arabic skills',
+    'Completed a BA in Islam and Arabic at Markfield, honing my academic research and Arabic skills',
 };
 
 const thirdTimelineEntry: TimelineEntry = {
   year: '2022',
   subheading: 'Primary School',
   details:
-    'Began teaching at Arabic at a private school to children, developing my communication',
+    'Began teaching Arabic to children at a private school, developing my communication',
 };
 
 const fourthTimelineEntry: TimelineEntry = {
   year: '2023',
   subheading: 'As-Suffa Institute',
   details:
-    'Resdident teacher at As-Suffa Institute where I teach Arabi Bayna Yadayk to years 1 and 2 and Usool Hadith to year 4',
+    'Resident teacher at As-Suffa Institute, where I teach Al-Arabiyyah Bayna Yadayk to years 1 and 2 and Usool Hadith to year 4',
 };
 
 export const instructorBlockData: InstructorContent = {
@@ -135,7 +135,7 @@ export const testimonialBlockData: TestimonialsContent = {
 };
 
 export const signUpBlockData: SignUpContent = {
-  title: 'Sign-Up',
+  title: 'Sign Up',
   imageAlt: 'Picture of Madinah Books',
   form: {
     heading: 'Join Our Arabic Course',
