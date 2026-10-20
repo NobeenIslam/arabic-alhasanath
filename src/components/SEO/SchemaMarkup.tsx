@@ -7,7 +7,7 @@ export const SchemaMarkup = () => {
       {
         '@type': 'EducationalOrganization',
         '@id': `${siteConfig.url}/#organization`,
-        name: "Abu's Arabic",
+        name: siteConfig.name,
         url: siteConfig.url,
         logo: {
           '@type': 'ImageObject',
@@ -15,8 +15,7 @@ export const SchemaMarkup = () => {
           width: 112,
           height: 112,
         },
-        description:
-          "Learn Arabic online with Abu's Arabic. Small groups, remote sessions, and courses for all levels.",
+        description: `Learn Arabic online with ${siteConfig.name}. Small groups, remote sessions, and courses for all levels.`,
         sameAs: [
           'https://www.facebook.com/abusarabic',
           'https://www.instagram.com/abusarabic',
@@ -26,7 +25,7 @@ export const SchemaMarkup = () => {
         '@type': 'WebSite',
         '@id': `${siteConfig.url}/#website`,
         url: siteConfig.url,
-        name: "Abu's Arabic",
+        name: siteConfig.name,
         publisher: {
           '@id': `${siteConfig.url}/#organization`,
         },
@@ -35,15 +34,14 @@ export const SchemaMarkup = () => {
         '@type': 'WebPage',
         '@id': `${siteConfig.url}/#webpage`,
         url: siteConfig.url,
-        name: "Abu's Arabic - Learn Arabic Online",
+        name: `${siteConfig.name} - Learn Arabic Online`,
         isPartOf: {
           '@id': `${siteConfig.url}/#website`,
         },
         about: {
           '@id': `${siteConfig.url}/#organization`,
         },
-        description:
-          "Learn Arabic online with Abu's Arabic. Small groups, remote sessions, and courses for all levels.",
+        description: `Learn Arabic online with ${siteConfig.name}. Small groups, remote sessions, and courses for all levels.`,
         mainEntity: [
           {
             '@type': 'Course',

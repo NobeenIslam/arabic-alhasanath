@@ -1,3 +1,4 @@
+import { SITE_NAME } from '@/lib/constants/site.constants';
 import type {
   CourseStructureContent,
   FooterContent,
@@ -50,7 +51,7 @@ export const navigationData: NavigationContent = {
 };
 
 export const heroData: HeroContent = {
-  title: "Abu'sArabic",
+  title: SITE_NAME,
   bulletPoints: [
     'Small groups of 5 or less',
     'Remote',
@@ -155,5 +156,5 @@ export const signUpBlockData: SignUpContent = {
 
 export const footerData: FooterContent = {
   logoLabel: 'Back to the top!',
-  copyright: '© 2024 Al-Arabi Institute. All rights reserved.',
+  copyright: `© ${new Date().getFullYear()} ${SITE_NAME}. All rights reserved.`,
 };

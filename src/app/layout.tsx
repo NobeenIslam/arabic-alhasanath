@@ -16,26 +16,22 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: 'AbusArabic | Learn Arabic Online with Expert Instruction',
-  description:
-    'Master Arabic with AbusArabic. Small online groups, expert instruction for all levels. Start your Arabic journey today with our personalized approach.',
-  keywords:
-    'Arabic lessons, online Arabic course, learn Arabic, Arabic language, AbusArabic',
+  title: `${siteConfig.name} | Learn Arabic Online with Expert Instruction`,
+  description: `Master Arabic with ${siteConfig.name}. Small online groups, expert instruction for all levels. Start your Arabic journey today with our personalized approach.`,
+  keywords: `Arabic lessons, online Arabic course, learn Arabic, Arabic language, ${siteConfig.name}`,
   authors: [{ name: 'Abu Hasanath' }],
   openGraph: {
-    title: 'AbusArabic - Expert Online Arabic Instruction',
-    description:
-      'Join AbusArabic for personalized Arabic lessons. Small groups, all levels welcome. Start your Arabic journey now!',
+    title: `${siteConfig.name} - Expert Online Arabic Instruction`,
+    description: `Join ${siteConfig.name} for personalized Arabic lessons. Small groups, all levels welcome. Start your Arabic journey now!`,
     url: siteConfig.url,
-    siteName: 'AbusArabic',
+    siteName: siteConfig.name,
     locale: 'en_GB',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AbusArabic - Learn Arabic Online',
-    description:
-      'Expert Arabic instruction in small online groups. Join AbusArabic today!',
+    title: `${siteConfig.name} - Learn Arabic Online`,
+    description: `Expert Arabic instruction in small online groups. Join ${siteConfig.name} today!`,
   },
   robots: 'index, follow',
 };
