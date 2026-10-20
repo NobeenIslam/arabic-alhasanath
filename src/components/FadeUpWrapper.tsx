@@ -21,7 +21,9 @@ export const FadeUpWrapper = <T extends React.ElementType = 'div'>({
     <Component
       ref={ref}
       className={`${className} ${
-        isVisible ? 'animate-duration-800 animate-fade-up' : 'opacity-0'
+        isVisible
+          ? 'animate-in duration-800 fade-in slide-in-from-bottom-8'
+          : 'opacity-0'
       } `}
       {...props}
     >

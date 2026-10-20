@@ -12,13 +12,13 @@ export interface SignUpBlockProps {
 const SignUpBlock = ({ title }: SignUpBlockProps) => {
   return (
     <section
-      className="gutter bg-gradient-to-b from-amber-50 to-amber-100"
+      className="gutter bg-linear-to-b from-amber-50 to-amber-100"
       id={componentIds.signUpBlock}
       aria-labelledby="sign-up-title"
     >
       <FadeUpWrapper>
         <h2
-          className="mb-8 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mb-8 text-4xl font-bold md:text-6xl lg:text-7xl sm:text-5xl"
           id="sign-up-title"
         >
           {title}

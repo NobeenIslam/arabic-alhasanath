@@ -15,7 +15,7 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
   const bullets = bulletPoints.map((point, index) => (
     <li
       key={index}
-      className="flex items-center text-xl font-bold text-white sm:text-2xl md:text-3xl"
+      className="flex items-center text-xl font-bold text-white md:text-3xl sm:text-2xl"
     >
       <LuCheck className="mr-2 text-white sm:mr-4" size={24} />
       <span>{point}</span>
@@ -32,22 +32,22 @@ const Hero = ({ title, bulletPoints, buttonText }: HeroProps) => {
       >
         <div className="absolute inset-0 bg-heroGradient" />
         {/* gutter has higher specificity so need the !. Hero wasn't spaced enought with nav */}
-        <div className="gutter relative z-10 flex w-full flex-col items-center justify-between !pt-24 lg:flex-row lg:items-center lg:!pt-[7rem]">
+        <div className="relative z-10 gutter flex w-full flex-col items-center justify-between pt-24! lg:flex-row lg:items-center lg:pt-28!">
           <div className="mb-12 w-full lg:mb-0 lg:w-1/2">
-            <h1 className="mb-8 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:mb-12 lg:text-7xl">
+            <h1 className="mb-8 text-4xl font-bold text-white md:text-6xl lg:mb-12 lg:text-7xl sm:text-5xl">
               {title}
             </h1>
             <ul className="mb-14 space-y-4 sm:space-y-6">{bullets}</ul>
-            <div className="mt-[10px] animate-shake animate-delay-1000 animate-duration-1000 animate-twice">
+            <div className="mt-[10px] animate-shake">
               <Link
                 href={`#${componentIds.signUpBlock}`}
-                className="rounded-full bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-opacity-90 sm:px-12 sm:py-4 sm:text-xl"
+                className="rounded-full bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-blue-600/90 sm:px-12 sm:py-4 sm:text-xl"
               >
                 {buttonText}
               </Link>
             </div>
           </div>
-          <div className="animate-duration-800 animate-fade-up animate-delay-500 md:w-[600px] lg:w-[500px] lg:animate-fade-left xl:w-[600px]">
+          <div className="animate-in delay-500 duration-800 fill-mode-both fade-in slide-in-from-bottom-8 md:w-[600px] lg:w-[500px] lg:slide-in-from-bottom-0 lg:slide-in-from-right-8 xl:w-[600px]">
             <Image
               src={BaynaYadyk}
               alt="Bayna Yadayk Arabic course books, showcasing the comprehensive learning materials"

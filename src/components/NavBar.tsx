@@ -75,7 +75,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
         className={cn(
           'text-lg font-semibold transition-colors duration-300',
           `text-${iconColour}`,
-          'focus:outline-none focus:ring-2 focus:ring-blue-500'
+          'focus:ring-2 focus:ring-blue-500 focus:outline-hidden'
         )}
         onClick={() => isMediumSize && toggleNavMenu()}
       >
@@ -91,7 +91,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
     <nav>
       <div
         className={cn(
-          'gutter-x fixed left-4 right-4 top-4 z-30 rounded-3xl py-2',
+          'fixed top-4 right-4 left-4 z-30 gutter-x rounded-3xl py-2',
           navBarColour,
           'transition-all duration-300'
         )}
@@ -103,7 +103,7 @@ const NavBar = ({ navItems }: NavBarProps) => {
             'transition-all duration-300'
           )}
         >
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <Link href="#hero" aria-label="Go to the top">
               <Image src={OpenBook} alt="" width={50} height={50} />
             </Link>

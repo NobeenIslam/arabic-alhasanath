@@ -33,7 +33,7 @@ const InstructorBlock = ({
     >
       <div className="mx-auto max-w-7xl">
         <h2
-          className="text-specialBlue mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
+          className="text-specialBlue mb-12 text-left text-4xl font-bold md:text-6xl lg:text-7xl sm:text-5xl"
           id="instructor-title"
         >
           {title}
@@ -56,11 +56,11 @@ const InstructorBlock = ({
           <div className="space-y-8 md:relative md:flex md:h-full md:flex-col md:justify-between md:space-y-0 md:pl-8">
             {/* Divider relative and pl-8, are added to parent for the divider*/}
 
-            <div className="absolute bottom-0 left-0 top-0 hidden w-px bg-gray-300 md:block"></div>
+            <div className="absolute top-0 bottom-0 left-0 hidden w-px bg-gray-300 md:block"></div>
 
             {timeline.map((entry, index) => (
               <div key={index} className="flex">
-                <div className="w-24 flex-shrink-0">
+                <div className="w-24 shrink-0">
                   <span className="inline-flex items-center justify-center text-3xl font-semibold text-red-500">
                     {entry.year}
                   </span>

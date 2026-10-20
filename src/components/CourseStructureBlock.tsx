@@ -22,7 +22,7 @@ const CourseStructureBlock = ({
     >
       <FadeUpWrapper className="mx-auto max-w-7xl">
         <h2
-          className="text-specialBlue mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
+          className="text-specialBlue mb-12 text-left text-4xl font-bold md:text-6xl lg:text-7xl sm:text-5xl"
           id="course-structure-title"
         >
           {title}

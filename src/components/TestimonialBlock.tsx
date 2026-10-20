@@ -29,8 +29,8 @@ const TestimonialCard = ({ quote, image, name }: Testimonial) => (
     className="flex h-full flex-col rounded-lg bg-specialCardGrey p-6 shadow-md"
     id={componentIds.testimonialsBlock}
   >
-    {/* flex-grow pushes the name and image to the bottom */}
-    <div className="flex-grow">
+    {/* grow pushes the name and image to the bottom */}
+    <div className="grow">
       <BsChatLeftQuote className="mb-4 text-3xl text-red-600" />
       <p className="mb-4 text-gray-700">{quote}</p>
     </div>
@@ -77,7 +77,7 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
       aria-labelledby="testimonials-title"
     >
       <h2
-        className="mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
+        className="mb-12 text-left text-4xl font-bold md:text-6xl lg:text-7xl sm:text-5xl"
         id="testimonials-title"
       >
         {title}
