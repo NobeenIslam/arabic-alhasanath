@@ -1,6 +1,4 @@
-'use client';
-
-import Script from 'next/script';
+import { siteConfig } from '@/lib/site-config';
 
 export const SchemaMarkup = () => {
   const schema = {
@@ -8,12 +6,12 @@ export const SchemaMarkup = () => {
     '@graph': [
       {
         '@type': 'EducationalOrganization',
-        '@id': 'https://abusarabic.com/#organization',
+        '@id': `${siteConfig.url}/#organization`,
         name: "Abu's Arabic",
-        url: 'https://abusarabic.com',
+        url: siteConfig.url,
         logo: {
           '@type': 'ImageObject',
-          url: 'https://abusarabic.com/open-book.svg',
+          url: `${siteConfig.url}/open-book.svg`,
           width: 112,
           height: 112,
         },
@@ -26,23 +24,23 @@ export const SchemaMarkup = () => {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://abusarabic.com/#website',
-        url: 'https://abusarabic.com',
+        '@id': `${siteConfig.url}/#website`,
+        url: siteConfig.url,
         name: "Abu's Arabic",
         publisher: {
-          '@id': 'https://abusarabic.com/#organization',
+          '@id': `${siteConfig.url}/#organization`,
         },
       },
       {
         '@type': 'WebPage',
-        '@id': 'https://abusarabic.com/#webpage',
-        url: 'https://abusarabic.com',
+        '@id': `${siteConfig.url}/#webpage`,
+        url: siteConfig.url,
         name: "Abu's Arabic - Learn Arabic Online",
         isPartOf: {
-          '@id': 'https://abusarabic.com/#website',
+          '@id': `${siteConfig.url}/#website`,
         },
         about: {
-          '@id': 'https://abusarabic.com/#organization',
+          '@id': `${siteConfig.url}/#organization`,
         },
         description:
           "Learn Arabic online with Abu's Arabic. Small groups, remote sessions, and courses for all levels.",
@@ -53,7 +51,7 @@ export const SchemaMarkup = () => {
             description:
               'Learn Arabic online with small groups of 5, 12.5 hours per month. Flexible start dates available.',
             provider: {
-              '@id': 'https://abusarabic.com/#organization',
+              '@id': `${siteConfig.url}/#organization`,
             },
             offers: {
               '@type': 'Offer',
@@ -77,7 +75,7 @@ export const SchemaMarkup = () => {
             description:
               'Learn Arabic online with enhanced features and more personalized attention. Flexible start dates available.',
             provider: {
-              '@id': 'https://abusarabic.com/#organization',
+              '@id': `${siteConfig.url}/#organization`,
             },
             offers: {
               '@type': 'Offer',
@@ -101,7 +99,7 @@ export const SchemaMarkup = () => {
             description:
               'Learn Arabic online with personal 1-on-1 tuition, 25 hours per month. Flexible start dates available.',
             provider: {
-              '@id': 'https://abusarabic.com/#organization',
+              '@id': `${siteConfig.url}/#organization`,
             },
             offers: {
               '@type': 'Offer',
@@ -125,10 +123,11 @@ export const SchemaMarkup = () => {
   };
 
   return (
-    <Script id="schema-markup" type="application/ld+json">
-      {JSON.stringify(schema)}
-    </Script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(schema).replace(/</g, '\\u003c'),
+      }}
+    />
   );
 };
-
-export default SchemaMarkup;

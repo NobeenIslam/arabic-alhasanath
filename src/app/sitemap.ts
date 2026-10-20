@@ -1,12 +1,13 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/site-config';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://abusarabic.com',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ];
-}
+const sitemap = (): MetadataRoute.Sitemap => [
+  {
+    url: siteConfig.url,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 1,
+  },
+];
+
+export default sitemap;

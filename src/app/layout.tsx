@@ -2,15 +2,12 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { SchemaMarkup } from '@/components/SEO/SchemaMarkup';
+import { siteConfig } from '@/lib/site-config';
 import { Toaster } from '@/components/ui/sonner';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { ConsentProvider } from '@/providers/ConsentProvider';
 import { PostHogProvider } from '@/providers/PosthogProvider';
 import { ReactQueryProvider } from '@/providers/ReactQueryProvider';
-
-if (typeof window === 'undefined') {
-  import('@/lib/env');
-}
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -18,7 +15,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://abusarabic.com'), // Did this to get rid of the warning about the URL not being set.
+  metadataBase: new URL(siteConfig.url),
   title: 'AbusArabic | Learn Arabic Online with Expert Instruction',
   description:
     'Master Arabic with AbusArabic. Small online groups, expert instruction for all levels. Start your Arabic journey today with our personalized approach.',
@@ -29,7 +26,7 @@ export const metadata: Metadata = {
     title: 'AbusArabic - Expert Online Arabic Instruction',
     description:
       'Join AbusArabic for personalized Arabic lessons. Small groups, all levels welcome. Start your Arabic journey now!',
-    url: 'https://abusarabic.com',
+    url: siteConfig.url,
     siteName: 'AbusArabic',
     locale: 'en_GB',
     type: 'website',
@@ -41,9 +38,6 @@ export const metadata: Metadata = {
       'Expert Arabic instruction in small online groups. Join AbusArabic today!',
   },
   robots: 'index, follow',
-  icons: {
-    icon: '/icon', // Next does generate the tag automatically from the icon.tsx file. But this explicitly sets the icon. (link rel="icon" href="/icon")
-  },
 };
 
 export default function RootLayout({
@@ -54,7 +48,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={montserrat.className}>
-        {/* Skip to main content for accessibility  */}
         <a href="#main-content" className="sr-only focus:not-sr-only">
           Skip to main content
         </a>
