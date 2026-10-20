@@ -6,6 +6,14 @@ import { Footer } from '@/components/Footer';
 import { navBarData, footerData } from './Data';
 import { SchemaMarkup } from '@/components/SEO/SchemaMarkup';
 import { Toaster } from '@/components/ui/sonner';
+import { CookieBanner } from '@/components/layout/CookieBanner';
+import { ConsentProvider } from '@/providers/ConsentProvider';
+import { PostHogProvider } from '@/providers/PosthogProvider';
+import { ReactQueryProvider } from '@/providers/ReactQueryProvider';
+
+if (typeof window === 'undefined') {
+  import('@/lib/env');
+}
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -54,10 +62,17 @@ export default function RootLayout({
           Skip to main content
         </a>
         <SchemaMarkup />
-        <NavBar {...navBarData} />
-        <main id="main-content">{children}</main>
-        <Toaster />
-        <Footer {...footerData} />
+        <ConsentProvider>
+          <PostHogProvider>
+            <ReactQueryProvider>
+              <NavBar {...navBarData} />
+              <main id="main-content">{children}</main>
+              <Toaster />
+              <Footer {...footerData} />
+              <CookieBanner />
+            </ReactQueryProvider>
+          </PostHogProvider>
+        </ConsentProvider>
       </body>
     </html>
   );
