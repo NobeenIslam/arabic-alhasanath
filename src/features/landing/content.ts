@@ -109,21 +109,21 @@ export const courseStructureBlockData: CourseStructureContent = {
 const asifsTestimony: Testimonial = {
   quote:
     "Ustaaz Abu Hasanath's lessons are very interactive and enjoyable. I've been pleasantly surprised at the improvement in the group. Long may it continue.",
-  image: '/silhouette.jpeg', // Replace with actual path
+  image: '/silhouette.jpeg',
   name: 'Asif Khan',
 };
 
 const harunsTestimony: Testimonial = {
   quote:
     'The arabic course is well structured, balancing vocabulary, reading, written and conversational skills. My arabic has improved massively as well as helped me with my islamic studies. This course has opened up new opportunities for personal and professional growth, and I highly recommend it to anyone interested in learning Arabic.',
-  image: '/silhouette.jpeg', // Replace with actual path
+  image: '/silhouette.jpeg',
   name: 'Harun Ali',
 };
 
 const nobeensTestimony: Testimonial = {
   quote:
     "I've taken online Arabic lessons before but never made real progress until now. Ustaadh's focus on conversation and varied vocabulary use, along with his experience with the Bayna Yadayk series, has rapidly improved my skills. I'm amazed at my progress in such a short time.",
-  image: '/silhouette.jpeg', // Replace with actual path
+  image: '/silhouette.jpeg',
   name: 'Nobeen Islam',
 };
 
