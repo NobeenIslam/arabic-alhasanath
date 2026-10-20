@@ -124,9 +124,9 @@
 }
 
 @theme {
-  --breakpoint-md: 960px;
-  --breakpoint-lg: 1120px;
-  --breakpoint-xl: 1512px;
+  --breakpoint-md: 60rem;
+  --breakpoint-lg: 70rem;
+  --breakpoint-xl: 94.5rem;
 
   --color-heroGradient: rgba(168, 208, 255, 0.63);
   --color-specialCardGrey: #fcfcff;
