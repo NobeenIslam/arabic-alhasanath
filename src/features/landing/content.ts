@@ -1,7 +1,7 @@
-import type { NavBarProps } from '@/components/NavBar';
-import type { FooterProps } from '@/components/Footer';
 import type {
   CourseStructureContent,
+  FooterContent,
+  NavigationContent,
   HeroContent,
   InstructorContent,
   SignUpContent,
@@ -18,32 +18,33 @@ export const componentIds = {
   signUpBlock: 'sign-up-block',
 };
 
-export const navBarData: NavBarProps = {
-  navItems: [
+export const navigationData: NavigationContent = {
+  logoLabel: 'Go to the top',
+  links: [
     {
-      title: 'Home',
-      anchorReference: componentIds.hero,
-      subtitle: 'Back to the top',
+      name: 'Home',
+      href: `#${componentIds.hero}`,
+      description: 'Back to the top',
     },
     {
-      title: 'Instructor',
-      anchorReference: componentIds.instructorBlock,
-      subtitle: 'Meet our instructor Ustaadh Abu Hasanath',
+      name: 'Instructor',
+      href: `#${componentIds.instructorBlock}`,
+      description: 'Meet our instructor Ustaadh Abu Hasanath',
     },
     {
-      title: 'Course Structure',
-      anchorReference: componentIds.courseStructureBlock,
-      subtitle: 'Learn about our course structure',
+      name: 'Course Structure',
+      href: `#${componentIds.courseStructureBlock}`,
+      description: 'Learn about our course structure',
     },
     {
-      title: 'Testimonials',
-      anchorReference: componentIds.testimonialsBlock,
-      subtitle: 'See what our students say',
+      name: 'Testimonials',
+      href: `#${componentIds.testimonialsBlock}`,
+      description: 'See what our students say',
     },
     {
-      title: 'Sign Up',
-      anchorReference: componentIds.signUpBlock,
-      subtitle: 'Take the first step of your journey now!',
+      name: 'Sign Up',
+      href: `#${componentIds.signUpBlock}`,
+      description: 'Take the first step of your journey now!',
     },
   ],
 };
@@ -151,6 +152,7 @@ export const signUpBlockData: SignUpContent = {
   },
 };
 
-export const footerData: FooterProps = {
-  text: '© 2024 Al-Arabi Institute. All rights reserved.',
+export const footerData: FooterContent = {
+  logoLabel: 'Back to the top!',
+  copyright: '© 2024 Al-Arabi Institute. All rights reserved.',
 };

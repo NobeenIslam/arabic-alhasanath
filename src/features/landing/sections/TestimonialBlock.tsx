@@ -70,7 +70,7 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialsContent) => {
       aria-labelledby="testimonials-title"
     >
       <h2
-        className="mb-12 text-left text-4xl font-bold md:text-6xl lg:text-7xl sm:text-5xl"
+        className="mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
         id="testimonials-title"
       >
         {title}

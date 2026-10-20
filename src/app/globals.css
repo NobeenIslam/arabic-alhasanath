@@ -156,11 +156,11 @@
 }
 
 @utility gutter {
-  @apply mx-auto p-16 lg:p-24 xl:p-28 sm:p-20;
+  @apply mx-auto p-16 sm:p-20 lg:p-24 xl:p-28;
 }
 
 @utility gutter-x {
-  @apply mx-auto px-16 lg:px-24 xl:px-28 sm:px-20;
+  @apply mx-auto px-16 sm:px-20 lg:px-24 xl:px-28;
 }
 
 @layer components {

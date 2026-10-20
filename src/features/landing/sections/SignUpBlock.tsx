@@ -16,7 +16,7 @@ const SignUpBlock = ({ title, imageAlt, form }: SignUpContent) => {
     >
       <FadeUpWrapper>
         <h2
-          className="mb-8 text-4xl font-bold md:text-6xl lg:text-7xl sm:text-5xl"
+          className="mb-8 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
           id="sign-up-title"
         >
           {title}

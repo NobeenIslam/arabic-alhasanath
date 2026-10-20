@@ -1,3 +1,5 @@
+import type { NavLink } from '@/components/layout/Navigation';
+
 export type TimelineEntry = {
   year: string;
   subheading: string;
@@ -51,4 +53,14 @@ export type SignUpContent = {
   title: string;
   imageAlt: string;
   form: ContactFormContent;
+};
+
+export type NavigationContent = {
+  logoLabel: string;
+  links: NavLink[];
+};
+
+export type FooterContent = {
+  logoLabel: string;
+  copyright: string;
 };
