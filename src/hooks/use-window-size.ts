@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { breakpoints } from "@/utilities/breakpoints";
+import { useEffect, useState } from 'react';
+import { breakpoints } from '@/utilities/breakpoints';
 
 export const useWindowSize = () => {
   const [isMediumSize, setIsMediumSize] = useState(false);
@@ -12,9 +12,9 @@ export const useWindowSize = () => {
 
     checkSize();
 
-    window.addEventListener("resize", checkSize);
+    window.addEventListener('resize', checkSize);
 
-    return () => window.removeEventListener("resize", checkSize);
+    return () => window.removeEventListener('resize', checkSize);
   }, []);
 
   return isMediumSize;

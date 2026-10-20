@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Hasanath from "@/assets/hasnath.png";
-import { componentIds } from "@/app/Data";
-import { FadeUpWrapper } from "@/components/FadeUpWrapper";
+import Image from 'next/image';
+import Hasanath from '@/assets/hasnath.png';
+import { componentIds } from '@/app/Data';
+import { FadeUpWrapper } from '@/components/FadeUpWrapper';
 
 export type TimelineComponent = {
   year: string;
@@ -27,46 +27,46 @@ const InstructorBlock = ({
   return (
     <FadeUpWrapper
       as="section"
-      className=" gutter"
+      className="gutter"
       id={componentIds.instructorBlock}
       aria-labelledby="instructor-title"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         <h2
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12 text-specialBlue"
+          className="text-specialBlue mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
           id="instructor-title"
         >
           {title}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2">
           <div className="flex flex-col items-center">
-            <div className="mb-4 relative max-h-[500px] max-w-[500px]">
+            <div className="relative mb-4 max-h-[500px] max-w-[500px]">
               <Image
                 src={Hasanath}
                 alt={imageCaption}
                 className="rounded-[10%]"
               />
             </div>
-            <p className="text-xl font-semibold text-blue-800 ">
+            <p className="text-xl font-semibold text-blue-800">
               {imageCaption}
             </p>
             {/* Divider */}
-            <div className="w-full h-px bg-gray-300 mt-8 md:hidden"></div>
+            <div className="mt-8 h-px w-full bg-gray-300 md:hidden"></div>
           </div>
-          <div className="space-y-8 md:space-y-0 md:flex md:flex-col md:justify-between md:h-full md:relative md:pl-8">
+          <div className="space-y-8 md:relative md:flex md:h-full md:flex-col md:justify-between md:space-y-0 md:pl-8">
             {/* Divider relative and pl-8, are added to parent for the divider*/}
 
-            <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-gray-300"></div>
+            <div className="absolute bottom-0 left-0 top-0 hidden w-px bg-gray-300 md:block"></div>
 
             {timeline.map((entry, index) => (
               <div key={index} className="flex">
-                <div className="flex-shrink-0 w-24">
-                  <span className="inline-flex items-center justify-center text-3xl text-red-500 font-semibold">
+                <div className="w-24 flex-shrink-0">
+                  <span className="inline-flex items-center justify-center text-3xl font-semibold text-red-500">
                     {entry.year}
                   </span>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold text-blue-800 ">
+                  <h3 className="text-lg font-semibold text-blue-800">
                     {entry.subheading}
                   </h3>
                   <p className="mt-1 text-gray-600">{entry.details}</p>

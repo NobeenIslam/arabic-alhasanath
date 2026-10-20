@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { LuMenu, LuX } from "react-icons/lu";
-import OpenBook from "@/assets/open-book.svg";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useWindowSize } from "@/hooks/use-window-size";
-import { cn } from "@/lib/utils";
+import { LuMenu, LuX } from 'react-icons/lu';
+import OpenBook from '@/assets/open-book.svg';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useWindowSize } from '@/hooks/use-window-size';
+import { cn } from '@/lib/utils';
 
 export type NavItem = {
   title: string;
@@ -31,10 +31,10 @@ const NavBar = ({ navItems }: NavBarProps) => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -43,21 +43,21 @@ const NavBar = ({ navItems }: NavBarProps) => {
   };
 
   const iconColour =
-    isScrolled || (isMediumSize && isNavMenuOpen) ? "black" : "white";
+    isScrolled || (isMediumSize && isNavMenuOpen) ? 'black' : 'white';
 
   const navBarColour =
     isScrolled || (isMediumSize && isNavMenuOpen)
-      ? "bg-gray-100 opacity-90 backdrop-blur-md shadow-md"
-      : "bg-transparent";
+      ? 'bg-gray-100 opacity-90 backdrop-blur-md shadow-md'
+      : 'bg-transparent';
 
   const NavMenuButton = () => (
     <button
       className={cn(
-        "p-2 rounded-full transition-colors duration-200",
-        iconColour === "white" ? "hover:bg-white/20" : "hover:bg-gray-200"
+        'rounded-full p-2 transition-colors duration-200',
+        iconColour === 'white' ? 'hover:bg-white/20' : 'hover:bg-gray-200'
       )}
       onClick={toggleNavMenu}
-      aria-label={isNavMenuOpen ? "Close menu" : "Open menu"}
+      aria-label={isNavMenuOpen ? 'Close menu' : 'Open menu'}
     >
       {isNavMenuOpen ? (
         <LuX className="h-6 w-6" color={iconColour} />
@@ -68,20 +68,20 @@ const NavBar = ({ navItems }: NavBarProps) => {
   );
 
   const navContent = navItems.map((navItem, index) => (
-    <div key={index} className={cn(isMediumSize && "py-2 first:pt-4")}>
+    <div key={index} className={cn(isMediumSize && 'py-2 first:pt-4')}>
       <Link
         href={`#${navItem.anchorReference}`}
         className={cn(
-          "text-lg font-semibold transition-colors duration-300",
+          'text-lg font-semibold transition-colors duration-300',
           `text-${iconColour}`,
-          "focus:outline-none focus:ring-2 focus:ring-blue-500"
+          'focus:outline-none focus:ring-2 focus:ring-blue-500'
         )}
         onClick={() => isMediumSize && toggleNavMenu()}
       >
         {navItem.title}
       </Link>
       {isMediumSize && navItem.subtitle && (
-        <p className="text-sm text-gray-600 mt-1">{navItem.subtitle}</p>
+        <p className="mt-1 text-sm text-gray-600">{navItem.subtitle}</p>
       )}
     </div>
   ));
@@ -90,21 +90,21 @@ const NavBar = ({ navItems }: NavBarProps) => {
     <nav>
       <div
         className={cn(
-          "gutter-x fixed top-4 left-4 right-4 z-30 rounded-3xl py-2",
+          'gutter-x fixed left-4 right-4 top-4 z-30 rounded-3xl py-2',
           navBarColour,
-          "transition-all duration-300"
+          'transition-all duration-300'
         )}
       >
         <div
           className={cn(
-            "grid grid-cols-[auto_1fr_auto] items-center",
-            isMediumSize && isNavMenuOpen && "grid-rows-[auto_auto]",
-            "transition-all duration-300"
+            'grid grid-cols-[auto_1fr_auto] items-center',
+            isMediumSize && isNavMenuOpen && 'grid-rows-[auto_auto]',
+            'transition-all duration-300'
           )}
         >
           <div className="flex-shrink-0">
             <Link href="#hero" aria-label="Go to the top">
-              <OpenBook className={cn("w-[50px] h-[50px]", iconColour)} />
+              <OpenBook className={cn('h-[50px] w-[50px]', iconColour)} />
             </Link>
           </div>
 
@@ -113,14 +113,14 @@ const NavBar = ({ navItems }: NavBarProps) => {
               <NavMenuButton aria-label="Toggle navigation menu" />
             </div>
           ) : (
-            <div className="flex justify-self-end space-x-8">{navContent}</div>
+            <div className="flex space-x-8 justify-self-end">{navContent}</div>
           )}
 
           {isMediumSize && (
             <div
               className={cn(
-                "col-span-3 overflow-hidden transition-all duration-300",
-                isNavMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+                'col-span-3 overflow-hidden transition-all duration-300',
+                isNavMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
               )}
             >
               {navContent}

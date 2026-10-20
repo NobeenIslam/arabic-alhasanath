@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Script from "next/script";
-import React from "react";
-import { componentIds } from "@/app/Data";
-import { FadeUpWrapper } from "@/components/FadeUpWrapper";
+import Script from 'next/script';
+import React from 'react';
+import { componentIds } from '@/app/Data';
+import { FadeUpWrapper } from '@/components/FadeUpWrapper';
 
 export interface CourseStructureBlockProps {
   title: string;
@@ -16,38 +16,38 @@ const CourseStructureBlock = ({
 }: CourseStructureBlockProps) => {
   return (
     <section
-      className="bg-specialBackgroundGreen gutter"
+      className="gutter bg-specialBackgroundGreen"
       id={componentIds.courseStructureBlock}
       aria-labelledby="course-structure-title"
     >
-      <FadeUpWrapper className="max-w-7xl mx-auto">
+      <FadeUpWrapper className="mx-auto max-w-7xl">
         <h2
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12 text-specialBlue"
+          className="text-specialBlue mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
           id="course-structure-title"
         >
           {title}
         </h2>
         <div
           className="wistia_responsive_padding"
-          style={{ padding: "50.0% 0 0 0", position: "relative" }}
+          style={{ padding: '50.0% 0 0 0', position: 'relative' }}
         >
           <div
             className="wistia_responsive_wrapper"
             style={{
-              height: "100%",
+              height: '100%',
               left: 0,
-              position: "absolute",
+              position: 'absolute',
               top: 0,
-              width: "100%",
+              width: '100%',
             }}
           >
             <span
               className={`wistia_embed wistia_async_${wistiaVideoId} popover=true videoFoam=true`}
               style={{
-                display: "inline-block",
-                height: "100%",
-                position: "relative",
-                width: "100%",
+                display: 'inline-block',
+                height: '100%',
+                position: 'relative',
+                width: '100%',
               }}
             >
               &nbsp;

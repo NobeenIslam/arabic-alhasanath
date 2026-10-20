@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import Slider from "react-slick";
-import { BsChatLeftQuote } from "react-icons/bs";
-import { componentIds } from "@/app/Data";
+import React from 'react';
+import Image from 'next/image';
+import Slider from 'react-slick';
+import { BsChatLeftQuote } from 'react-icons/bs';
+import { componentIds } from '@/app/Data';
 
 // Import slick carousel styles
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FadeUpWrapper } from "@/components/FadeUpWrapper";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { FadeUpWrapper } from '@/components/FadeUpWrapper';
 
 type Testimonial = {
   quote: string;
@@ -26,17 +26,17 @@ export interface TestimonialBlockProps {
 
 const TestimonialCard = ({ quote, image, name }: Testimonial) => (
   <div
-    className="bg-specialCardGrey p-6 rounded-lg shadow-md flex flex-col  h-full"
+    className="flex h-full flex-col rounded-lg bg-specialCardGrey p-6 shadow-md"
     id={componentIds.testimonialsBlock}
   >
     {/* flex-grow pushes the name and image to the bottom */}
     <div className="flex-grow">
-      <BsChatLeftQuote className="text-red-600 text-3xl mb-4" />
-      <p className="text-gray-700 mb-4">{quote}</p>
+      <BsChatLeftQuote className="mb-4 text-3xl text-red-600" />
+      <p className="mb-4 text-gray-700">{quote}</p>
     </div>
 
     <div className="flex items-center">
-      <div className=" w-12 h-12 rounded-full mr-4 overflow-hidden ">
+      <div className="mr-4 h-12 w-12 overflow-hidden rounded-full">
         <Image src={image} alt={name} width={50} height={50} />
       </div>
 
@@ -77,7 +77,7 @@ const TestimonialBlock = ({ title, testimonials }: TestimonialBlockProps) => {
       aria-labelledby="testimonials-title"
     >
       <h2
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-left mb-12"
+        className="mb-12 text-left text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
         id="testimonials-title"
       >
         {title}

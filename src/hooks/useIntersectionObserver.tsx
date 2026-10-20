@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, RefObject } from "react";
+import { useState, useEffect, useRef, RefObject } from 'react';
 
 interface UseIntersectionObserverProps {
   threshold?: number;
@@ -9,7 +9,7 @@ interface UseIntersectionObserverProps {
 export const useIntersectionObserver = ({
   threshold = 0.1,
   root = null,
-  rootMargin = "0px",
+  rootMargin = '0px',
 }: UseIntersectionObserverProps = {}): [boolean, RefObject<HTMLDivElement>] => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
