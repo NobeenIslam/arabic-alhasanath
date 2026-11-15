@@ -85,6 +85,8 @@ export const Hero = ({
         </a>
         <a
           href={secondaryCta.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="tap-target text-[17px] font-semibold underline underline-offset-5"
         >
           {secondaryCta.name}

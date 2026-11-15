@@ -16,7 +16,6 @@ import {
   sectionIds,
   teacherData,
 } from '@/features/landing/content';
-import { CALENDLY_URL } from '@/lib/constants/contact.constants';
 
 export const LandingPage = () => (
   <SiteShell>
@@ -28,9 +27,7 @@ export const LandingPage = () => (
     <Reviews id={sectionIds.reviews} {...reviewsData} />
     <GetStarted
       id={sectionIds.start}
-      bookingId={sectionIds.book}
       registerId={sectionIds.register}
-      calendlyUrl={CALENDLY_URL}
       {...getStartedData}
     />
   </SiteShell>

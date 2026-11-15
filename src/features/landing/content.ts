@@ -23,12 +23,11 @@ export const sectionIds = {
   teacher: 'teacher',
   reviews: 'reviews',
   start: 'start',
-  book: 'book',
   register: 'register',
 } as const;
 
-const bookCallCta = {
-  name: 'Book a free intro call',
+const registerCta = {
+  name: 'Register your interest',
   href: homeSection(sectionIds.start),
 };
 
@@ -45,7 +44,7 @@ export const navigationData: NavigationContent = {
     { name: 'Teacher', href: homeSection(sectionIds.teacher) },
     { name: 'Reviews', href: homeSection(sectionIds.reviews) },
   ],
-  cta: bookCallCta,
+  cta: registerCta,
 };
 
 const heroVerse: Verse = {
@@ -58,10 +57,10 @@ export const heroData: HeroContent = {
   title: 'From first letters to fluent speech.',
   intro:
     "Private online Arabic lessons with Ustādh Abu Hasnath. For complete beginners, Dars-i-Nizami students and graduates, and anyone who can read Arabic but still can't speak it.",
-  primaryCta: bookCallCta,
+  primaryCta: registerCta,
   secondaryCta: {
-    name: 'Or register your interest',
-    href: homeSection(sectionIds.register),
+    name: 'Or message on WhatsApp',
+    href: WHATSAPP_URL,
   },
   highlights: [
     'Online',
@@ -194,18 +193,10 @@ export const levelOptions = [
 
 export const getStartedData: GetStartedContent = {
   eyebrow: 'Get started',
-  title: 'Two ways to begin',
+  title: 'Register your interest',
   intro:
-    'Book a free call to talk it through, or leave your details and Ustādh Abu Hasnath will get back to you.',
-  booking: {
-    title: 'Book a free 15-minute intro call',
-    intro:
-      "Tell him your level and what you want to learn, and work out together whether 1-on-1 or a group suits you. There's nothing to commit to.",
-  },
+    'Leave your details and Ustādh Abu Hasnath will call or message you to work out which lessons suit you.',
   form: {
-    title: 'Or register your interest',
-    intro:
-      'Leave your details and Ustādh Abu Hasnath will call or message you to work out which lessons suit you.',
     nameLabel: 'Full name',
     phoneLabel: 'Phone number',
     emailLabel: 'Email address',
