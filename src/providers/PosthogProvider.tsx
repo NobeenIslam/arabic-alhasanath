@@ -4,6 +4,7 @@ import posthog from 'posthog-js';
 import { PostHogProvider as PHProvider } from '@posthog/react';
 import { useEffect, useRef } from 'react';
 import { useConsent } from '@/providers/ConsentProvider';
+import { POSTHOG_KEY } from '@/lib/constants/analytics.constants';
 
 export const PostHogProvider = ({
   children,
@@ -15,12 +16,12 @@ export const PostHogProvider = ({
   const isInitialized = useRef(false);
 
   useEffect(() => {
-    if (!isProduction) {
+    if (!isProduction || !POSTHOG_KEY) {
       return;
     }
 
     if (!isInitialized.current) {
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+      posthog.init(POSTHOG_KEY, {
         api_host: '/ph',
         defaults: '2025-11-30',
         persistence: 'memory',

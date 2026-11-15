@@ -20,9 +20,9 @@ Open [http://localhost:3100](http://localhost:3100).
 
 ## Environment Variables
 
-All variables are required and validated at startup by `src/lib/env.ts`.
+`src/lib/env.ts` validates these at startup. All are required except the PostHog key.
 
-- `NEXT_PUBLIC_POSTHOG_KEY`: PostHog project key for analytics.
+- `NEXT_PUBLIC_POSTHOG_KEY`: PostHog project key for analytics. Leave it empty to turn analytics and the cookie banner off.
 - `RESEND_API_KEY`: Resend API key for registration emails.
 - `RESEND_FROM_EMAIL`: Sender address. Must be on a domain verified in Resend.
 - `BOOKING_EMAIL_RECIPIENT`: Address that receives new registrations of interest.

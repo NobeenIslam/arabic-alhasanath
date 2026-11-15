@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useConsent } from '@/providers/ConsentProvider';
+import { POSTHOG_KEY } from '@/lib/constants/analytics.constants';
 
 type CookieBannerProps = {
   title?: string;
@@ -21,7 +22,7 @@ const CookieBanner = ({
   const { consentStatus, acceptConsent, declineConsent, isLoading } =
     useConsent();
 
-  if (isLoading) {
+  if (!POSTHOG_KEY || isLoading) {
     return null;
   }
 

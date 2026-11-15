@@ -3,9 +3,7 @@ import 'dotenv/config';
 
 const envSchema = z.object({
   RESEND_API_KEY: z.string().min(1, 'RESEND_API_KEY is required'),
-  NEXT_PUBLIC_POSTHOG_KEY: z
-    .string()
-    .min(1, 'NEXT_PUBLIC_POSTHOG_KEY is required'),
+  NEXT_PUBLIC_POSTHOG_KEY: z.string().optional(),
   BOOKING_EMAIL_RECIPIENT: z.email(
     'BOOKING_EMAIL_RECIPIENT must be a valid email address'
   ),
