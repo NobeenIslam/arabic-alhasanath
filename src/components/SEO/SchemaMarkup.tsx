@@ -2,6 +2,8 @@ import { siteConfig } from '@/lib/site-config';
 
 export const SchemaMarkup = () => {
   const priceValidUntil = `${new Date().getFullYear()}-12-31`;
+  const description =
+    'Private online Arabic tuition with Ustādh Abu Hasnath for beginners, Dars-i-Nizami students and graduates. 1-on-1 at £25/hr or small groups from £8/hr.';
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -10,17 +12,15 @@ export const SchemaMarkup = () => {
         '@id': `${siteConfig.url}/#organization`,
         name: siteConfig.name,
         url: siteConfig.url,
-        logo: {
-          '@type': 'ImageObject',
-          url: `${siteConfig.url}/open-book.svg`,
-          width: 112,
-          height: 112,
-        },
-        description: `Learn Arabic online with ${siteConfig.name}. Small groups, remote sessions, and courses for all levels.`,
-        sameAs: [
-          'https://www.facebook.com/abusarabic',
-          'https://www.instagram.com/abusarabic',
-        ],
+        description,
+        founder: { '@id': `${siteConfig.url}/#teacher` },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${siteConfig.url}/#teacher`,
+        name: 'Ustādh Abu Hasnath',
+        jobTitle: 'Arabic teacher',
+        worksFor: { '@id': `${siteConfig.url}/#organization` },
       },
       {
         '@type': 'WebSite',
@@ -35,85 +35,66 @@ export const SchemaMarkup = () => {
         '@type': 'WebPage',
         '@id': `${siteConfig.url}/#webpage`,
         url: siteConfig.url,
-        name: `${siteConfig.name} - Learn Arabic Online`,
+        name: `${siteConfig.name} | Online Arabic Tuition with Ustādh Abu Hasnath`,
         isPartOf: {
           '@id': `${siteConfig.url}/#website`,
         },
         about: {
           '@id': `${siteConfig.url}/#organization`,
         },
-        description: `Learn Arabic online with ${siteConfig.name}. Small groups, remote sessions, and courses for all levels.`,
+        description,
         mainEntity: [
           {
             '@type': 'Course',
-            name: 'Online Arabic Language Course - Bronze Plan',
+            name: '1-on-1 online Arabic lessons',
             description:
-              'Learn Arabic online with small groups of 5, 12.5 hours per month. Flexible start dates available.',
+              'Private online Arabic lessons with Ustādh Abu Hasnath, planned around your goals. Lessons run for an hour or more at weekends.',
             provider: {
               '@id': `${siteConfig.url}/#organization`,
             },
             offers: {
               '@type': 'Offer',
-              category: 'Arabic Language Course',
-              price: '100',
+              category: 'Paid',
+              price: '25',
               priceCurrency: 'GBP',
               availability: 'https://schema.org/InStock',
               priceValidUntil,
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: '25',
+                priceCurrency: 'GBP',
+                unitCode: 'HUR',
+              },
             },
             hasCourseInstance: {
               '@type': 'CourseInstance',
-              courseWorkload: '12.5 hours per month',
               courseMode: 'online',
-              duration: 'P1Y',
-              startDate: '2024-01-01',
+              courseWorkload: 'PT1H',
+              instructor: { '@id': `${siteConfig.url}/#teacher` },
             },
           },
           {
             '@type': 'Course',
-            name: 'Online Arabic Language Course - Silver Plan',
+            name: 'Small-group online Arabic lessons',
             description:
-              'Learn Arabic online with enhanced features and more personalized attention. Flexible start dates available.',
+              'Online Arabic lessons in groups of 3 to 5 students at your level, with Ustādh Abu Hasnath. From £8 per person, per hour.',
             provider: {
               '@id': `${siteConfig.url}/#organization`,
             },
             offers: {
-              '@type': 'Offer',
-              category: 'Arabic Language Course',
-              price: '150',
+              '@type': 'AggregateOffer',
+              category: 'Paid',
+              lowPrice: '8',
+              highPrice: '10',
               priceCurrency: 'GBP',
+              offerCount: 3,
               availability: 'https://schema.org/InStock',
-              priceValidUntil,
             },
             hasCourseInstance: {
               '@type': 'CourseInstance',
-              courseWorkload: '12.5 hours per month',
               courseMode: 'online',
-              duration: 'P1Y',
-              startDate: '2024-01-01',
-            },
-          },
-          {
-            '@type': 'Course',
-            name: 'Online Arabic Language Course - Gold Plan',
-            description:
-              'Learn Arabic online with personal 1-on-1 tuition, 25 hours per month. Flexible start dates available.',
-            provider: {
-              '@id': `${siteConfig.url}/#organization`,
-            },
-            offers: {
-              '@type': 'Offer',
-              category: 'Arabic Language Course',
-              price: '200',
-              priceCurrency: 'GBP',
-              availability: 'https://schema.org/InStock',
-              priceValidUntil,
-            },
-            hasCourseInstance: {
-              '@type': 'CourseInstance',
-              courseWorkload: '12.5 hours per month',
-              courseMode: 'online',
-              duration: 'P1Y',
-              startDate: '2024-01-01',
+              courseWorkload: 'PT1H',
+              instructor: { '@id': `${siteConfig.url}/#teacher` },
             },
           },
         ],
