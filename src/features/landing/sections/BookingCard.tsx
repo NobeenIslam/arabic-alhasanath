@@ -24,7 +24,7 @@ export const BookingCard = ({
     </div>
     <div
       className="calendly-inline-widget h-[700px] w-full"
-      data-url={calendlyUrl}
+      data-url={`${calendlyUrl}?hide_event_type_details=1`}
     />
     <Script
       src="https://assets.calendly.com/assets/external/widget.js"
