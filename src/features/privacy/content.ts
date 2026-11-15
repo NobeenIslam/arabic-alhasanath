@@ -3,14 +3,15 @@ import { SITE_NAME } from '@/lib/constants/site.constants';
 
 export const privacyContent: LegalDocumentProps = {
   title: 'Privacy Policy',
-  lastUpdated: 'Last updated: 20 October 2026',
+  lastUpdated: 'Last updated: 15 November 2026',
   intro: `This policy explains what personal information ${SITE_NAME} ("we", "us") collects through this website, why we collect it, and the choices you have.`,
   sections: [
     {
       heading: 'Information you give us',
       paragraphs: [
-        'When you submit the sign-up form we collect your full name, phone number and email address.',
-        'We use these details only to contact you about joining our Arabic classes and to arrange your lessons. We do not sell them or use them for unrelated marketing.',
+        'When you register your interest we collect your full name, phone number, email address, Arabic level, preferred lesson type and, if you give them, your preferred weekend times.',
+        'When you book an intro call, the booking tool collects the details you enter, such as your name, email address and chosen time.',
+        'We use these details only to contact you about lessons and to arrange them. We do not sell them or use them for unrelated marketing.',
       ],
     },
     {
@@ -23,9 +24,9 @@ export const privacyContent: LegalDocumentProps = {
       ],
     },
     {
-      heading: 'Embedded video',
+      heading: 'Call booking',
       paragraphs: [
-        'The course structure video is hosted by Wistia. When the video loads, Wistia may collect viewing information and set its own cookies under its privacy policy.',
+        'Intro calls are booked through an embedded Calendly scheduler. When the scheduler loads, Calendly may collect usage information and set its own cookies under its privacy policy.',
       ],
     },
     {
@@ -34,10 +35,10 @@ export const privacyContent: LegalDocumentProps = {
         'We use a small number of service providers to run the site. They process data on our behalf and only for the purposes described here.',
       ],
       items: [
-        'Resend, which delivers sign-up form submissions to us by email.',
+        'Resend, which delivers registration form submissions to us by email.',
         'PostHog, which provides website analytics using its EU-hosted service.',
         'Netlify, which hosts the website and may keep standard server logs such as IP addresses.',
-        'Wistia, which hosts the embedded course video.',
+        'Calendly, which handles intro call bookings.',
       ],
     },
     {
@@ -49,7 +50,7 @@ export const privacyContent: LegalDocumentProps = {
     {
       heading: 'How long we keep information',
       paragraphs: [
-        'We keep sign-up details for as long as we need them to arrange and deliver your lessons, and delete them when they are no longer needed or when you ask us to.',
+        'We keep registration and booking details for as long as we need them to arrange and deliver your lessons, and delete them when they are no longer needed or when you ask us to.',
       ],
     },
     {

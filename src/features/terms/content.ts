@@ -3,14 +3,14 @@ import { SITE_NAME } from '@/lib/constants/site.constants';
 
 export const termsContent: LegalDocumentProps = {
   title: 'Terms of Service',
-  lastUpdated: 'Last updated: 20 October 2026',
-  intro: `These terms apply to your use of the ${SITE_NAME} website. By using the site or submitting the sign-up form, you agree to them.`,
+  lastUpdated: 'Last updated: 15 November 2026',
+  intro: `These terms apply to your use of the ${SITE_NAME} website. By using the site, registering your interest or booking an intro call, you agree to them.`,
   sections: [
     {
-      heading: 'Signing up',
+      heading: 'Registering and booking',
       paragraphs: [
-        'Submitting the sign-up form tells us you are interested in joining a class. It does not create a booking or a contract.',
-        'We will contact you to discuss your level, the available groups, lesson times and fees. Your place is confirmed only once we have agreed these with you directly.',
+        'Registering your interest or booking a free intro call tells us you are interested in lessons. Neither creates a contract for lessons.',
+        'We will contact you to discuss your level, 1-on-1 or group lessons, lesson times and fees. Your lessons are confirmed only once we have agreed these with you directly.',
       ],
     },
     {
@@ -28,14 +28,14 @@ export const termsContent: LegalDocumentProps = {
     {
       heading: 'Intellectual property',
       paragraphs: [
-        `The text, design and original images on this site belong to ${SITE_NAME}. Images of published course books remain the property of their publishers.`,
+        `The text, design and original images on this site belong to ${SITE_NAME}. Course book titles belong to their publishers.`,
         'You may view and share links to the site for personal use, but you may not copy or reuse its content commercially without our permission.',
       ],
     },
     {
       heading: 'Third-party content',
       paragraphs: [
-        'The site includes content from third parties, such as the embedded Wistia video. We are not responsible for third-party services or their terms.',
+        'The site includes content from third parties, such as the embedded Calendly scheduler. We are not responsible for third-party services or their terms.',
       ],
     },
     {
