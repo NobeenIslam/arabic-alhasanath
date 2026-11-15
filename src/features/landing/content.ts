@@ -1,168 +1,245 @@
 import { SITE_NAME } from '@/lib/constants/site.constants';
-import { ROUTES } from '@/lib/constants/routes.constants';
+import { homeSection } from '@/lib/constants/routes.constants';
+import { WHATSAPP_URL } from '@/lib/constants/contact.constants';
 import type {
-  CourseStructureContent,
+  AudienceContent,
   FooterContent,
-  NavigationContent,
+  GetStartedContent,
   HeroContent,
-  InstructorContent,
-  SignUpContent,
-  Testimonial,
-  TestimonialsContent,
-  TimelineEntry,
+  LessonsContent,
+  NavigationContent,
+  PricesContent,
+  ReviewsContent,
+  TeacherContent,
+  Verse,
+  WordmarkContent,
 } from '@/features/landing/types';
 
-export const componentIds = {
-  hero: 'hero',
-  instructorBlock: 'instructor-block',
-  courseStructureBlock: 'course-structure-block',
-  testimonialsBlock: 'testimonial-block',
-  signUpBlock: 'sign-up-block',
+export const sectionIds = {
+  top: 'top',
+  who: 'who',
+  how: 'how',
+  prices: 'prices',
+  teacher: 'teacher',
+  reviews: 'reviews',
+  start: 'start',
+  book: 'book',
+  register: 'register',
+} as const;
+
+const bookCallCta = {
+  name: 'Book a free intro call',
+  href: homeSection(sectionIds.start),
+};
+
+export const wordmarkData: WordmarkContent = {
+  arabic: 'لِسَان',
+  latin: SITE_NAME,
+  homeLabel: `${SITE_NAME}, back to the top`,
 };
 
 export const navigationData: NavigationContent = {
-  logoLabel: 'Go to the top',
   links: [
-    {
-      name: 'Home',
-      href: `${ROUTES.home}#${componentIds.hero}`,
-      description: 'Back to the top',
-    },
-    {
-      name: 'Instructor',
-      href: `${ROUTES.home}#${componentIds.instructorBlock}`,
-      description: 'Meet our instructor Ustaadh Abu Hasanath',
-    },
-    {
-      name: 'Course Structure',
-      href: `${ROUTES.home}#${componentIds.courseStructureBlock}`,
-      description: 'Learn about our course structure',
-    },
-    {
-      name: 'Testimonials',
-      href: `${ROUTES.home}#${componentIds.testimonialsBlock}`,
-      description: 'See what our students say',
-    },
-    {
-      name: 'Sign Up',
-      href: `${ROUTES.home}#${componentIds.signUpBlock}`,
-      description: 'Take the first step of your journey now!',
-    },
+    { name: 'Courses', href: homeSection(sectionIds.who) },
+    { name: 'Prices', href: homeSection(sectionIds.prices) },
+    { name: 'Teacher', href: homeSection(sectionIds.teacher) },
+    { name: 'Reviews', href: homeSection(sectionIds.reviews) },
   ],
+  cta: bookCallCta,
+};
+
+const heroVerse: Verse = {
+  arabic: 'بِلِسَانٍ عَرَبِيٍّ مُّبِينٍ',
+  translation: '“In a clear Arabic tongue” · Ash-Shuʿarāʾ 26:195',
 };
 
 export const heroData: HeroContent = {
-  title: SITE_NAME,
-  bulletPoints: [
-    'Small groups of 5 or less',
-    'Remote',
-    'Weekly 2 hr sessions',
-    'Cater to beginner, intermediate, advanced',
-  ],
-  buttonText: 'Sign Me Up!',
-  imageAlt:
-    'Bayna Yadayk Arabic course books, showcasing the comprehensive learning materials',
-};
-
-const firstTimelineEntry: TimelineEntry = {
-  year: '2013',
-  subheading: 'As-Suffa Institute',
-  details:
-    'Completed a 6-year full-time Alimiyyah course covering all the Islamic sciences and building my Arabic',
-};
-
-const secondTimelineEntry: TimelineEntry = {
-  year: '2019',
-  subheading: 'Markfield University for Islamic Studies',
-  details:
-    'Completed a BA in Islam and Arabic at Markfield, honing my academic research and Arabic skills',
-};
-
-const thirdTimelineEntry: TimelineEntry = {
-  year: '2022',
-  subheading: 'Primary School',
-  details:
-    'Began teaching Arabic to children at a private school, developing my communication',
-};
-
-const fourthTimelineEntry: TimelineEntry = {
-  year: '2023',
-  subheading: 'As-Suffa Institute',
-  details:
-    'Resident teacher at As-Suffa Institute, where I teach Al-Arabiyyah Bayna Yadayk to years 1 and 2 and Usool Hadith to year 4',
-};
-
-export const instructorBlockData: InstructorContent = {
-  title: 'Instructor',
-  imageCaption: 'Ustaadh Abu Hasanath',
-  timeline: [
-    fourthTimelineEntry,
-    thirdTimelineEntry,
-    secondTimelineEntry,
-    firstTimelineEntry,
+  verse: heroVerse,
+  title: 'From first letters to fluent speech.',
+  intro:
+    "Private online Arabic lessons with Ustādh Abu Hasnath. For complete beginners, Dars-i-Nizami students and graduates, and anyone who can read Arabic but still can't speak it.",
+  primaryCta: bookCallCta,
+  secondaryCta: {
+    name: 'Or register your interest',
+    href: homeSection(sectionIds.register),
+  },
+  highlights: [
+    'Online',
+    'Weekend lessons',
+    '1-on-1 or small groups',
+    'From £8 / hour',
   ],
 };
 
-export const courseStructureBlockData: CourseStructureContent = {
-  title: 'Course Structure',
-  wistiaVideoId: 'g62hgm02ym',
+export const audienceData: AudienceContent = {
+  eyebrow: "Who it's for",
+  title: 'Start where you are',
+  cards: [
+    {
+      numeral: '١',
+      title: 'Beginners',
+      description:
+        'Start with the alphabet and build up to reading, writing and understanding simple Arabic.',
+    },
+    {
+      numeral: '٢',
+      title: 'Dars-i-Nizami students & graduates',
+      description:
+        'You can read the classical texts, but speaking is another matter. Lessons focus on conversation, so the grammar you already know starts coming out when you talk.',
+    },
+    {
+      numeral: '٣',
+      title: 'Tailored 1-on-1',
+      description:
+        'You set the goal and the pace. Lessons are planned around what you want to get out of Arabic.',
+    },
+  ],
 };
 
-const asifsTestimony: Testimonial = {
-  quote:
-    "Ustaaz Abu Hasanath's lessons are very interactive and enjoyable. I've been pleasantly surprised at the improvement in the group. Long may it continue.",
-  image: '/silhouette.jpeg',
-  name: 'Asif Khan',
+export const lessonsData: LessonsContent = {
+  eyebrow: 'How lessons work',
+  title: 'Grammar you can actually use',
+  intro:
+    'Lessons mix traditional grammar teaching with modern speaking practice. You learn how the language works, then you use it in conversation.',
+  books: [
+    { title: 'Al-ʿArabiyyah Bayna Yadayk', arabicTitle: 'العربية بين يديك' },
+    { title: 'The Madinah books', arabicTitle: 'دروس اللغة العربية' },
+  ],
+  booksNote: 'Which book you start with depends on your level.',
+  facts: [
+    { title: 'Online', description: 'Live lessons you join from home.' },
+    {
+      title: 'Weekends',
+      description: 'Saturday and Sunday slots that fit around work and study.',
+    },
+    {
+      title: 'One hour minimum',
+      description: 'Every lesson runs for at least an hour.',
+    },
+    {
+      title: 'Beginner to advanced',
+      description: 'Keep the same teacher as your Arabic improves.',
+    },
+  ],
 };
 
-const harunsTestimony: Testimonial = {
-  quote:
-    'The arabic course is well structured, balancing vocabulary, reading, written and conversational skills. My arabic has improved massively as well as helped me with my islamic studies. This course has opened up new opportunities for personal and professional growth, and I highly recommend it to anyone interested in learning Arabic.',
-  image: '/silhouette.jpeg',
-  name: 'Harun Ali',
+export const pricesData: PricesContent = {
+  eyebrow: 'Prices',
+  title: 'Pay by the hour',
+  oneToOne: {
+    title: '1-on-1 lessons',
+    price: '£25',
+    unit: 'per hour',
+    features: [
+      'Planned around your goals',
+      'Go as fast or as slow as you like',
+      'Lessons of one hour or more',
+    ],
+  },
+  groups: {
+    title: 'Small groups',
+    pricePrefix: 'from',
+    price: '£8',
+    unit: 'per person, per hour',
+    rates: [
+      { label: 'Group of 3', price: '£10' },
+      { label: 'Group of 4', price: '£9' },
+      { label: 'Group of 5', price: '£8', isBestValue: true },
+    ],
+    note: 'You can sign up on your own. Ustādh Abu Hasnath will put you in a group at your level.',
+  },
 };
 
-const nobeensTestimony: Testimonial = {
-  quote:
-    "I've taken online Arabic lessons before but never made real progress until now. Ustaadh's focus on conversation and varied vocabulary use, along with his experience with the Bayna Yadayk series, has rapidly improved my skills. I'm amazed at my progress in such a short time.",
-  image: '/silhouette.jpeg',
-  name: 'Nobeen Islam',
+export const teacherData: TeacherContent = {
+  eyebrow: 'Your teacher',
+  name: 'Ustādh Abu Hasnath',
+  bio: 'Abu Hasnath teaches grammar thoroughly, the way he learned it in the Dars-i-Nizami, and then gets you using it in conversation.',
+  credentials: [
+    'Dars-i-Nizami graduate',
+    'BA in Islamic Studies with Arabic',
+    'MA in Islamic Studies',
+    'Almost a decade of teaching experience',
+  ],
+  imageAlt: 'Ustādh Abu Hasnath',
 };
 
-export const testimonialBlockData: TestimonialsContent = {
-  title: 'Testimonials',
-  testimonials: [asifsTestimony, harunsTestimony, nobeensTestimony],
-  slideLabel: 'Go to slide',
+export const reviewsData: ReviewsContent = {
+  eyebrow: 'Reviews',
+  title: 'What students say',
+  reviews: [
+    {
+      quote:
+        "“Ustādh Abu Hasnath's lessons are very interactive and enjoyable.”",
+      name: 'Asif Khan',
+    },
+    {
+      quote:
+        '“The Arabic course is well structured, balancing vocabulary, reading, written and conversational skills.”',
+      name: 'Harun Ali',
+    },
+    {
+      quote:
+        "“I've taken online Arabic lessons before but never made real progress until now.”",
+      name: 'Nobeen Islam',
+    },
+  ],
 };
 
-export const signUpBlockData: SignUpContent = {
-  title: 'Sign Up',
-  imageAlt: 'Picture of Madinah Books',
+export const levelOptions = [
+  'Complete beginner',
+  "I can read but can't speak",
+  'Dars-i-Nizami student or graduate',
+  'Intermediate, and I want to go further',
+] as const;
+
+export const getStartedData: GetStartedContent = {
+  eyebrow: 'Get started',
+  title: 'Two ways to begin',
+  intro:
+    'Book a free call to talk it through, or leave your details and Ustādh Abu Hasnath will get back to you.',
+  booking: {
+    title: 'Book a free 15-minute intro call',
+    intro:
+      "Tell him your level and what you want to learn, and work out together whether 1-on-1 or a group suits you. There's nothing to commit to.",
+    unavailableMessage:
+      'Online booking opens soon. Until then, message Ustādh Abu Hasnath to arrange your call.',
+    unavailableLink: { name: 'Message on WhatsApp', href: WHATSAPP_URL },
+  },
   form: {
-    heading: 'Join Our Arabic Course',
-    fullNameLabel: 'Full Name',
-    phoneNumberLabel: 'Phone Number',
-    emailAddressLabel: 'Email Address',
-    submitLabel: 'Sign Me Up!',
-    submittingLabel: 'Submitting...',
-    successTitle: 'Form Submitted!',
-    successDescription: 'Thank you for your interest in our Arabic course.',
-    errorTitle: 'Error',
-    errorDescription:
-      'An error occurred while submitting the form. Please try again.',
-    disclaimerPrefix: 'By enrolling, you agree to our',
-    termsLabel: 'Terms of Service',
-    disclaimerJoiner: 'and',
-    privacyLabel: 'Privacy Policy',
+    title: 'Or register your interest',
+    intro:
+      'Leave your details and Ustādh Abu Hasnath will call or message you to work out which lessons suit you.',
+    nameLabel: 'Full name',
+    phoneLabel: 'Phone number',
+    emailLabel: 'Email address',
+    levelLabel: 'Your level',
+    lessonTypeLegend: 'Lesson type',
+    lessonTypes: {
+      'one-to-one': { label: '1-on-1', price: '£25/hr' },
+      group: { label: 'Small group', price: 'from £8/hr' },
+    },
+    preferredTimesLabel: 'Preferred weekend times',
+    optionalLabel: '(optional)',
+    preferredTimesPlaceholder: 'e.g. Saturday mornings',
+    submitLabel: 'Register',
+    submittingLabel: 'Sending…',
+    successMessage: 'Thanks. Ustādh Abu Hasnath will be in touch soon.',
+    errorMessage:
+      "Sorry, that didn't send. Please try again, or send a WhatsApp message instead.",
+    privacyNotice: {
+      prefix: "We'll only use your details to arrange lessons. See our",
+      linkLabel: 'privacy policy',
+      suffix: '.',
+    },
+  },
+  whatsapp: {
+    name: 'Prefer WhatsApp? Message 07828 559720',
+    href: WHATSAPP_URL,
   },
 };
 
 export const footerData: FooterContent = {
-  logoLabel: 'Back to the top!',
-  copyright: `© ${new Date().getFullYear()} ${SITE_NAME}. All rights reserved.`,
-  legalHeading: 'Legal',
-  legalLinks: [
-    { name: 'Privacy Policy', href: ROUTES.privacy },
-    { name: 'Terms of Service', href: ROUTES.terms },
-  ],
+  tagline: 'Online Arabic lessons with Ustādh Abu Hasnath',
+  whatsapp: { name: 'WhatsApp 07828 559720', href: WHATSAPP_URL },
+  copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
 };

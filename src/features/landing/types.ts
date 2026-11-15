@@ -1,72 +1,151 @@
 import type { NavLink } from '@/components/layout/Navigation';
 
-export type TimelineEntry = {
-  year: string;
-  subheading: string;
-  details: string;
-};
-
-export type Testimonial = {
-  quote: string;
-  image: string;
-  name: string;
-};
-
-export type HeroContent = {
-  title: string;
-  bulletPoints: string[];
-  buttonText: string;
-  imageAlt: string;
-};
-
-export type InstructorContent = {
-  title: string;
-  imageCaption: string;
-  timeline: TimelineEntry[];
-};
-
-export type CourseStructureContent = {
-  title: string;
-  wistiaVideoId: string;
-};
-
-export type TestimonialsContent = {
-  title: string;
-  testimonials: Testimonial[];
-  slideLabel: string;
-};
-
-export type ContactFormContent = {
-  heading: string;
-  fullNameLabel: string;
-  phoneNumberLabel: string;
-  emailAddressLabel: string;
-  submitLabel: string;
-  submittingLabel: string;
-  successTitle: string;
-  successDescription: string;
-  errorTitle: string;
-  errorDescription: string;
-  disclaimerPrefix: string;
-  termsLabel: string;
-  disclaimerJoiner: string;
-  privacyLabel: string;
-};
-
-export type SignUpContent = {
-  title: string;
-  imageAlt: string;
-  form: ContactFormContent;
+export type WordmarkContent = {
+  arabic: string;
+  latin: string;
+  homeLabel: string;
 };
 
 export type NavigationContent = {
-  logoLabel: string;
   links: NavLink[];
+  cta: NavLink;
 };
 
 export type FooterContent = {
-  logoLabel: string;
+  tagline: string;
+  whatsapp: NavLink;
   copyright: string;
-  legalHeading: string;
-  legalLinks: NavLink[];
+};
+
+export type Verse = {
+  arabic: string;
+  translation: string;
+};
+
+export type HeroContent = {
+  verse: Verse;
+  title: string;
+  intro: string;
+  primaryCta: NavLink;
+  secondaryCta: NavLink;
+  highlights: string[];
+};
+
+export type AudienceCard = {
+  numeral: string;
+  title: string;
+  description: string;
+};
+
+export type AudienceContent = {
+  eyebrow: string;
+  title: string;
+  cards: AudienceCard[];
+};
+
+export type Book = {
+  title: string;
+  arabicTitle: string;
+};
+
+export type LessonFact = {
+  title: string;
+  description: string;
+};
+
+export type LessonsContent = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  books: Book[];
+  booksNote: string;
+  facts: LessonFact[];
+};
+
+export type GroupRate = {
+  label: string;
+  price: string;
+  isBestValue?: boolean;
+};
+
+export type PricesContent = {
+  eyebrow: string;
+  title: string;
+  oneToOne: {
+    title: string;
+    price: string;
+    unit: string;
+    features: string[];
+  };
+  groups: {
+    title: string;
+    pricePrefix: string;
+    price: string;
+    unit: string;
+    rates: GroupRate[];
+    note: string;
+  };
+};
+
+export type TeacherContent = {
+  eyebrow: string;
+  name: string;
+  bio: string;
+  credentials: string[];
+  imageAlt: string;
+};
+
+export type Review = {
+  quote: string;
+  name: string;
+};
+
+export type ReviewsContent = {
+  eyebrow: string;
+  title: string;
+  reviews: Review[];
+};
+
+export type BookingContent = {
+  title: string;
+  intro: string;
+  unavailableMessage: string;
+  unavailableLink: NavLink;
+};
+
+export type LessonTypeOption = {
+  label: string;
+  price: string;
+};
+
+export type RegisterFormContent = {
+  title: string;
+  intro: string;
+  nameLabel: string;
+  phoneLabel: string;
+  emailLabel: string;
+  levelLabel: string;
+  lessonTypeLegend: string;
+  lessonTypes: Record<'one-to-one' | 'group', LessonTypeOption>;
+  preferredTimesLabel: string;
+  optionalLabel: string;
+  preferredTimesPlaceholder: string;
+  submitLabel: string;
+  submittingLabel: string;
+  successMessage: string;
+  errorMessage: string;
+  privacyNotice: {
+    prefix: string;
+    linkLabel: string;
+    suffix: string;
+  };
+};
+
+export type GetStartedContent = {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  booking: BookingContent;
+  form: RegisterFormContent;
+  whatsapp: NavLink;
 };

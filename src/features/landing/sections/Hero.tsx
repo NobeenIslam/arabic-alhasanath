@@ -1,53 +1,100 @@
-'use client';
-import { LuCheck } from 'react-icons/lu';
-import Image from 'next/image';
-import BaynaYadyk from '@/assets/bayna-yadayk.webp';
-import { componentIds } from '@/features/landing/content';
-import Link from 'next/link';
+import { Diamond } from '@/components/blocks/Diamond';
 import type { HeroContent } from '@/features/landing/types';
 
-const Hero = ({ title, bulletPoints, buttonText, imageAlt }: HeroContent) => {
-  const bullets = bulletPoints.map((point, index) => (
-    <li
-      key={index}
-      className="flex items-center text-xl font-bold text-white sm:text-2xl md:text-3xl"
-    >
-      <LuCheck className="mr-2 text-white sm:mr-4" size={24} />
-      <span>{point}</span>
-    </li>
-  ));
-
-  return (
-    <header role="banner">
-      {' '}
-      <div
-        className="relative flex min-h-screen items-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/sky.jpg')" }}
-        id={componentIds.hero}
-      >
-        <div className="absolute inset-0 bg-heroGradient" />
-        <div className="relative z-10 mx-auto flex w-full flex-col items-center justify-between px-16 pt-24 pb-16 sm:px-20 sm:pb-20 lg:flex-row lg:items-center lg:px-24 lg:pt-28 lg:pb-24 xl:px-28 xl:pb-28">
-          <div className="mb-12 w-full lg:mb-0 lg:w-1/2">
-            <h1 className="mb-8 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:mb-12 lg:text-7xl">
-              {title}
-            </h1>
-            <ul className="mb-14 space-y-4 sm:space-y-6">{bullets}</ul>
-            <div className="mt-[10px] animate-shake">
-              <Link
-                href={`#${componentIds.signUpBlock}`}
-                className="rounded-full bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-blue-600/90 sm:px-12 sm:py-4 sm:text-xl"
-              >
-                {buttonText}
-              </Link>
-            </div>
-          </div>
-          <div className="animate-in delay-500 duration-800 fill-mode-both fade-in slide-in-from-bottom-8 md:w-[600px] lg:w-[500px] lg:slide-in-from-bottom-0 lg:slide-in-from-right-8 xl:w-[600px]">
-            <Image src={BaynaYadyk} alt={imageAlt} />
-          </div>
-        </div>
-      </div>
-    </header>
-  );
+type HeroProps = HeroContent & {
+  id: string;
 };
 
-export { Hero };
+const StarPattern = () => (
+  <svg
+    aria-hidden="true"
+    width="100%"
+    height="100%"
+    className="absolute top-0 left-0 opacity-[0.09]"
+  >
+    <defs>
+      <pattern
+        id="siteStar"
+        width="120"
+        height="120"
+        patternUnits="userSpaceOnUse"
+      >
+        <g fill="none" stroke="var(--color-gold)" strokeWidth="1.2">
+          <rect x="34" y="34" width="52" height="52" />
+          <rect
+            x="34"
+            y="34"
+            width="52"
+            height="52"
+            transform="rotate(45 60 60)"
+          />
+          <path d="M0 60H23M97 60H120M60 0V23M60 97V120" />
+        </g>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#siteStar)" />
+  </svg>
+);
+
+const Ornament = () => (
+  <div aria-hidden="true" className="my-1.5 flex items-center gap-4">
+    <div className="h-px w-24 bg-gold" />
+    <Diamond className="size-[9px]" />
+    <div className="h-px w-24 bg-gold" />
+  </div>
+);
+
+export const Hero = ({
+  id,
+  verse,
+  title,
+  intro,
+  primaryCta,
+  secondaryCta,
+  highlights,
+}: HeroProps) => (
+  <section
+    id={id}
+    className="relative overflow-hidden bg-green px-6 pt-24 pb-18 text-cream"
+  >
+    <StarPattern />
+    <div className="relative mx-auto flex max-w-[980px] flex-col items-center gap-5 text-center">
+      <div
+        lang="ar"
+        dir="rtl"
+        className="font-ruqaa text-[clamp(52px,8vw,104px)] leading-[1.35] font-bold text-gold"
+      >
+        {verse.arabic}
+      </div>
+      <div className="font-serif text-[21px] text-muted-on-green italic">
+        {verse.translation}
+      </div>
+      <Ornament />
+      <h1 className="font-serif text-[clamp(46px,6.4vw,84px)] leading-none font-semibold tracking-[-0.01em] text-balance">
+        {title}
+      </h1>
+      <p className="max-w-[660px] text-[21px] leading-[1.5] text-pretty text-muted-on-green">
+        {intro}
+      </p>
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
+        <a
+          href={primaryCta.href}
+          className="bg-gold px-[34px] py-[18px] text-[19px] font-bold text-green"
+        >
+          {primaryCta.name}
+        </a>
+        <a
+          href={secondaryCta.href}
+          className="tap-target text-[17px] font-semibold underline underline-offset-5"
+        >
+          {secondaryCta.name}
+        </a>
+      </div>
+      <div className="mt-10 flex flex-wrap justify-center gap-x-11 gap-y-3 self-stretch border-t border-rule-on-green pt-6.5 text-[14px] font-semibold tracking-[0.2em] text-gold uppercase">
+        {highlights.map((highlight) => (
+          <span key={highlight}>{highlight}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+);
