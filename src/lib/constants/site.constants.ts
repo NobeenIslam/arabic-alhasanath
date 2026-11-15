@@ -1,1 +1,1 @@
-export const SITE_NAME = "Abu's Arabic";
+export const SITE_NAME = 'Lisaan Arabic';
