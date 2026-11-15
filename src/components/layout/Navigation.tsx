@@ -61,7 +61,8 @@ const Navigation = ({
     };
   }, [scrollThreshold]);
 
-  const isSolid = isScrolled || isSolidAtTop || isMobileMenuOpen;
+  const isTranslucent = isScrolled && !isMobileMenuOpen;
+  const isSolid = isSolidAtTop || isMobileMenuOpen;
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
@@ -80,9 +81,10 @@ const Navigation = ({
         <div
           className={cn(
             'flex items-center justify-between gap-8 border px-2 py-4 transition-all duration-300 ease-out motion-reduce:transition-none',
-            isSolid
-              ? 'border-rule-header bg-green/95 shadow-lg backdrop-blur-md'
-              : 'border-transparent bg-transparent',
+            'border-transparent bg-transparent',
+            isSolid && 'border-rule-header bg-green shadow-lg',
+            isTranslucent &&
+              'border-rule-header/60 bg-green/80 shadow-lg backdrop-blur-lg',
             isScrolled && 'px-5 py-2.5 md:px-7'
           )}
         >
