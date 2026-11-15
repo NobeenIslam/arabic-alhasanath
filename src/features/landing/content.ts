@@ -170,8 +170,13 @@ export const reviewsData: ReviewsContent = {
   reviews: [
     {
       quote:
-        "“Ustādh Abu Hasnath's lessons are very interactive and enjoyable.”",
-      name: 'Asif Khan',
+        '“When I first started, I could not speak even a basic sentence in Arabic. Alhamdulillah, I am now able to speak Arabic fluently.”',
+      name: 'Abdullah',
+    },
+    {
+      quote:
+        "“I've taken online Arabic lessons before but never made real progress until now.”",
+      name: 'Nobeen Islam',
     },
     {
       quote:
@@ -180,8 +185,23 @@ export const reviewsData: ReviewsContent = {
     },
     {
       quote:
-        "“I've taken online Arabic lessons before but never made real progress until now.”",
-      name: 'Nobeen Islam',
+        "“A very talented Ustādh who teaches not only how to read and understand Arabic, but how to speak and write it. Having an Ustādh who has mastered speaking motivates the student and makes him understand it's possible for non-Arabs to master the language too.”",
+      name: 'Thalhaa',
+    },
+    {
+      quote:
+        '“Ustādh Abu Hasnath is a teacher I have nothing but good words for. His method of teaching the Arabic language is skilful and precise. If you follow his advice and his methodology, you will surely be on your way to mastering the Arabic language.”',
+      name: 'Yusuf',
+    },
+    {
+      quote:
+        '“Alhamdulillah, Ustādh Abu Hasnath has honed my skills in reading comprehension and has guided me in acquiring vocabulary and Arabic literature.”',
+      name: 'Junaid',
+    },
+    {
+      quote:
+        "“Ustādh Abu Hasnath's lessons are very interactive and enjoyable.”",
+      name: 'Asif Khan',
     },
   ],
 };
