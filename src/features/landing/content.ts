@@ -45,6 +45,7 @@ export const navigationData: NavigationContent = {
     { name: 'Reviews', href: homeSection(sectionIds.reviews) },
   ],
   cta: registerCta,
+  menuLabel: 'Open or close the menu',
 };
 
 const heroVerse: Verse = {

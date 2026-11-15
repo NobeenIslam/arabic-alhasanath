@@ -10,7 +10,12 @@ import {
 } from '@/features/landing/content';
 import { homeSection } from '@/lib/constants/routes.constants';
 
-export const SiteShell = ({ children }: { children: ReactNode }) => (
+type SiteShellProps = {
+  children: ReactNode;
+  isNavSolidAtTop?: boolean;
+};
+
+export const SiteShell = ({ children, isNavSolidAtTop }: SiteShellProps) => (
   <>
     <Navigation
       logo={
@@ -28,6 +33,8 @@ export const SiteShell = ({ children }: { children: ReactNode }) => (
       }
       links={navigationData.links}
       cta={navigationData.cta}
+      menuLabel={navigationData.menuLabel}
+      isSolidAtTop={isNavSolidAtTop}
     />
     <main id="main-content">{children}</main>
     <Footer

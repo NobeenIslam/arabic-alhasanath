@@ -9,6 +9,7 @@ export type WordmarkContent = {
 export type NavigationContent = {
   links: NavLink[];
   cta: NavLink;
+  menuLabel: string;
 };
 
 export type FooterContent = {
