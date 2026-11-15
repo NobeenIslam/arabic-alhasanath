@@ -1,6 +1,6 @@
-# Abu's Arabic Landing Page
+# Lisaan Arabic Landing Page
 
-Marketing site for Abu's Arabic, built on the landing page starter: Next.js 16, React 19, Tailwind CSS 4 and Bun.
+Marketing site for Lisaan Arabic, online Arabic tuition with Ustādh Abu Hasnath. Built on the landing page starter: Next.js 16, React 19, Tailwind CSS 4 and Bun.
 
 ## Getting Started
 
@@ -23,10 +23,21 @@ Open [http://localhost:3100](http://localhost:3100).
 All variables are required and validated at startup by `src/lib/env.ts`.
 
 - `NEXT_PUBLIC_POSTHOG_KEY`: PostHog project key for analytics.
-- `RESEND_API_KEY`: Resend API key for sign-up emails.
+- `RESEND_API_KEY`: Resend API key for registration emails.
 - `RESEND_FROM_EMAIL`: Sender address. Must be on a domain verified in Resend.
-- `BOOKING_EMAIL_RECIPIENT`: Address that receives new sign-ups.
+- `BOOKING_EMAIL_RECIPIENT`: Address that receives new registrations of interest.
 - `NEXT_PUBLIC_URL`: Public site URL used for metadata, the sitemap and JSON-LD.
+
+## Pending
+
+Values still waiting on a decision carry a `PENDING_` prefix so they are easy to find.
+
+- [ ] `PENDING_CALENDLY_URL` in `src/lib/constants/contact.constants.ts`: set the Calendly event URL and rename it to `CALENDLY_URL`. Until then the booking card shows a WhatsApp fallback.
+- [ ] `NEXT_PUBLIC_URL`: point it at the live domain (intended: `https://lisaanarabic.com`) in Netlify and in your local `.env`.
+
+## Share Image
+
+`src/app/opengraph-image.png` and `src/app/twitter-image.png` are static because the image renderer in `next/og` lays Arabic out left to right. Re-render them in a browser if the brand or hero line changes.
 
 ## Key Commands
 
