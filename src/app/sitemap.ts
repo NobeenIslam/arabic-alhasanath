@@ -12,12 +12,12 @@ const sitemap = (): MetadataRoute.Sitemap => {
       changeFrequency: 'monthly',
       priority: 1,
     },
-    ...[ROUTES.privacy, ROUTES.terms].map((route) => ({
-      url: `${siteConfig.url}${route}`,
+    {
+      url: `${siteConfig.url}${ROUTES.privacy}`,
       lastModified,
-      changeFrequency: 'yearly' as const,
+      changeFrequency: 'yearly',
       priority: 0.3,
-    })),
+    },
   ];
 };
 
