@@ -12,6 +12,12 @@ export type NavigationContent = {
   menuLabel: string;
 };
 
+export type FloatingContactContent = {
+  href: string;
+  label: string;
+  message: string;
+};
+
 export type FooterContent = {
   tagline: string;
   whatsapp: NavLink;

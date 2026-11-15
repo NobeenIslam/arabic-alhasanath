@@ -3,6 +3,7 @@ import { homeSection } from '@/lib/constants/routes.constants';
 import { WHATSAPP_URL } from '@/lib/constants/contact.constants';
 import type {
   AudienceContent,
+  FloatingContactContent,
   FooterContent,
   GetStartedContent,
   HeroContent,
@@ -225,6 +226,12 @@ export const getStartedData: GetStartedContent = {
     name: 'Prefer WhatsApp? Message 07828 559720',
     href: WHATSAPP_URL,
   },
+};
+
+export const floatingContactData: FloatingContactContent = {
+  href: WHATSAPP_URL,
+  label: 'Message Ustādh Abu Hasnath on WhatsApp',
+  message: 'Questions? Message us on WhatsApp',
 };
 
 export const footerData: FooterContent = {
