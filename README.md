@@ -33,7 +33,7 @@ All variables are required and validated at startup by `src/lib/env.ts`.
 Values still waiting on a decision carry a `PENDING_` prefix so they are easy to find.
 
 - [ ] `PENDING_CALENDLY_URL` in `src/lib/constants/contact.constants.ts`: set the Calendly event URL and rename it to `CALENDLY_URL`. Until then the booking card shows a WhatsApp fallback.
-- [ ] `NEXT_PUBLIC_URL`: point it at the live domain (intended: `https://lisaanarabic.com`) in Netlify and in your local `.env`.
+- [ ] `NEXT_PUBLIC_URL`: point it at the live domain (`https://lisaanarabic.co.uk`) in Netlify and in your local `.env`.
 
 ## Share Image
 
