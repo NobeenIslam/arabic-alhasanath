@@ -109,8 +109,6 @@ export type ReviewsContent = {
 export type BookingContent = {
   title: string;
   intro: string;
-  unavailableMessage: string;
-  unavailableLink: NavLink;
 };
 
 export type LessonTypeOption = {

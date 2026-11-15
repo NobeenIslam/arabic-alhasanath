@@ -16,7 +16,7 @@ import {
   sectionIds,
   teacherData,
 } from '@/features/landing/content';
-import { PENDING_CALENDLY_URL } from '@/lib/constants/contact.constants';
+import { CALENDLY_URL } from '@/lib/constants/contact.constants';
 
 export const LandingPage = () => (
   <SiteShell>
@@ -30,7 +30,7 @@ export const LandingPage = () => (
       id={sectionIds.start}
       bookingId={sectionIds.book}
       registerId={sectionIds.register}
-      calendlyUrl={PENDING_CALENDLY_URL}
+      calendlyUrl={CALENDLY_URL}
       {...getStartedData}
     />
   </SiteShell>

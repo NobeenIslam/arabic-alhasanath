@@ -201,9 +201,6 @@ export const getStartedData: GetStartedContent = {
     title: 'Book a free 15-minute intro call',
     intro:
       "Tell him your level and what you want to learn, and work out together whether 1-on-1 or a group suits you. There's nothing to commit to.",
-    unavailableMessage:
-      'Online booking opens soon. Until then, message Ustādh Abu Hasnath to arrange your call.',
-    unavailableLink: { name: 'Message on WhatsApp', href: WHATSAPP_URL },
   },
   form: {
     title: 'Or register your interest',

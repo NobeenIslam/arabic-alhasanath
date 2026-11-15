@@ -7,7 +7,7 @@ type GetStartedProps = GetStartedContent & {
   id: string;
   bookingId: string;
   registerId: string;
-  calendlyUrl: string | null;
+  calendlyUrl: string;
 };
 
 export const GetStarted = ({

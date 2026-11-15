@@ -28,12 +28,11 @@ All variables are required and validated at startup by `src/lib/env.ts`.
 - `BOOKING_EMAIL_RECIPIENT`: Address that receives new registrations of interest.
 - `NEXT_PUBLIC_URL`: Public site URL used for metadata, the sitemap and JSON-LD.
 
-## Pending
+## Before Launch
 
-Values still waiting on a decision carry a `PENDING_` prefix so they are easy to find.
+- [ ] `NEXT_PUBLIC_URL`: set it to `https://lisaanarabic.co.uk` in Netlify.
 
-- [ ] `PENDING_CALENDLY_URL` in `src/lib/constants/contact.constants.ts`: set the Calendly event URL and rename it to `CALENDLY_URL`. Until then the booking card shows a WhatsApp fallback.
-- [ ] `NEXT_PUBLIC_URL`: point it at the live domain (`https://lisaanarabic.co.uk`) in Netlify and in your local `.env`.
+Anything else that waits on a decision should carry a `PENDING_` prefix and be listed here.
 
 ## Share Image
 
