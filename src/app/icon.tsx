@@ -1,32 +1,44 @@
 import { ImageResponse } from 'next/og';
+import { BRAND_COLORS } from '@/lib/constants/brand.constants';
+import { loadGoogleFont } from '@/lib/google-font';
 
-// https://developers.google.com/search/docs/appearance/favicon-in-search#guidelines
 export const size = {
   width: 48,
   height: 48,
 };
 export const contentType = 'image/png';
 
-export default function Icon() {
-  return new ImageResponse(
+const letter = 'ل';
+
+const Icon = async () =>
+  new ImageResponse(
     <div
       style={{
-        fontSize: 48,
-        background: 'white',
         width: '100%',
         height: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'relative',
-        borderRadius: '50%',
+        background: BRAND_COLORS.green,
+        color: BRAND_COLORS.gold,
+        fontFamily: 'Aref Ruqaa',
+        fontSize: 44,
+        paddingBottom: 6,
+        lineHeight: 1,
       }}
     >
-      <div style={{ position: 'absolute', left: 3, color: 'black' }}>A</div>
-      <div style={{ position: 'absolute', left: 13, color: 'black' }}>A</div>
+      {letter}
     </div>,
     {
       ...size,
+      fonts: [
+        {
+          name: 'Aref Ruqaa',
+          data: await loadGoogleFont('Aref Ruqaa', 700, letter),
+          weight: 700,
+        },
+      ],
     }
   );
-}
+
+export default Icon;

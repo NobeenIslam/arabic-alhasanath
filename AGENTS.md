@@ -124,10 +124,12 @@ src/
 
 ## Project Notes
 
-- **Site**: Abu's Arabic. The landing page is assembled in `src/features/landing/LandingPage.tsx`, and `/privacy` and `/terms` render `LegalDocument` from `src/features/privacy` and `src/features/terms`. All pages share the nav and footer through `src/features/landing/SiteShell.tsx`.
+- **Site**: Lisaan Arabic. The landing page is assembled in `src/features/landing/LandingPage.tsx`, and `/privacy` renders `LegalDocument` from `src/features/privacy`. All pages share the nav and footer through `src/features/landing/SiteShell.tsx`.
 - **Brand and routes**: The site name lives in `src/lib/constants/site.constants.ts` and paths in `src/lib/constants/routes.constants.ts`.
 - **Deployment**: Netlify. `netlify.toml` and `next.config.ts` both proxy PostHog through `/ph`.
 - **SEO**: `src/lib/site-config.ts` derives the site URL from `NEXT_PUBLIC_URL`. JSON-LD lives in `src/components/SEO/SchemaMarkup.tsx`.
+- **Design tokens**: Brand colours, fonts and the `grid-fit-*` and `tap-target` utilities live in `src/app/globals.css`. The shadcn semantic tokens map onto the brand colours, and all radii are zero.
+- **Pending values**: Anything awaiting a decision carries a `PENDING_` prefix and is listed in the README.
 - **Breakpoints**: Custom `md`, `lg` and `xl` breakpoints are defined in `src/app/globals.css` in `rem`. Keep them in `rem` so media queries sort correctly against the default `sm`.
 - **Shadcn lint override**: `react-hooks/set-state-in-effect` is off for `src/components/ui/**` because generated primitives trip it.
 - **cn**: Class merging uses shadcn's `cn` package, which replaces `clsx` and `tailwind-merge`. Generated primitives import it from `cn` and app code imports it from `@/lib/utils`, which re-exports it. Leave the generated imports as they are.

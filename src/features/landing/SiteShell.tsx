@@ -1,42 +1,52 @@
 import type { ReactNode } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import OpenBook from '@/assets/open-book.svg';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
+import { Wordmark } from '@/components/blocks/Wordmark';
 import {
-  componentIds,
   footerData,
   navigationData,
+  sectionIds,
+  wordmarkData,
 } from '@/features/landing/content';
-import { ROUTES } from '@/lib/constants/routes.constants';
-
-const TopLink = ({ label }: { label: string }) => (
-  <Link href={`${ROUTES.home}#${componentIds.hero}`} aria-label={label}>
-    <Image src={OpenBook} alt="" width={50} height={50} />
-  </Link>
-);
+import { homeSection } from '@/lib/constants/routes.constants';
 
 export const SiteShell = ({ children }: { children: ReactNode }) => (
   <>
     <Navigation
-      logo={<TopLink label={navigationData.logoLabel} />}
-      navLinks={navigationData.links}
+      logo={
+        <a
+          href={homeSection(sectionIds.top)}
+          aria-label={wordmarkData.homeLabel}
+          className="tap-target"
+        >
+          <Wordmark
+            arabic={wordmarkData.arabic}
+            latin={wordmarkData.latin}
+            size="header"
+          />
+        </a>
+      }
+      links={navigationData.links}
+      cta={navigationData.cta}
     />
     <main id="main-content">{children}</main>
     <Footer
-      logo={<TopLink label={footerData.logoLabel} />}
-      navLinks={navigationData.links}
-      contactHeading={footerData.legalHeading}
-      contact={footerData.legalLinks.map((legalLink) => (
-        <Link
-          key={legalLink.href}
-          href={legalLink.href}
-          className="transition-colors duration-200 hover:text-foreground"
+      brand={
+        <Wordmark
+          arabic={wordmarkData.arabic}
+          latin={wordmarkData.latin}
+          size="footer"
+        />
+      }
+      tagline={footerData.tagline}
+      contact={
+        <a
+          href={footerData.whatsapp.href}
+          className="tap-target text-[20px] font-bold text-gold"
         >
-          {legalLink.name}
-        </Link>
-      ))}
+          {footerData.whatsapp.name}
+        </a>
+      }
       copyright={footerData.copyright}
     />
   </>
