@@ -1,8 +1,10 @@
 import type { ReactNode } from 'react';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
+import { FloatingContact } from '@/components/layout/FloatingContact';
 import { Wordmark } from '@/components/blocks/Wordmark';
 import {
+  floatingContactData,
   footerData,
   navigationData,
   sectionIds,
@@ -10,7 +12,12 @@ import {
 } from '@/features/landing/content';
 import { homeSection } from '@/lib/constants/routes.constants';
 
-export const SiteShell = ({ children }: { children: ReactNode }) => (
+type SiteShellProps = {
+  children: ReactNode;
+  isNavSolidAtTop?: boolean;
+};
+
+export const SiteShell = ({ children, isNavSolidAtTop }: SiteShellProps) => (
   <>
     <Navigation
       logo={
@@ -28,6 +35,8 @@ export const SiteShell = ({ children }: { children: ReactNode }) => (
       }
       links={navigationData.links}
       cta={navigationData.cta}
+      menuLabel={navigationData.menuLabel}
+      isSolidAtTop={isNavSolidAtTop}
     />
     <main id="main-content">{children}</main>
     <Footer
@@ -42,12 +51,20 @@ export const SiteShell = ({ children }: { children: ReactNode }) => (
       contact={
         <a
           href={footerData.whatsapp.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="tap-target text-[20px] font-bold text-gold"
         >
           {footerData.whatsapp.name}
         </a>
       }
       copyright={footerData.copyright}
+    />
+    <FloatingContact
+      href={floatingContactData.href}
+      label={floatingContactData.label}
+      message={floatingContactData.message}
+      eventName="floating_whatsapp_clicked"
     />
   </>
 );

@@ -55,7 +55,7 @@ export const Hero = ({
 }: HeroProps) => (
   <section
     id={id}
-    className="relative overflow-hidden bg-green px-6 pt-24 pb-18 text-cream"
+    className="relative overflow-hidden bg-green px-6 pt-[177px] pb-18 text-cream"
   >
     <StarPattern />
     <div className="relative mx-auto flex max-w-[980px] flex-col items-center gap-5 text-center">
@@ -85,6 +85,8 @@ export const Hero = ({
         </a>
         <a
           href={secondaryCta.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="tap-target text-[17px] font-semibold underline underline-offset-5"
         >
           {secondaryCta.name}

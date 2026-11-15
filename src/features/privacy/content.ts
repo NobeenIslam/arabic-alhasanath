@@ -10,7 +10,6 @@ export const privacyContent: LegalDocumentProps = {
       heading: 'Information you give us',
       paragraphs: [
         'When you register your interest we collect your full name, phone number, email address, Arabic level, preferred lesson type and, if you give them, your preferred weekend times.',
-        'When you book an intro call, the booking tool collects the details you enter, such as your name, email address and chosen time.',
         'We use these details only to contact you about lessons and to arrange them. We do not sell them or use them for unrelated marketing.',
       ],
     },
@@ -24,12 +23,6 @@ export const privacyContent: LegalDocumentProps = {
       ],
     },
     {
-      heading: 'Call booking',
-      paragraphs: [
-        'Intro calls are booked through an embedded Calendly scheduler. When the scheduler loads, Calendly may collect usage information and set its own cookies under its privacy policy.',
-      ],
-    },
-    {
       heading: 'Who we share information with',
       paragraphs: [
         'We use a small number of service providers to run the site. They process data on our behalf and only for the purposes described here.',
@@ -38,7 +31,6 @@ export const privacyContent: LegalDocumentProps = {
         'Resend, which delivers registration form submissions to us by email.',
         'PostHog, which provides website analytics using its EU-hosted service.',
         'Netlify, which hosts the website and may keep standard server logs such as IP addresses.',
-        'Calendly, which handles intro call bookings.',
       ],
     },
     {
@@ -50,7 +42,7 @@ export const privacyContent: LegalDocumentProps = {
     {
       heading: 'How long we keep information',
       paragraphs: [
-        'We keep registration and booking details for as long as we need them to arrange and deliver your lessons, and delete them when they are no longer needed or when you ask us to.',
+        'We keep registration details for as long as we need them to arrange and deliver your lessons, and delete them when they are no longer needed or when you ask us to.',
       ],
     },
     {

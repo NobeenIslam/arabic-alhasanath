@@ -45,7 +45,7 @@ const fontVariables = [manrope, cormorantGaramond, arefRuqaa, amiri]
 
 const title = `${siteConfig.name} | Online Arabic Tuition with Ustādh Abu Hasnath`;
 const description =
-  'Private online Arabic lessons for beginners, Dars-i-Nizami students and graduates. 1-on-1 at £25/hr or small groups from £8/hr. Book a free 15-minute intro call.';
+  'Private online Arabic lessons for beginners, Dars-i-Nizami students and graduates. 1-on-1 at £25/hr or small groups from £8/hr. Register your interest online.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

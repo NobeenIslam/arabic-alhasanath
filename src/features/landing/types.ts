@@ -9,6 +9,13 @@ export type WordmarkContent = {
 export type NavigationContent = {
   links: NavLink[];
   cta: NavLink;
+  menuLabel: string;
+};
+
+export type FloatingContactContent = {
+  href: string;
+  label: string;
+  message: string;
 };
 
 export type FooterContent = {
@@ -106,19 +113,12 @@ export type ReviewsContent = {
   reviews: Review[];
 };
 
-export type BookingContent = {
-  title: string;
-  intro: string;
-};
-
 export type LessonTypeOption = {
   label: string;
   price: string;
 };
 
 export type RegisterFormContent = {
-  title: string;
-  intro: string;
   nameLabel: string;
   phoneLabel: string;
   emailLabel: string;
@@ -143,7 +143,6 @@ export type GetStartedContent = {
   eyebrow: string;
   title: string;
   intro: string;
-  booking: BookingContent;
   form: RegisterFormContent;
   whatsapp: NavLink;
 };
