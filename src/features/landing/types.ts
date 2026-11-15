@@ -69,12 +69,6 @@ export type LessonsContent = {
   facts: LessonFact[];
 };
 
-export type GroupRate = {
-  label: string;
-  price: string;
-  isBestValue?: boolean;
-};
-
 export type PricesContent = {
   eyebrow: string;
   title: string;
@@ -86,10 +80,8 @@ export type PricesContent = {
   };
   groups: {
     title: string;
-    pricePrefix: string;
     price: string;
-    unit: string;
-    rates: GroupRate[];
+    features: string[];
     note: string;
   };
 };

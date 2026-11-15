@@ -68,7 +68,7 @@ export const heroData: HeroContent = {
     'Online',
     'Weekend lessons',
     '1-on-1 or small groups',
-    'From £8 / hour',
+    '£25 / hour, less in groups',
   ],
 };
 
@@ -139,15 +139,12 @@ export const pricesData: PricesContent = {
   },
   groups: {
     title: 'Small groups',
-    pricePrefix: 'from',
-    price: '£8',
-    unit: 'per person, per hour',
-    rates: [
-      { label: 'Group of 3', price: '£10' },
-      { label: 'Group of 4', price: '£9' },
-      { label: 'Group of 5', price: '£8', isBestValue: true },
+    price: 'On request',
+    features: [
+      'Groups of 3 to 5 students',
+      'Grouped by level',
     ],
-    note: 'You can sign up on your own. Ustādh Abu Hasnath will put you in a group at your level.',
+    note: 'Priced to suit your group, for less than the 1-on-1 hourly rate. Ustādh Abu Hasnath will agree the best arrangement with you, depending on group size and availability.',
   },
 };
 
@@ -226,7 +223,7 @@ export const getStartedData: GetStartedContent = {
     lessonTypeLegend: 'Lesson type',
     lessonTypes: {
       'one-to-one': { label: '1-on-1', price: '£25/hr' },
-      group: { label: 'Small group', price: 'from £8/hr' },
+      group: { label: 'Small group', price: 'price on request' },
     },
     preferredTimesLabel: 'Preferred weekend times',
     optionalLabel: '(optional)',

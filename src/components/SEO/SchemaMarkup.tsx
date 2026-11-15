@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site-config';
 export const SchemaMarkup = () => {
   const priceValidUntil = `${new Date().getFullYear()}-12-31`;
   const description =
-    'Private online Arabic tuition with Ustādh Abu Hasnath for beginners, Dars-i-Nizami students and graduates. 1-on-1 at £25/hr or small groups from £8/hr.';
+    'Private online Arabic tuition with Ustādh Abu Hasnath for beginners, Dars-i-Nizami students and graduates. 1-on-1 at £25/hr, small groups on request.';
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -77,17 +77,13 @@ export const SchemaMarkup = () => {
             '@type': 'Course',
             name: 'Small-group online Arabic lessons',
             description:
-              'Online Arabic lessons in groups of 3 to 5 students at your level, with Ustādh Abu Hasnath. From £8 per person, per hour.',
+              'Online Arabic lessons in groups of 3 to 5 students at your level, with Ustādh Abu Hasnath. Price on request.',
             provider: {
               '@id': `${siteConfig.url}/#organization`,
             },
             offers: {
-              '@type': 'AggregateOffer',
+              '@type': 'Offer',
               category: 'Paid',
-              lowPrice: '8',
-              highPrice: '10',
-              priceCurrency: 'GBP',
-              offerCount: 3,
               availability: 'https://schema.org/InStock',
             },
             hasCourseInstance: {

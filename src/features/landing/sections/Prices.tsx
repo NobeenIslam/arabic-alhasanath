@@ -37,26 +37,14 @@ export const Prices = ({
         </div>
         <div className={cn(cardClass, 'bg-green text-cream')}>
           <h3 className={cardTitleClass}>{groups.title}</h3>
-          <div className="flex items-baseline gap-2.5">
-            <span className="text-[20px] text-muted-on-green">
-              {groups.pricePrefix}
-            </span>
-            <span className={cn(priceClass, 'text-gold')}>{groups.price}</span>
-            <span className="text-muted-on-green">{groups.unit}</span>
-          </div>
-          <div className="flex flex-col border-t border-rule-on-green">
-            {groups.rates.map((rate) => (
-              <div
-                key={rate.label}
-                className="flex justify-between border-b border-rule-on-green py-3"
-              >
-                <span>{rate.label}</span>
-                <span
-                  className={cn('font-bold', rate.isBestValue && 'text-gold')}
-                >
-                  {rate.price}
-                </span>
-              </div>
+          <span
+            className={cn(priceClass, 'text-[40px] text-gold sm:text-[56px]')}
+          >
+            {groups.price}
+          </span>
+          <div className="flex flex-col gap-2.5 border-t border-rule-on-green pt-[18px] text-muted-on-green">
+            {groups.features.map((feature) => (
+              <div key={feature}>{feature}</div>
             ))}
           </div>
           <div className="text-[16px] text-muted-on-green">{groups.note}</div>
