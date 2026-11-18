@@ -172,6 +172,11 @@ export const reviewsData: ReviewsContent = {
     },
     {
       quote:
+        '“I was new to Islam and the letters of the Arabic language were a new concept to me, however, despite that I found myself learning how to speak, read and write the language in a few months. I can now converse with native speakers, being able to discuss a variety of topics and express myself in a language which until 2 years ago was completely foreign to me.”',
+      name: 'Ryan',
+    },
+    {
+      quote:
         "“I've taken online Arabic lessons before but never made real progress until now.”",
       name: 'Nobeen Islam',
     },
@@ -184,6 +189,11 @@ export const reviewsData: ReviewsContent = {
       quote:
         "“A very talented Ustādh who teaches not only how to read and understand Arabic, but how to speak and write it. Having an Ustādh who has mastered speaking motivates the student and makes him understand it's possible for non-Arabs to master the language too.”",
       name: 'Thalhaa',
+    },
+    {
+      quote:
+        '“Ustādh Abu Hasnath is an exceptional Arabic teacher. I have personally seen him take students struggling with reading to students who are proficient and confident in the Arabic language, through a robust and rigorous curriculum.”',
+      name: 'Asad',
     },
     {
       quote:
